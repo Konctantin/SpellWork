@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D352185-33A2-4FD3-8EAA-BB95EFB6E259}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpellWork</RootNamespace>
+    <AssemblyName>SpellWork</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="DbcStores.cs" />
+    <Compile Include="DbcStructute\CurrencyTypesEntry.cs" />
+    <Compile Include="DbcStructute\OverrideSpellDataEntry.cs" />
+    <Compile Include="DbcStructute\ScreenEffectEntry.cs" />
+    <Compile Include="DbcStructute\SkillLineAbilityEntry.cs" />
+    <Compile Include="DbcStructute\SkillLineEntry.cs" />
+    <Compile Include="DbcStructute\SpellAuraOptionsEntry.cs" />
+    <Compile Include="DbcStructute\SpellAuraRestrictionsEntry.cs" />
+    <Compile Include="DbcStructute\SpellCastingRequirementsEntry.cs" />
+    <Compile Include="DbcStructute\SpellCastTimesEntry.cs" />
+    <Compile Include="DbcStructute\SpellCategoriesEntry.cs" />
+    <Compile Include="DbcStructute\SpellClassOptionsEntry.cs" />
+    <Compile Include="DbcStructute\SpellCooldownsEntry.cs" />
+    <Compile Include="DbcStructute\SpellDifficultyEntry.cs" />
+    <Compile Include="DbcStructute\SpellDurationEntry.cs" />
+    <Compile Include="DbcStructute\SpellEffectEntry.cs" />
+    <Compile Include="DbcStructute\SpellEntry.cs" />
+    <Compile Include="DbcStructute\SpellEquippedItemsEntry.cs" />
+    <Compile Include="DbcStructute\SpellInterruptsEntry.cs" />
+    <Compile Include="DbcStructute\SpellLevelsEntry.cs" />
+    <Compile Include="DbcStructute\SpellPowerEntry.cs" />
+    <Compile Include="DbcStructute\SpellRadiusEntry.cs" />
+    <Compile Include="DbcStructute\SpellRangeEntry.cs" />
+    <Compile Include="DbcStructute\SpellReagentsEntry.cs" />
+    <Compile Include="DbcStructute\SpellScalingEntry.cs" />
+    <Compile Include="DbcStructute\SpellShapeshiftEntry.cs" />
+    <Compile Include="DbcStructute\SpellTargetRestrictionsEntry.cs" />
+    <Compile Include="DbcStructute\SpellTotemsEntry.cs" />
+    <Compile Include="Enums\AuraState.cs" />
+    <Compile Include="Enums\AuraType.cs" />
+    <Compile Include="Enums\CombatRating.cs" />
+    <Compile Include="Enums\CreatureTypeMask.cs" />
+    <Compile Include="Enums\DispelType.cs" />
+    <Compile Include="Enums\InventoryTypeMask.cs" />
+    <Compile Include="Enums\ItemClass.cs" />
+    <Compile Include="Enums\ItemSubClassArmorMask.cs" />
+    <Compile Include="Enums\ItemSubClassMiscMask.cs" />
+    <Compile Include="Enums\ItemSubClassWeaponMask.cs" />
+    <Compile Include="Enums\LocalesDBC.cs" />
+    <Compile Include="Enums\Mechanics.cs" />
+    <Compile Include="Enums\Powers.cs" />
+    <Compile Include="Enums\ProcFlags.cs" />
+    <Compile Include="Enums\ProcFlagsEx.cs" />
+    <Compile Include="Enums\ShapeshiftFormMask.cs" />
+    <Compile Include="Enums\SpellAtribute.cs" />
+    <Compile Include="Enums\SpellAtributeEx.cs" />
+    <Compile Include="Enums\SpellAtributeEx2.cs" />
+    <Compile Include="Enums\SpellAtributeEx3.cs" />
+    <Compile Include="Enums\SpellAtributeEx4.cs" />
+    <Compile Include="Enums\SpellAtributeEx5.cs" />
+    <Compile Include="Enums\SpellAtributeEx6.cs" />
+    <Compile Include="Enums\SpellAtributeExG.cs" />
+    <Compile Include="Enums\SpellCastTargetFlags.cs" />
+    <Compile Include="Enums\SpellDmgClass.cs" />
+    <Compile Include="Enums\SpellEffects.cs" />
+    <Compile Include="Enums\SpellFamilyNames.cs" />
+    <Compile Include="Enums\SpellHitType.cs" />
+    <Compile Include="Enums\SpellMissInfo.cs" />
+    <Compile Include="Enums\SpellModOp.cs" />
+    <Compile Include="Enums\SpellPreventionType.cs" />
+    <Compile Include="Enums\SpellSchoolMask.cs" />
+    <Compile Include="Enums\SpellSchools.cs" />
+    <Compile Include="Enums\SpellSpecific.cs" />
+    <Compile Include="Enums\Targets.cs" />
+    <Compile Include="Enums\UnitMods.cs" />
+    <Compile Include="ProcFlagsStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcFlagsStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SpellProcConstructor.xaml.cs">
+      <DependentUpon>SpellProcConstructor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpellViewer.xaml.cs">
+      <DependentUpon>SpellViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpellViewerLocale.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpellViewerLocale.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlData.xaml.cs">
+      <DependentUpon>SqlData.xaml</DependentUpon>
+    </Compile>
+    <Page Include="SpellProcConstructor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SqlData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\KamillaStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Misc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpellViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="ProcFlagsStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProcFlagsStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpellViewerLocale.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SpellViewerLocale.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="dbc\ChrClasses.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\ChrRaces.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\CurrencyTypes.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\OverrideSpellData.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\ScreenEffect.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SkillLine.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SkillLineAbility.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SkillLineCategory.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SkillRaceClassInfo.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\Spell.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellActivationOverlay.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellAuraOptions.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellAuraRestrictions.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellAuraVisibility.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellAuraVisXTalentTab.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellCastingRequirements.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellCastTimes.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellCategories.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellCategory.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellChainEffects.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellClassOptions.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellCooldowns.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellDescriptionVariables.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellDifficulty.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellDispelType.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellDuration.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellEffect.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellEffectCameraShakes.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellEquippedItems.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellFlyout.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellFlyoutItem.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellFocusObject.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellIcon.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellInterrupts.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellItemEnchantment.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellItemEnchantmentCondition.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellLevels.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellMechanic.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellMissile.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellMissileMotion.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellPower.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellRadius.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellRange.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellReagents.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellRuneCost.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellScaling.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellShapeshift.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellShapeshiftForm.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellSpecialUnitEffect.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellTargetRestrictions.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellTotems.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellVisual.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellVisualEffectName.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellVisualKit.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellVisualKitAreaModel.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellVisualKitModelAttach.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellVisualPrecastTransitions.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBFilesClient.NET\DBFilesClient.NET.csproj">
+      <Project>{1dc6fa75-fb06-4395-b27a-52977f58aaeb}</Project>
+      <Name>DBFilesClient.NET</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

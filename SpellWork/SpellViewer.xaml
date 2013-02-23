@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="SpellWork.SpellViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="472" d:DesignWidth="783">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <GridSplitter Grid.Column="1" Grid.RowSpan="2" ShowsPreview="True" Width="5"  HorizontalAlignment="Left"  />
+        <ListView Grid.Column="1" Grid.Row="1" IsSynchronizedWithCurrentItem="True" Margin="5,0,0,0" ItemsSource="{Binding}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="60" />
+                    <GridViewColumn Header="SpellName" DisplayMemberBinding="{Binding SpellName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        <FlowDocumentScrollViewer Grid.RowSpan="2">
+            <FlowDocument>
+                <!--todo: implement-->
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+
+    </Grid>
+</UserControl>

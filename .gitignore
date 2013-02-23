@@ -1,0 +1,11 @@
+
+*.suo
+*.user
+
+bin
+obj
+
+*.orig
+*.rej
+*.patch
+*.log

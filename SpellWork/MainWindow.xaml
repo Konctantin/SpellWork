@@ -1,0 +1,27 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SpellWork" 
+        x:Class="SpellWork.MainWindow"
+        Title="MainWindow" Height="535" Width="837" 
+        Style="{Binding Mode=OneWay, Source={StaticResource KamillaStyle}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="463*"/>
+            <RowDefinition Height="22"/>
+        </Grid.RowDefinitions>
+        <TabControl  Grid.Row="1">
+            <TabItem Header="Spell Info">
+                <local:SpellViewer DataContext="{StaticResource spellCollections}"/>
+            </TabItem>
+            <TabItem Header="SpellProcEvent">
+                <local:SpellProcConstructor DataContext="{StaticResource spellCollections}"/> 
+            </TabItem>
+            <TabItem Header="SqlData">
+                
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
