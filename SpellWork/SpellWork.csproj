@@ -56,6 +56,7 @@
     </ApplicationDefinition>
     <Compile Include="DbcStores.cs" />
     <Compile Include="DbcStructute\CurrencyTypesEntry.cs" />
+    <Compile Include="DbcStructute\ItemClassEntry.cs" />
     <Compile Include="DbcStructute\OverrideSpellDataEntry.cs" />
     <Compile Include="DbcStructute\ScreenEffectEntry.cs" />
     <Compile Include="DbcStructute\SkillLineAbilityEntry.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="DbcStructute\SpellClassOptionsEntry.cs" />
     <Compile Include="DbcStructute\SpellCooldownsEntry.cs" />
     <Compile Include="DbcStructute\SpellDifficultyEntry.cs" />
+    <Compile Include="DbcStructute\SpellDispelTypeEntry.cs" />
     <Compile Include="DbcStructute\SpellDurationEntry.cs" />
     <Compile Include="DbcStructute\SpellEffectEntry.cs" />
     <Compile Include="DbcStructute\SpellEntry.cs" />
@@ -80,15 +82,16 @@
     <Compile Include="DbcStructute\SpellReagentsEntry.cs" />
     <Compile Include="DbcStructute\SpellScalingEntry.cs" />
     <Compile Include="DbcStructute\SpellShapeshiftEntry.cs" />
+    <Compile Include="DbcStructute\SpellShapeshiftFormEntry.cs" />
     <Compile Include="DbcStructute\SpellTargetRestrictionsEntry.cs" />
     <Compile Include="DbcStructute\SpellTotemsEntry.cs" />
+    <Compile Include="EnumExtension.cs" />
     <Compile Include="Enums\AuraState.cs" />
     <Compile Include="Enums\AuraType.cs" />
     <Compile Include="Enums\CombatRating.cs" />
     <Compile Include="Enums\CreatureTypeMask.cs" />
     <Compile Include="Enums\DispelType.cs" />
     <Compile Include="Enums\InventoryTypeMask.cs" />
-    <Compile Include="Enums\ItemClass.cs" />
     <Compile Include="Enums\ItemSubClassArmorMask.cs" />
     <Compile Include="Enums\ItemSubClassMiscMask.cs" />
     <Compile Include="Enums\ItemSubClassWeaponMask.cs" />
@@ -197,6 +200,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SpellViewerLocale.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="dbc\ChrClasses.dbc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -204,6 +208,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="dbc\CurrencyTypes.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\ItemClass.dbc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="dbc\OverrideSpellData.dbc">
@@ -369,7 +376,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />

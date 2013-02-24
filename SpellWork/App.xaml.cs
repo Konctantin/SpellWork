@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows;
 using DBFilesClient.NET;
 using SpellWork.Dbc;
+using SpellWork.Enums;
 
 namespace SpellWork
 {
@@ -16,6 +17,13 @@ namespace SpellWork
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnExit(ExitEventArgs e)
+        {
+            SpellWork.Properties.Settings.Default.Save();
+
+            base.OnExit(e);
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             try
@@ -69,23 +77,8 @@ namespace SpellWork
 
         public void LoadSpells()
         {
-            DBC.Spell       = LoadDBC<SpellEntry>();
-            DBC.SpellEffect = LoadDBC<SpellEffectEntry>();
-
-            // this is to speedup spelleffect lookups
-            foreach (SpellEffectEntry value in DBC.SpellEffect)
-            {
-                if (DBC.SpellEffects.ContainsKey(value.EffectSpellId))
-                {
-                    DBC.SpellEffects[value.EffectSpellId].Add(value.EffectIndex, value);
-                }
-                else
-                {
-                    Dictionary<uint, SpellEffectEntry> temp = new Dictionary<uint, SpellEffectEntry>(3);
-                    DBC.SpellEffects.Add(value.EffectSpellId, temp);
-                    DBC.SpellEffects[value.EffectSpellId].Add(value.EffectIndex, value);
-                }
-            }
+            DBC.Spell                           = LoadDBC<SpellEntry>();
+            DBC.SpellEffect                     = LoadDBC<SpellEffectEntry>();
             DBC.SpellTargetRestrictions         = LoadDBC<SpellTargetRestrictionsEntry>();
             DBC.SpellAuraRestrictions           = LoadDBC<SpellAuraRestrictionsEntry>();
             DBC.SpellCooldowns                  = LoadDBC<SpellCooldownsEntry>();
@@ -109,6 +102,25 @@ namespace SpellWork
             DBC.SpellRange                      = LoadDBC<SpellRangeEntry>();
             DBC.SpellReagents                   = LoadDBC<SpellReagentsEntry>();
             DBC.ScreenEffect                    = LoadDBC<ScreenEffectEntry>();
+            DBC.ItemClass                       = LoadDBC<ItemClassEntry>();
+            DBC.SpellShapeshiftForm             = LoadDBC<SpellShapeshiftFormEntry>();
+            DBC.SpellDispelType                 = LoadDBC<SpellDispelTypeEntry>();
+
+
+            // this is to speedup spelleffect lookups
+            foreach (SpellEffectEntry value in DBC.SpellEffect)
+            {
+                if (DBC.SpellEffects.ContainsKey(value.EffectSpellId))
+                {
+                    DBC.SpellEffects[value.EffectSpellId].Add(value.EffectIndex, value);
+                }
+                else
+                {
+                    Dictionary<uint, SpellEffectEntry> temp = new Dictionary<uint, SpellEffectEntry>(3);
+                    DBC.SpellEffects.Add(value.EffectSpellId, temp);
+                    DBC.SpellEffects[value.EffectSpellId].Add(value.EffectIndex, value);
+                }
+            }
 
             DBC.Locale = Enums.LocalesDBC.ruRU;
         }

@@ -6,8 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Themes/KamillaStyle.xaml"/>
-                <ResourceDictionary Source="Misc.xaml"/>
+                <ResourceDictionary Source="Themes/KamillaStyle.xaml" />
+                <ResourceDictionary Source="Misc.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

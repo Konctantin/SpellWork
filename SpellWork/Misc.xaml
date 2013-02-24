@@ -1,6 +1,40 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:s="clr-namespace:SpellWork">
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:s="clr-namespace:SpellWork"
+                    xmlns:se="clr-namespace:SpellWork.Enums"
+                    xmlns:setting="clr-namespace:SpellWork.Properties"
+                    >
+    
     <CollectionViewSource x:Key="spellCollections" Source="{x:Static s:DBC.Spell}" />
-    <!--<c:TestConverter x:Key="test" />-->
+    <setting:Settings x:Key="setting" />
+
+    <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}" x:Key="AuraType">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="se:AuraType" />
+            <sys:String>Aura Type</sys:String>
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}" x:Key="SpellEffects">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="se:SpellEffects" />
+            <sys:String>Spell Effects</sys:String>
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}" x:Key="SpellFamilyNames">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="se:SpellFamilyNames" />
+            <sys:String>Spell Family Names</sys:String>
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}" x:Key="Targets">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="se:Targets" />
+            <sys:String>Targets</sys:String>
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
 </ResourceDictionary>

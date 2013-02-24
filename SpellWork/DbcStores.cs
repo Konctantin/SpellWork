@@ -42,6 +42,10 @@ namespace SpellWork
         public static DBCStorage<SkillLineEntry> SkillLine { get; set; }
         public static DBCStorage<ScreenEffectEntry> ScreenEffect { get; set; }
         public static DBCStorage<OverrideSpellDataEntry> OverrideSpellData { get; set; }
+        public static DBCStorage<ItemClassEntry> ItemClass { get; set; }
+        public static DBCStorage<SpellShapeshiftFormEntry> SpellShapeshiftForm { get; set; }
+        public static DBCStorage<SpellDispelTypeEntry> SpellDispelType { get; set; }
+
 
         public static Dictionary<uint, Dictionary<uint, SpellEffectEntry>> SpellEffects { get; set; }
 
@@ -72,6 +76,9 @@ namespace SpellWork
             SkillLine                   = new DBCStorage<SkillLineEntry>();
             ScreenEffect                = new DBCStorage<ScreenEffectEntry>();
             OverrideSpellData           = new DBCStorage<OverrideSpellDataEntry>();
+            ItemClass                   = new DBCStorage<ItemClassEntry>();
+            SpellShapeshiftForm         = new DBCStorage<SpellShapeshiftFormEntry>();
+            SpellDispelType             = new DBCStorage<SpellDispelTypeEntry>();
 
             SpellEffects                = new Dictionary<uint, Dictionary<uint, SpellEffectEntry>>();
         }
