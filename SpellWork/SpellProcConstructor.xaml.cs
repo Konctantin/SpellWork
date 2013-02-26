@@ -29,20 +29,25 @@ namespace SpellWork
 
         private void cbFamilyName_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+                                // because underlying type int
+            var spellFamilyName = (int)((KeyValuePair<object, object>)cbFamilyName.SelectedValue).Key;
+
             var spells = from Spell in DBC.Spell.Records
-                         where Spell.SpellFamilyName == (int)((KeyValuePair<object, object>)cbFamilyName.SelectedValue).Key
+                         where Spell.SpellFamilyName == spellFamilyName
                          join sk in DBC.SkillLineAbility.Records on Spell.ID equals sk.SpellId into temp1
                          from Skill in temp1.DefaultIfEmpty()
+                                                              // stupid exception
                          join skl in DBC.SkillLine.Records on (Skill != null ? Skill : new SkillLineAbilityEntry()).SkillId equals skl.ID into temp2
                          from SkillLine in temp2.DefaultIfEmpty()
                          select new
                          {
                              Spell,
+                             // stupid exception
                              (Skill != null ? Skill : new SkillLineAbilityEntry()).SkillId,
                              SkillLine
                          };
 
-            ObservableCollection<SpellFamilyRecord> treeRecord = new ObservableCollection<SpellFamilyRecord>();
+            var treeRecord = new ObservableCollection<SpellFamilyRecord>();
 
             if (cbFamilyName.SelectedIndex > 1)
             {
@@ -58,44 +63,25 @@ namespace SpellWork
                         mask[2] = 1U << (i - 64);
 
                     var rec = new SpellFamilyRecord(mask[0], mask[1], mask[2]);
-                    //rec.SpellList.Add(new SpellRecord((i %2 )!=0, 1, "lololo"));
-
                     treeRecord.Add(rec);
-
-
-                    
-                    //TreeNode node = new TreeNode();
-                    //node.Text = String.Format("0x{0:X8} {1:X8} {2:X8}", mask[2], mask[1], mask[0]);
-                    //node.ImageKey = "family.ico";
-                    //familyTree.Nodes.Add(node);
+                    #warning need implement here
                 }
 
                 tree.ItemsSource = treeRecord;
 
                 foreach (var elem in spells)
                 {
-                    SpellEntry spell = elem.Spell;
-                    bool IsSkill = elem.SkillId != 0;
+                    var spell = elem.Spell;
+                    var IsSkill = elem.SkillId != 0;
 
-                    StringBuilder name = new StringBuilder();
-                    StringBuilder toolTip = new StringBuilder();
-
-                    //name.AppendFormat(/*"{0} - {1} ", spell.ID, spell.SpellNameRank);
-
-                    //toolTip.AppendFormatLine("Spell Name: {0}", spell.SpellNameRank);
-                    //toolTip.AppendFormatLine("Description: {0}", spell.Description);
-                    //toolTip.AppendFormatLine("ToolTip: {0}", spell.ToolTip);
+                    var name = new StringBuilder();
+                    var toolTip = new StringBuilder();
 
                     if (IsSkill)
                     {
                         name.AppendFormat("(Skill: ({0}) {1}) ", elem.SkillId, elem.SkillLine.Name);
-
                         toolTip.AppendLine();
-                        //toolTip.AppendFormatLine("Skill Name: {0}", elem.SkillLine.Name);
-                        //toolTip.AppendFormatLine("Description: {0}", elem.SkillLine.Description);
                     }
-
-                    //name.AppendFormat("({0})", spell.School.ToString().NormaliseString("MASK_"));
 
                     int index = 0;
                     foreach (var node in treeRecord)
@@ -113,13 +99,8 @@ namespace SpellWork
                             ((spell.SpellClassOptions.SpellFamilyFlags[1] & mask[1]) != 0) ||
                             ((spell.SpellClassOptions.SpellFamilyFlags[2] & mask[2]) != 0))
                         {
-                            node.SetInfo(false, spell.ID, name.ToString());
-                            //TreeNode child = new TreeNode();
-                            //child = node.Nodes.Add(name.ToString());
-                            //child.Name = spell.ID.ToString();
-                            //child.ImageKey = IsSkill ? "plus.ico" : "munus.ico";
-                            //child.ForeColor = IsSkill ? Color.Blue : Color.Red;
-                            //child.ToolTipText = toolTip.ToString();
+                            node.SetInfo(true, spell.ID, name.ToString());
+                            //
                         }
                         ++index;
                     }
@@ -168,14 +149,16 @@ namespace SpellWork
 
     public class SpellRecord : INotifyPropertyChanged
     {
-        private bool isch;
-        public bool IsCheked { get { return isch; }
+        private bool isChecked;
+        public bool IsChecked
+        {
+            get { return isChecked; }
             set 
             {
-                if (isch != value)
+                if (isChecked != value)
                 {
-                    isch = value;
-                    PropChenged("IsCheked");
+                    isChecked = value;
+                    PropChenged("IsChecked");
                 }
             }
         }
@@ -184,7 +167,7 @@ namespace SpellWork
 
         public SpellRecord(bool ch, uint id, string name)
         {
-            this.IsCheked = ch;
+            this.IsChecked = ch;
             this.SpellId = id;
             this.SpellName = name;
         }

@@ -39,7 +39,7 @@
                         <HierarchicalDataTemplate.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <CheckBox Checked="CheckBox_Checked_1" IsChecked="{Binding IsCheked}" />
+                                    <CheckBox Checked="CheckBox_Checked_1" IsChecked="{Binding IsChecked}" />
                                     <TextBlock Width="50" Text="{Binding SpellId}" />
                                     <TextBlock Text="{Binding SpellName}" />
                                 </StackPanel>
