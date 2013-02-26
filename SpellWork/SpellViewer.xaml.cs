@@ -32,6 +32,12 @@ namespace SpellWork
             int spellId = 0;
             int.TryParse(tbSpellName.Text, out spellId);
 
+            if (string.IsNullOrWhiteSpace(tbSpellName.Text)/* and all filters */)
+            {
+                spellList.Filter = null;
+                return;
+            }
+
             if (spellList != null)
             {
                 spellList.Filter = new Predicate<object>((spellRaw) =>
