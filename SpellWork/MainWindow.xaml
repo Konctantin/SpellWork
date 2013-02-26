@@ -23,8 +23,9 @@
             <TabItem Header="SqlData">
                 <local:SqlData />
             </TabItem>
-
+            <TabItem Header="VehicleData">
+                <local:VehicleViewer />
+            </TabItem>
         </TabControl>
-
     </Grid>
 </Window>
