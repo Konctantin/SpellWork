@@ -20,7 +20,7 @@ namespace SpellWork
         protected override void OnExit(ExitEventArgs e)
         {
             SpellWork.Properties.Settings.Default.Save();
-
+            SpellWork.DataBase.Sql.Dispose();
             base.OnExit(e);
         }
 

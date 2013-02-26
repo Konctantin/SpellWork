@@ -99,7 +99,7 @@ namespace SpellWork
                             ((spell.SpellClassOptions.SpellFamilyFlags[1] & mask[1]) != 0) ||
                             ((spell.SpellClassOptions.SpellFamilyFlags[2] & mask[2]) != 0))
                         {
-                            node.SetInfo(true, spell.ID, name.ToString());
+                            node.SetInfo(IsSkill, spell.ID, name.ToString());
                             //
                         }
                         ++index;

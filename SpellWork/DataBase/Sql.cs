@@ -16,15 +16,23 @@ namespace SpellWork.DataBase
 
         static Sql()
         {
-            connection = new MySqlConnection(string.Format(
-                "Server={0};Port={1};Uid={2};Pwd={3};Database={4};character set=utf8;Connection Timeout=10",
-                "localhost", 3306, "root", "mangos", "mangos")
-                );
-
-            dataAdapter = new MySqlDataAdapter(SelectQuery, connection);
-            ConfigureDataAdapter();
             DataTable = new DataTable();
-            dataAdapter.Fill(DataTable);
+
+            try
+            {
+                connection = new MySqlConnection(string.Format(
+                    "Server={0};Port={1};Uid={2};Pwd={3};Database={4};character set=utf8;Connection Timeout=10",
+                    "localhost", 3306, "root", "mangos", "mangos")
+                    );
+
+                dataAdapter = new MySqlDataAdapter(SelectQuery, connection);
+                ConfigureDataAdapter();
+
+                dataAdapter.Fill(DataTable);
+            }
+            catch 
+            {
+            }
         }
 
         private static void ConfigureDataAdapter()
