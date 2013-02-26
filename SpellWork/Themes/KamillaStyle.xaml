@@ -629,9 +629,9 @@
                                 <Trigger Property="IsPressed" Value="true">
                                     <Setter TargetName="Border" Property="Background" Value="{StaticResource ScrollBarPressedBackgroundBrush}" />
                                 </Trigger>
-                                <Trigger Property="IsEnabled" Value="false">
+                                <!--<Trigger Property="IsEnabled" Value="false">
                                     <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}" />
-                                </Trigger>
+                                </Trigger>-->
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>
@@ -1613,7 +1613,7 @@
                     </Setter.Value>
                 </Setter>
                 <Setter Property="Window.Background" Value="Transparent" />
-                <Setter Property="Window.Template" Value="{StaticResource CustomTitleBarWindowTemplate}" />
+                <!--<Setter Property="Window.Template" Value="{StaticResource CustomTitleBarWindowTemplate}" />-->
             </MultiTrigger>
         </Style.Triggers>
     </Style>

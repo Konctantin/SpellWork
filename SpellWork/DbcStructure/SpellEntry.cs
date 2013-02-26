@@ -419,6 +419,17 @@ namespace SpellWork.Dbc
             }
         }
 
+        public uint SpellFamilyName
+        {
+            get
+            {
+                SpellClassOptionsEntry r;
+                if (DBC.SpellClassOptions.TryGetValue(SpellClassOptionsId, out r))
+                    return r.SpellFamilyName;
+                return 0xFFFFFFFF;
+            }
+        }
+
         public SpellClassOptionsEntry SpellClassOptions
         {
             get
@@ -429,7 +440,7 @@ namespace SpellWork.Dbc
                 }
                 catch
                 {
-                    return default(SpellClassOptionsEntry);
+                    return (new SpellClassOptionsEntry());
                 }
             }
         }

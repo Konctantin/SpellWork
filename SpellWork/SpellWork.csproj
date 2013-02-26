@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -54,37 +58,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBase\Sql.cs" />
     <Compile Include="DbcStores.cs" />
-    <Compile Include="DbcStructute\CurrencyTypesEntry.cs" />
-    <Compile Include="DbcStructute\ItemClassEntry.cs" />
-    <Compile Include="DbcStructute\OverrideSpellDataEntry.cs" />
-    <Compile Include="DbcStructute\ScreenEffectEntry.cs" />
-    <Compile Include="DbcStructute\SkillLineAbilityEntry.cs" />
-    <Compile Include="DbcStructute\SkillLineEntry.cs" />
-    <Compile Include="DbcStructute\SpellAuraOptionsEntry.cs" />
-    <Compile Include="DbcStructute\SpellAuraRestrictionsEntry.cs" />
-    <Compile Include="DbcStructute\SpellCastingRequirementsEntry.cs" />
-    <Compile Include="DbcStructute\SpellCastTimesEntry.cs" />
-    <Compile Include="DbcStructute\SpellCategoriesEntry.cs" />
-    <Compile Include="DbcStructute\SpellClassOptionsEntry.cs" />
-    <Compile Include="DbcStructute\SpellCooldownsEntry.cs" />
-    <Compile Include="DbcStructute\SpellDifficultyEntry.cs" />
-    <Compile Include="DbcStructute\SpellDispelTypeEntry.cs" />
-    <Compile Include="DbcStructute\SpellDurationEntry.cs" />
-    <Compile Include="DbcStructute\SpellEffectEntry.cs" />
-    <Compile Include="DbcStructute\SpellEntry.cs" />
-    <Compile Include="DbcStructute\SpellEquippedItemsEntry.cs" />
-    <Compile Include="DbcStructute\SpellInterruptsEntry.cs" />
-    <Compile Include="DbcStructute\SpellLevelsEntry.cs" />
-    <Compile Include="DbcStructute\SpellPowerEntry.cs" />
-    <Compile Include="DbcStructute\SpellRadiusEntry.cs" />
-    <Compile Include="DbcStructute\SpellRangeEntry.cs" />
-    <Compile Include="DbcStructute\SpellReagentsEntry.cs" />
-    <Compile Include="DbcStructute\SpellScalingEntry.cs" />
-    <Compile Include="DbcStructute\SpellShapeshiftEntry.cs" />
-    <Compile Include="DbcStructute\SpellShapeshiftFormEntry.cs" />
-    <Compile Include="DbcStructute\SpellTargetRestrictionsEntry.cs" />
-    <Compile Include="DbcStructute\SpellTotemsEntry.cs" />
+    <Compile Include="DbcStructure\CurrencyTypesEntry.cs" />
+    <Compile Include="DbcStructure\ItemClassEntry.cs" />
+    <Compile Include="DbcStructure\OverrideSpellDataEntry.cs" />
+    <Compile Include="DbcStructure\ScreenEffectEntry.cs" />
+    <Compile Include="DbcStructure\SkillLineAbilityEntry.cs" />
+    <Compile Include="DbcStructure\SkillLineEntry.cs" />
+    <Compile Include="DbcStructure\SpellAuraOptionsEntry.cs" />
+    <Compile Include="DbcStructure\SpellAuraRestrictionsEntry.cs" />
+    <Compile Include="DbcStructure\SpellCastingRequirementsEntry.cs" />
+    <Compile Include="DbcStructure\SpellCastTimesEntry.cs" />
+    <Compile Include="DbcStructure\SpellCategoriesEntry.cs" />
+    <Compile Include="DbcStructure\SpellClassOptionsEntry.cs" />
+    <Compile Include="DbcStructure\SpellCooldownsEntry.cs" />
+    <Compile Include="DbcStructure\SpellDifficultyEntry.cs" />
+    <Compile Include="DbcStructure\SpellDispelTypeEntry.cs" />
+    <Compile Include="DbcStructure\SpellDurationEntry.cs" />
+    <Compile Include="DbcStructure\SpellEffectEntry.cs" />
+    <Compile Include="DbcStructure\SpellEntry.cs" />
+    <Compile Include="DbcStructure\SpellEquippedItemsEntry.cs" />
+    <Compile Include="DbcStructure\SpellInterruptsEntry.cs" />
+    <Compile Include="DbcStructure\SpellLevelsEntry.cs" />
+    <Compile Include="DbcStructure\SpellPowerEntry.cs" />
+    <Compile Include="DbcStructure\SpellRadiusEntry.cs" />
+    <Compile Include="DbcStructure\SpellRangeEntry.cs" />
+    <Compile Include="DbcStructure\SpellReagentsEntry.cs" />
+    <Compile Include="DbcStructure\SpellScalingEntry.cs" />
+    <Compile Include="DbcStructure\SpellShapeshiftEntry.cs" />
+    <Compile Include="DbcStructure\SpellShapeshiftFormEntry.cs" />
+    <Compile Include="DbcStructure\SpellTargetRestrictionsEntry.cs" />
+    <Compile Include="DbcStructure\SpellTotemsEntry.cs" />
     <Compile Include="EnumExtension.cs" />
     <Compile Include="Enums\AuraState.cs" />
     <Compile Include="Enums\AuraType.cs" />
@@ -122,6 +127,7 @@
     <Compile Include="Enums\SpellSpecific.cs" />
     <Compile Include="Enums\Targets.cs" />
     <Compile Include="Enums\UnitMods.cs" />
+    <Compile Include="FullNameAttribute.cs" />
     <Compile Include="ProcFlagsStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,6 +146,12 @@
     </Compile>
     <Compile Include="SqlData.xaml.cs">
       <DependentUpon>SqlData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleViewer.xaml.cs">
+      <DependentUpon>VehicleViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="SpellProcConstructor.xaml">
       <SubType>Designer</SubType>
@@ -170,6 +182,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SpellViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VehicleViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

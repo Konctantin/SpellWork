@@ -5,13 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="332" d:DesignWidth="545">
-    <Grid>
+    <Grid DataContext="{StaticResource spell_proc_event}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="26*"/>
-            <RowDefinition Height="96*"/>
-            <RowDefinition Height="117*"/>
-            <RowDefinition Height="93*"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="96"/>
+            <RowDefinition/>
+            <RowDefinition Height="93"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="2" />
+        <ListView Grid.Row="2" ItemsSource="{Binding}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="entry"              DisplayMemberBinding="{Binding entry}"  />
+                    <GridViewColumn Header="SchoolMask"         DisplayMemberBinding="{Binding SchoolMask}" />
+                    <GridViewColumn Header="SpellFamilyName"    DisplayMemberBinding="{Binding SpellFamilyName}" />
+                    <GridViewColumn Header="SpellFamilyMaskA0"  DisplayMemberBinding="{Binding SpellFamilyMaskA0}" />
+                    <GridViewColumn Header="SpellFamilyMaskA1"  DisplayMemberBinding="{Binding SpellFamilyMaskA1}" />
+                    <GridViewColumn Header="SpellFamilyMaskA2"  DisplayMemberBinding="{Binding SpellFamilyMaskA2}" />
+                    <GridViewColumn Header="SpellFamilyMaskB0"  DisplayMemberBinding="{Binding SpellFamilyMaskB0}" />
+                    <GridViewColumn Header="SpellFamilyMaskB1"  DisplayMemberBinding="{Binding SpellFamilyMaskB1}" />
+                    <GridViewColumn Header="SpellFamilyMaskB2"  DisplayMemberBinding="{Binding SpellFamilyMaskB2}" />
+                    <GridViewColumn Header="SpellFamilyMaskC0"  DisplayMemberBinding="{Binding SpellFamilyMaskC0}" />
+                    <GridViewColumn Header="SpellFamilyMaskC1"  DisplayMemberBinding="{Binding SpellFamilyMaskC1}" />
+                    <GridViewColumn Header="SpellFamilyMaskC2"  DisplayMemberBinding="{Binding SpellFamilyMaskC2}" />
+                    <GridViewColumn Header="procFlags"          DisplayMemberBinding="{Binding procFlags}" />
+                    <GridViewColumn Header="procEx"             DisplayMemberBinding="{Binding procEx}" />
+                    <GridViewColumn Header="ppmRate"            DisplayMemberBinding="{Binding ppmRate}" />
+                    <GridViewColumn Header="CustomChance"       DisplayMemberBinding="{Binding CustomChance}" />
+                    <GridViewColumn Header="Cooldown"           DisplayMemberBinding="{Binding Cooldown}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </UserControl>

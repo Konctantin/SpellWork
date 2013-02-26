@@ -61,6 +61,13 @@ namespace SpellWork
 
                     // Target B
 
+                    // AdvFilter
+
+                    if (!string.IsNullOrWhiteSpace(tbAdvFilterValue.Text))
+                    {
+                        //spell.GetType().
+                    }
+
                     return false;
                 });
             }

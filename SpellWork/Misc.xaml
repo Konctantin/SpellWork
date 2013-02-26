@@ -1,39 +1,58 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:s="clr-namespace:SpellWork"
+                    xmlns:sdb="clr-namespace:SpellWork.DataBase"
                     xmlns:se="clr-namespace:SpellWork.Enums"
                     xmlns:setting="clr-namespace:SpellWork.Properties"
-                    >
-    
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
     <CollectionViewSource x:Key="spellCollections" Source="{x:Static s:DBC.Spell}" />
+    <CollectionViewSource x:Key="spell_proc_event" Source="{x:Static sdb:Sql.DataTable}" />
+
     <setting:Settings x:Key="setting" />
 
-    <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}" x:Key="AuraType">
+    <ObjectDataProvider x:Key="AuraType"
+                        MethodName="GetValues"
+                        ObjectType="{x:Type s:EnumExtension}">
         <ObjectDataProvider.MethodParameters>
             <x:Type TypeName="se:AuraType" />
-            <sys:String>Aura Type</sys:String>
+            <sys:String>AuraType</sys:String>
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
-    <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}" x:Key="SpellEffects">
+    <ObjectDataProvider x:Key="SpellEffect"
+                        MethodName="GetValues"
+                        ObjectType="{x:Type s:EnumExtension}">
         <ObjectDataProvider.MethodParameters>
             <x:Type TypeName="se:SpellEffects" />
-            <sys:String>Spell Effects</sys:String>
+            <sys:String>SpellEffects</sys:String>
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
-    <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}" x:Key="SpellFamilyNames">
+    <ObjectDataProvider x:Key="SpellFamilyName"
+                        MethodName="GetValues"
+                        ObjectType="{x:Type s:EnumExtension}">
         <ObjectDataProvider.MethodParameters>
             <x:Type TypeName="se:SpellFamilyNames" />
-            <sys:String>Spell Family Names</sys:String>
+            <sys:String>SpellFamilyNames</sys:String>
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
-    <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}" x:Key="Targets">
+    <ObjectDataProvider x:Key="TargetsA"
+                        MethodName="GetValues"
+                        ObjectType="{x:Type s:EnumExtension}">
         <ObjectDataProvider.MethodParameters>
             <x:Type TypeName="se:Targets" />
-            <sys:String>Targets</sys:String>
+            <sys:String>Targets A</sys:String>
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+    <ObjectDataProvider x:Key="TargetsB"
+                        MethodName="GetValues"
+                        ObjectType="{x:Type s:EnumExtension}">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="se:Targets" />
+            <sys:String>Targets B</sys:String>
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 

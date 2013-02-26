@@ -30,6 +30,7 @@ namespace SpellWork
             {
                 //var sw = new Stopwatch();
                 //sw.Start();
+                //SpellWork.DataBase.Sql.Load();
                 LoadSpells();
                 //sw.Stop();
                 //MessageBox.Show(sw.ElapsedMilliseconds.ToString());

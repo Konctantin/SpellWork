@@ -7,19 +7,27 @@
              d:DesignHeight="472"
              d:DesignWidth="783"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <DataTemplate x:Key="cbEnums">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:d}}" />
+                <TextBlock Text="{Binding Value}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <UserControl.CommandBindings>
         <CommandBinding Command="Search" Executed="ApplyFilter" />
     </UserControl.CommandBindings>
     <UserControl.InputBindings>
         <KeyBinding Key="F3" Command="Search" />
     </UserControl.InputBindings>
-    <Grid >
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="350" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="200" />
+            <RowDefinition Height="264" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
@@ -46,6 +54,56 @@
 
         <FlowDocumentScrollViewer Grid.RowSpan="2">
             <FlowDocument>
+                <Table CellSpacing="0" Margin="0">
+                    <Table.Columns>
+                        <TableColumn Width="212.67"/>
+                        <TableColumn Width="212.67"/>
+                        <TableColumn Width="212.73"/>
+                    </Table.Columns>
+                    <TableRowGroup>
+                        <TableRow>
+                            
+                            <TableCell BorderBrush="Black" BorderThickness="1" Padding="7.2,0">
+                                <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0" TextAlignment="Left">
+                                    <Run Text="{Binding ID, Mode=OneWay}" /> 
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Black" BorderThickness="1" Padding="7.2,0">
+                                <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0" TextAlignment="Left">
+                                    <Run Text="{Binding SpellName, Mode=OneWay}" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Black" BorderThickness="1" Padding="7.2,0">
+                                <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0" TextAlignment="Left">
+                                    <Run Text="{Binding Description, Mode=OneWay}" />
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Black" BorderThickness="1" Padding="7.2,0">
+                                <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0" TextAlignment="Left"/>
+                            </TableCell>
+                            <TableCell BorderBrush="Black" BorderThickness="1" Padding="7.2,0">
+                                <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0" TextAlignment="Left"/>
+                            </TableCell>
+                            <TableCell BorderBrush="Black" BorderThickness="1" Padding="7.2,0">
+                                <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0" TextAlignment="Left"/>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Black" BorderThickness="1" Padding="7.2,0">
+                                <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0" TextAlignment="Left"/>
+                            </TableCell>
+                            <TableCell BorderBrush="Black" BorderThickness="1" Padding="7.2,0">
+                                <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0" TextAlignment="Left"/>
+                            </TableCell>
+                            <TableCell BorderBrush="Black" BorderThickness="1" Padding="7.2,0">
+                                <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0" TextAlignment="Left"/>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
+                <Paragraph FontSize="14.6666666666667" FontFamily="Calibri" Margin="0,0,0,13.33" TextAlignment="Left"/>
                 <!--  todo: implement  -->
             </FlowDocument>
         </FlowDocumentScrollViewer>
@@ -60,20 +118,50 @@
                             <ColumnDefinition Width="78" />
                         </Grid.ColumnDefinitions>
                         <TextBlock VerticalAlignment="Center" Text="Spell Name: " />
-                        <TextBox Name="tbSpellName" Grid.Column="1" Text="{Binding SpellNameFilter}" />
+                        <TextBox Name="tbSpellName"
+                                 Grid.Column="1"
+                                 Text="{Binding SpellNameFilter}" />
                         <Button Grid.Column="2"
                                 Command="Search"
-                                Content="Search" />
+                                Content="Search (F3)" />
                     </Grid>
                 </Border>
                 <Border Padding="3,3,3,3">
-                    <ComboBox MinWidth="250" ItemsSource="{Binding Source={StaticResource AuraType}}" SelectedValue="{Binding AuraTypeFilter}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock VerticalAlignment="Center" Text="Icon Id: " />
+                        <TextBox Name="tbSpellName2"
+                                 Grid.Column="1"
+                                 Text="{Binding SpellNameFilter}" />
+
+                    </Grid>
                 </Border>
                 <Border Padding="3,3,3,3">
-                    <ComboBox MinWidth="250" ItemsSource="{Binding Source={StaticResource AuraType}}" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock VerticalAlignment="Center" Text="Attributes: " />
+                        <TextBox Name="tbSpellName3"
+                                 Grid.Column="1"
+                                 Text="{Binding SpellNameFilter}" />
+
+                    </Grid>
                 </Border>
                 <Border Padding="3,3,3,3">
-                    <ComboBox MinWidth="250" ItemsSource="{Binding Source={StaticResource AuraType}}" />
+                    <ComboBox MinWidth="250"
+                              ItemsSource="{Binding Source={StaticResource AuraType}}"
+                              SelectedValue="{Binding AuraTypeFilter}" />
+                </Border>
+                <Border Padding="3,3,3,3">
+                    <ComboBox MinWidth="250" ItemsSource="{Binding Source={StaticResource SpellFamilyName}}" />
+                </Border>
+                <Border Padding="3,3,3,3">
+                    <ComboBox MinWidth="250" ItemsSource="{Binding Source={StaticResource SpellEffect}}" />
                 </Border>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -81,12 +169,42 @@
                         <ColumnDefinition Width="12*" />
                     </Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Padding="3,3,3,3">
-                        <ComboBox ItemsSource="{Binding Source={StaticResource AuraType}}" />
+                        <ComboBox ItemsSource="{Binding Source={StaticResource TargetsA}}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:D}}" />
+                                        <TextBlock Text="{Binding Value}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </Border>
                     <Border Grid.Column="1" Padding="3,3,3,3">
-                        <ComboBox ItemsSource="{Binding Source={StaticResource AuraType}}" />
+                        <ComboBox ItemsSource="{Binding Source={StaticResource TargetsB}}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:D}}" />
+                                        <TextBlock Text="{Binding Value}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </Border>
                 </Grid>
+                <GroupBox Header="Advenced filter" Padding="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120*" />
+                            <ColumnDefinition Width="100*" />
+                            <ColumnDefinition Width="120*" />
+                        </Grid.ColumnDefinitions>
+                        <ComboBox Name="cbAdvFilterFiled" />
+                        <ComboBox Name="cbAdvFilterEqualsType" Grid.Column="1" />
+                        <TextBox Name="tbAdvFilterValue" Grid.Column="2" />
+                    </Grid>
+                </GroupBox>
             </StackPanel>
         </Border>
 
