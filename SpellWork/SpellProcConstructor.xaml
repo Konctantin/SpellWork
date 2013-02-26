@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:SpellWork"
+             xmlns:sc="clr-namespace:SpellWork.Converters"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              d:DesignHeight="561"
              d:DesignWidth="765"
@@ -39,6 +40,7 @@
                         <HierarchicalDataTemplate.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding IsChecked, Converter={sc:BooleanToImageConverter}}" />
                                     <CheckBox Checked="CheckBox_Checked_1" IsChecked="{Binding IsChecked}" />
                                     <TextBlock Width="50" Text="{Binding SpellId}" />
                                     <TextBlock Text="{Binding SpellName}" />
