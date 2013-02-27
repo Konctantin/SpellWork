@@ -63,15 +63,24 @@ namespace SpellWork.Dbc
 
         
         public uint ID { get {return m_ID; } }
-        public uint Attributes { get { return m_Attributes; } } 			     // 1        m_attribute
-        public uint AttributesEx { get { return m_AttributesEx; } } 			 // 2        m_attributesEx
-        public uint AttributesEx2 { get { return m_AttributesEx2; } } 			 // 3        m_attributesExB
-        public uint AttributesEx3 { get { return m_AttributesEx3; } } 			 // 4        m_attributesExC
-        public uint AttributesEx4 { get { return m_AttributesEx4; } } 			 // 5        m_attributesExD
-        public uint AttributesEx5 { get { return m_AttributesEx5; } } 			 // 6        m_attributesExE
-        public uint AttributesEx6 { get { return m_AttributesEx6; } } 			 // 7        m_attributesExF
-        public uint AttributesEx7 { get { return m_AttributesEx7; } } 			 // 8        3.2.0 (0x20 - totems, 0x4 - paladin auras, etc...)
-        public uint AttributesEx8 { get { return m_AttributesEx8; } } 			 // 7        m_attributesExF
+        public uint uAttributes { get { return m_Attributes; } } 			     // 1        m_attribute
+        public uint uAttributesEx1 { get { return m_AttributesEx; } } 			 // 2        m_attributesEx
+        public uint uAttributesEx2 { get { return m_AttributesEx2; } } 			 // 3        m_attributesExB
+        public uint uAttributesEx3 { get { return m_AttributesEx3; } } 			 // 4        m_attributesExC
+        public uint uAttributesEx4 { get { return m_AttributesEx4; } } 			 // 5        m_attributesExD
+        public uint uAttributesEx5 { get { return m_AttributesEx5; } } 			 // 6        m_attributesExE
+        public uint uAttributesEx6 { get { return m_AttributesEx6; } } 			 // 7        m_attributesExF
+        public uint uAttributesEx7 { get { return m_AttributesEx7; } } 			 // 8        3.2.0 (0x20 - totems, 0x4 - paladin auras, etc...)
+        public uint uAttributesEx8 { get { return m_AttributesEx8; } } 			 // 7        m_attributesExF
+        public SpellAtribute    Attributes    { get { return (SpellAtribute)m_Attributes; } }
+        public SpellAtributeEx  AttributesEx1 { get { return (SpellAtributeEx)m_AttributesEx; } }
+        public SpellAtributeEx2 AttributesEx2 { get { return (SpellAtributeEx2)m_AttributesEx2; } }
+        public SpellAtributeEx3 AttributesEx3 { get { return (SpellAtributeEx3)m_AttributesEx3; } }
+        public SpellAtributeEx4 AttributesEx4 { get { return (SpellAtributeEx4)m_AttributesEx4; } }
+        public SpellAtributeEx5 AttributesEx5 { get { return (SpellAtributeEx5)m_AttributesEx5; } }
+        public SpellAtributeEx6 AttributesEx6 { get { return (SpellAtributeEx6)m_AttributesEx6; } }
+        public SpellAtributeExG AttributesEx7 { get { return (SpellAtributeExG)m_AttributesEx7; } }
+        //public SpellAtribute AttributesEx8 { get { return (SpellAtributeEx8)m_AttributesEx8; } } 
         public uint SomeFlags { get { return m_SomeFlags; } } 			         // 9        4.0.0
         public uint CastingTimeIndex { get { return m_CastingTimeIndex; } } 	 // 11       m_castingTimeIndex
         public uint DurationIndex { get { return m_DurationIndex; } } 			 // 12       m_durationIndex
@@ -80,6 +89,7 @@ namespace SpellWork.Dbc
         public float Speed { get { return m_Speed; } } 			                 // 15       m_speed
         public uint SpellIconID { get { return m_SpellIconID; } } 			     // 18       m_spellIconID
         public uint ActiveIconID { get { return m_ActiveIconID; } } 			 // 19       m_activeIconID
+        public uint SchoolMask { get { return m_SchoolMask; } }
 
         /// <summary>
         /// Return current Spell Name
@@ -306,12 +316,9 @@ namespace SpellWork.Dbc
             }
         }
 
-        public SpellSchoolMask SchoolMask
+        public SpellSchoolMask School
         {
-            get
-            {
-                return (SpellSchoolMask)m_SchoolMask;
-            }
+            get { return (SpellSchoolMask)m_SchoolMask; }
         }
 
         public SpellTargetRestrictionsEntry SpellTargetRestrictions
@@ -412,17 +419,7 @@ namespace SpellWork.Dbc
 
         public SpellClassOptionsEntry SpellClassOptions
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellClassOptions[SpellClassOptionsId];
-                }
-                catch
-                {
-                    return (new SpellClassOptionsEntry());
-                }
-            }
+            get { return DBC.SpellClassOptions.TryGetDefaultValue(SpellClassOptionsId); }
         }
 
         public SpellCastingRequirementsEntry SpellCastingRequirements

@@ -23,7 +23,9 @@ namespace SpellWork.Dbc
         public override string ToString()
         {
             return string.Format("Id: {0}, DamsgeClass: {1}, Dispel: {2}, Mechanic: {3}, PreventionType: {4}, StartRecoveryCategory: {5}",
-                Category, DmgClass, (DispelType)Dispel, (Mechanics)Mechanic, (SpellPreventionType)PreventionType, StartRecoveryCategory);
+                Category, DmgClass,
+                DBC.SpellDispelType.TryGetDefaultValue(Dispel), 
+                (Mechanics)Mechanic, (SpellPreventionType)PreventionType, StartRecoveryCategory);
         }
     };
 }

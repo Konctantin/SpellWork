@@ -40,7 +40,7 @@
                         <HierarchicalDataTemplate.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding IsChecked, Converter={sc:BooleanToImageConverter}}" />
+                                    <Image Source="{Binding IsSkill, Converter={sc:BooleanToImageConverter}}" />
                                     <CheckBox Checked="CheckBox_Checked_1" IsChecked="{Binding IsChecked}" />
                                     <TextBlock Width="50" Text="{Binding SpellId}" />
                                     <TextBlock Text="{Binding SpellName}" />

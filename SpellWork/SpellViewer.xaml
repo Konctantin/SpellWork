@@ -53,48 +53,209 @@
         </ListView>
 
         <FlowDocumentScrollViewer Grid.RowSpan="2">
-            <FlowDocument FontFamily="Consolas"
-                          FontSize="14"
-                          TextAlignment="Left">
-                <!--  todo: implement  -->
-                <Paragraph FontFamily="./Resources/#MORPHEUS"
-                           FontSize="16"
-                           FontWeight="Bold"
-                           TextAlignment="Left">
+            <FlowDocument FontFamily="Consolas" FontSize="14" TextAlignment="Left">
+                <Paragraph FontFamily="./Resources/#MORPHEUS" FontSize="16" FontWeight="Bold" TextAlignment="Left">
                     <Span>
-                        <Run Text="Spell:" />
-                        <Run Text="{Binding ID, StringFormat={}{0} –, Mode=OneWay}" />
+                        <Run FontWeight="Bold" Foreground="Red" Text="Spell:" />
+                        <Run Text="{Binding ID, Mode=OneWay, StringFormat=\{0\} –}" />
                         <Run Text="{Binding SpellName, Mode=OneWay}" />
                     </Span>
                 </Paragraph>
                 <Paragraph>
                     <Span>
-                        <Run FontWeight="Bold" Text="Description:" />
+                        <Run FontWeight="Bold" Foreground="Red" Text="Description:" />
                         <Run Text="{Binding Description, Mode=OneWay}" />
                         <LineBreak />
-                        <Run FontWeight="Bold" Text="ToolTip:" />
+                        <Run FontWeight="Bold" Foreground="Red" Text="ToolTip:" />
                         <Run Text="{Binding ToolTip, Mode=OneWay}" />
                     </Span>
                 </Paragraph>
                 <Paragraph>
                     <Span>
-                        <Run FontWeight="Bold" Text="Modal Next Spell:" />
-                        <Run Text="{Binding Path=SpellClassOptions.ModalNextSpell, Mode=OneWay}" />
-                        <LineBreak />
-                        <Run FontWeight="Bold" Text="Category:" />
-                        <Run Text="{Binding Path=SpellCategories, Mode=OneWay}" />
-                        <LineBreak />
-                        <Run FontWeight="Bold" Text="SpellIconID =" />
-                        <Run Text="{Binding Path=SpellIconID, Mode=OneWay}" />
-                        <Run FontWeight="Bold" Text=", activeIconID =" />
-                        <Run Text="{Binding Path=ActiveIconID, Mode=OneWay}" />
-                        <Run FontWeight="Bold" Text=", SpellVisual = (" />
-                        <Run Text="{Binding Path=SpellVisual[0], Mode=OneWay}" />
-                        <Run FontWeight="Bold" Text="," />
-                        <Run Text="{Binding Path=SpellVisual[1], Mode=OneWay}" />
-                        <Run FontWeight="Bold" Text=")" />
+                        <Run FontWeight="Bold" Foreground="Red" Text="Spell scool mask:" />
+                        <Run Text="{Binding SchoolMask, Mode=OneWay, StringFormat=(\{0:X2\})}" />
+                        <Run Text="{Binding School, Mode=OneWay}" />
                     </Span>
                 </Paragraph>
+                <Paragraph>
+                    <Span>
+                        <Run FontWeight="Bold" Foreground="Red" Text="Category:" />
+                        <Run Text="{Binding SpellCategories, Mode=OneWay}" />
+                        <LineBreak />
+                        <Run FontWeight="Bold" Foreground="Red" Text="SpellIconID =" />
+                        <Run Text="{Binding SpellIconID, Mode=OneWay}" />
+                        <Run FontWeight="Bold" Foreground="Red" Text=", activeIconID =" />
+                        <Run Text="{Binding ActiveIconID, Mode=OneWay}" />
+                    </Span>
+                </Paragraph>
+                <Paragraph>
+                    <Span>
+                        <Run FontWeight="Bold" Foreground="Red" Text="SpellClassOptions:" />
+                        <Run Text="{Binding SpellClassOptions, Mode=OneWay}" />
+                    </Span>
+                </Paragraph>
+                <Table BorderBrush="Green" CellSpacing="0">
+                    <Table.Columns>
+                        <TableColumn Width="130" />
+                        <TableColumn Width="100" />
+                        <TableColumn Width="Auto" />
+                    </Table.Columns>
+                    <TableRowGroup>
+                        <TableRow>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run FontWeight="Bold" Foreground="Red" Text="Attributes" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding uAttributes, Mode=OneWay, StringFormat=0x{0:X8}}" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding Attributes, Mode=OneWay}" />
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx1" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding uAttributesEx1, Mode=OneWay, StringFormat=0x{0:X8}}" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding AttributesEx1, Mode=OneWay}" />
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx2" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding uAttributesEx2, Mode=OneWay, StringFormat=0x{0:X8}}" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding AttributesEx2, Mode=OneWay}" />
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx3" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding uAttributesEx3, Mode=OneWay, StringFormat=0x{0:X8}}" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding AttributesEx3, Mode=OneWay}" />
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx4" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding uAttributesEx4, Mode=OneWay, StringFormat=0x{0:X8}}" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding AttributesEx4, Mode=OneWay}" />
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx5" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding uAttributesEx5, Mode=OneWay, StringFormat=0x{0:X8}}" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding AttributesEx5, Mode=OneWay}" />
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx6" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding uAttributesEx6, Mode=OneWay, StringFormat=0x{0:X8}}" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding AttributesEx6, Mode=OneWay}" />
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx7" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding uAttributesEx7, Mode=OneWay, StringFormat=0x{0:X8}}" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding AttributesEx7, Mode=OneWay}" />
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx8" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <Run Text="{Binding uAttributesEx8, Mode=OneWay, StringFormat=0x{0:X8}}" />
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                <Paragraph>
+                                    <!--  <Run Text="{Binding AttributeEx8, Mode=OneWay}" />  -->
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
             </FlowDocument>
         </FlowDocumentScrollViewer>
 

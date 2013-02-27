@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using DBFilesClient.NET;
+using SpellWork.Enums;
 
 namespace SpellWork.Dbc
 {
@@ -21,6 +22,18 @@ namespace SpellWork.Dbc
         public string Description
         {
             get { return _Description; }
+        }
+
+        public override string ToString()
+        {
+            return string.Format(
+                "Family ({0}){1}, flag 0x{2:X8} {3:X8} {4:X8}\r\n"+
+                "\tModal next spell: {5}\r\n"+
+                "\tAura ToolTip: {6}",
+                SpellFamilyName, (SpellFamilyNames)SpellFamilyName, 
+                SpellFamilyFlags[0], SpellFamilyFlags[1], SpellFamilyFlags[2], 
+                ModalNextSpell, Description
+                );
         }
     };
 

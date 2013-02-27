@@ -16,5 +16,10 @@ namespace SpellWork.Dbc
         public int unk2;
 
         public string Name { get { return _name; } }
+
+        public override string ToString()
+        {
+            return string.Format("Dispel type: ({0}) {1}", Id, Name);
+        }
     }
 }
