@@ -31,22 +31,11 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <GridSplitter Grid.RowSpan="2"
-                      Grid.Column="1"
-                      Width="5"
-                      HorizontalAlignment="Left"
-                      ShowsPreview="True" />
-        <ListView Name="lvSpellList"
-                  Grid.Row="1"
-                  Grid.Column="1"
-                  Margin="5,0,0,0"
-                  IsSynchronizedWithCurrentItem="True"
-                  ItemsSource="{Binding}">
+        <GridSplitter Grid.RowSpan="2" Grid.Column="1" Width="5" HorizontalAlignment="Left" ShowsPreview="True" />
+        <ListView Name="lvSpellList" Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="60"
-                                    DisplayMemberBinding="{Binding ID}"
-                                    Header="ID" />
+                    <GridViewColumn Width="60" DisplayMemberBinding="{Binding ID}" Header="ID"/>
                     <GridViewColumn DisplayMemberBinding="{Binding SpellName}" Header="Name" />
                 </GridView>
             </ListView.View>
@@ -56,41 +45,41 @@
             <FlowDocument FontFamily="Consolas" FontSize="14" TextAlignment="Left">
                 <Paragraph FontFamily="./Resources/#MORPHEUS" FontSize="16" FontWeight="Bold" TextAlignment="Left">
                     <Span>
-                        <Run FontWeight="Bold" Foreground="Red" Text="Spell:" />
-                        <Run Text="{Binding ID, Mode=OneWay, StringFormat=\{0\} –}" />
+                        <Run FontWeight="Bold" Foreground="#FF007EFF" Text="Spell:" />
+                        <Run Text="{Binding ID, Mode=OneWay, StringFormat={}{0} –}" />
                         <Run Text="{Binding SpellName, Mode=OneWay}" />
                     </Span>
                 </Paragraph>
                 <Paragraph>
                     <Span>
-                        <Run FontWeight="Bold" Foreground="Red" Text="Description:" />
+                        <Run FontWeight="Bold" Foreground="#FF007EFF" Text="Description:" />
                         <Run Text="{Binding Description, Mode=OneWay}" />
                         <LineBreak />
-                        <Run FontWeight="Bold" Foreground="Red" Text="ToolTip:" />
+                        <Run FontWeight="Bold" Foreground="#FF007EFF" Text="ToolTip:" />
                         <Run Text="{Binding ToolTip, Mode=OneWay}" />
                     </Span>
                 </Paragraph>
                 <Paragraph>
                     <Span>
-                        <Run FontWeight="Bold" Foreground="Red" Text="Spell scool mask:" />
-                        <Run Text="{Binding SchoolMask, Mode=OneWay, StringFormat=(\{0:X2\})}" />
+                        <Run FontWeight="Bold" Foreground="#FF007EFF" Text="Spell scool mask:" />
+                        <Run Text="{Binding SchoolMask, Mode=OneWay, StringFormat=({0:X2})}" />
                         <Run Text="{Binding School, Mode=OneWay}" />
                     </Span>
                 </Paragraph>
                 <Paragraph>
                     <Span>
-                        <Run FontWeight="Bold" Foreground="Red" Text="Category:" />
+                        <Run FontWeight="Bold" Foreground="#FF007EFF" Text="Category:" />
                         <Run Text="{Binding SpellCategories, Mode=OneWay}" />
                         <LineBreak />
-                        <Run FontWeight="Bold" Foreground="Red" Text="SpellIconID =" />
+                        <Run FontWeight="Bold" Foreground="#FF007EFF" Text="SpellIconID =" />
                         <Run Text="{Binding SpellIconID, Mode=OneWay}" />
-                        <Run FontWeight="Bold" Foreground="Red" Text=", activeIconID =" />
+                        <Run FontWeight="Bold" Foreground="#FF007EFF" Text=", activeIconID =" />
                         <Run Text="{Binding ActiveIconID, Mode=OneWay}" />
                     </Span>
                 </Paragraph>
                 <Paragraph>
                     <Span>
-                        <Run FontWeight="Bold" Foreground="Red" Text="SpellClassOptions:" />
+                        <Run FontWeight="Bold" Foreground="#FF007EFF" Text="SpellClassOptions:" />
                         <Run Text="{Binding SpellClassOptions, Mode=OneWay}" />
                     </Span>
                 </Paragraph>
@@ -104,7 +93,7 @@
                         <TableRow>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                 <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="Red" Text="Attributes" />
+                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="Attributes" />
                                 </Paragraph>
                             </TableCell>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
@@ -121,7 +110,7 @@
                         <TableRow>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                 <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx1" />
+                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx1" />
                                 </Paragraph>
                             </TableCell>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
@@ -138,7 +127,7 @@
                         <TableRow>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                 <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx2" />
+                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx2" />
                                 </Paragraph>
                             </TableCell>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
@@ -155,7 +144,7 @@
                         <TableRow>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                 <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx3" />
+                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx3" />
                                 </Paragraph>
                             </TableCell>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
@@ -172,7 +161,7 @@
                         <TableRow>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                 <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx4" />
+                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx4" />
                                 </Paragraph>
                             </TableCell>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
@@ -189,7 +178,7 @@
                         <TableRow>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                 <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx5" />
+                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx5" />
                                 </Paragraph>
                             </TableCell>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
@@ -206,7 +195,7 @@
                         <TableRow>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                 <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx6" />
+                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx6" />
                                 </Paragraph>
                             </TableCell>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
@@ -223,7 +212,7 @@
                         <TableRow>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                 <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx7" />
+                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx7" />
                                 </Paragraph>
                             </TableCell>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
@@ -240,7 +229,7 @@
                         <TableRow>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                 <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="Red" Text="AttributesEx8" />
+                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx8" />
                                 </Paragraph>
                             </TableCell>
                             <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
