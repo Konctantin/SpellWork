@@ -83,8 +83,8 @@ namespace SpellWork
             SpellEffects                = new Dictionary<uint, Dictionary<uint, SpellEffectEntry>>();
         }
 
-        // DB 
-       // public static List<Item> ItemTemplate = new List<Item>();
+        // DB2? 
+        // public static List<ItemEntry> ItemTemplate = new List<ItemEntry>();
 
         // Locale
         public static LocalesDBC Locale { get; set; }

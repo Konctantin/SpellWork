@@ -1,37 +1,38 @@
 ﻿<UserControl x:Class="SpellWork.SqlData"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="332" d:DesignWidth="545">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="332"
+             d:DesignWidth="545"
+             mc:Ignorable="d">
     <Grid DataContext="{StaticResource spell_proc_event}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="26"/>
-            <RowDefinition Height="96"/>
-            <RowDefinition/>
-            <RowDefinition Height="93"/>
+            <RowDefinition Height="26" />
+            <RowDefinition Height="96" />
+            <RowDefinition />
+            <RowDefinition Height="93" />
         </Grid.RowDefinitions>
         <ListView Grid.Row="2" ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="entry"              DisplayMemberBinding="{Binding entry}"  />
-                    <GridViewColumn Header="SchoolMask"         DisplayMemberBinding="{Binding SchoolMask}" />
-                    <GridViewColumn Header="SpellFamilyName"    DisplayMemberBinding="{Binding SpellFamilyName}" />
-                    <GridViewColumn Header="SpellFamilyMaskA0"  DisplayMemberBinding="{Binding SpellFamilyMaskA0}" />
-                    <GridViewColumn Header="SpellFamilyMaskA1"  DisplayMemberBinding="{Binding SpellFamilyMaskA1}" />
-                    <GridViewColumn Header="SpellFamilyMaskA2"  DisplayMemberBinding="{Binding SpellFamilyMaskA2}" />
-                    <GridViewColumn Header="SpellFamilyMaskB0"  DisplayMemberBinding="{Binding SpellFamilyMaskB0}" />
-                    <GridViewColumn Header="SpellFamilyMaskB1"  DisplayMemberBinding="{Binding SpellFamilyMaskB1}" />
-                    <GridViewColumn Header="SpellFamilyMaskB2"  DisplayMemberBinding="{Binding SpellFamilyMaskB2}" />
-                    <GridViewColumn Header="SpellFamilyMaskC0"  DisplayMemberBinding="{Binding SpellFamilyMaskC0}" />
-                    <GridViewColumn Header="SpellFamilyMaskC1"  DisplayMemberBinding="{Binding SpellFamilyMaskC1}" />
-                    <GridViewColumn Header="SpellFamilyMaskC2"  DisplayMemberBinding="{Binding SpellFamilyMaskC2}" />
-                    <GridViewColumn Header="procFlags"          DisplayMemberBinding="{Binding procFlags}" />
-                    <GridViewColumn Header="procEx"             DisplayMemberBinding="{Binding procEx}" />
-                    <GridViewColumn Header="ppmRate"            DisplayMemberBinding="{Binding ppmRate}" />
-                    <GridViewColumn Header="CustomChance"       DisplayMemberBinding="{Binding CustomChance}" />
-                    <GridViewColumn Header="Cooldown"           DisplayMemberBinding="{Binding Cooldown}" />
+                    <GridViewColumn DisplayMemberBinding="{Binding entry}" Header="entry" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SchoolMask}" Header="SchoolMask" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyName}" Header="SpellFamilyName" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskA0}" Header="SpellFamilyMaskA0" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskA1}" Header="SpellFamilyMaskA1" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskA2}" Header="SpellFamilyMaskA2" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskB0}" Header="SpellFamilyMaskB0" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskB1}" Header="SpellFamilyMaskB1" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskB2}" Header="SpellFamilyMaskB2" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskC0}" Header="SpellFamilyMaskC0" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskC1}" Header="SpellFamilyMaskC1" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskC2}" Header="SpellFamilyMaskC2" />
+                    <GridViewColumn DisplayMemberBinding="{Binding procFlags}" Header="procFlags" />
+                    <GridViewColumn DisplayMemberBinding="{Binding procEx}" Header="procEx" />
+                    <GridViewColumn DisplayMemberBinding="{Binding ppmRate}" Header="ppmRate" />
+                    <GridViewColumn DisplayMemberBinding="{Binding CustomChance}" Header="CustomChance" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Cooldown}" Header="Cooldown" />
                 </GridView>
             </ListView.View>
         </ListView>

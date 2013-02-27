@@ -201,15 +201,49 @@
                     </Grid>
                 </Border>
                 <Border Padding="3,3,3,3">
-                    <ComboBox MinWidth="250"
+                    <ComboBox Name="cbAuraType"
+                              MinWidth="250"
                               ItemsSource="{Binding Source={StaticResource AuraType}}"
-                              SelectedValue="{Binding AuraTypeFilter}" />
+                              SelectionChanged="filter_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:D}}" />
+                                    <TextBlock Text="{Binding Value}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </Border>
                 <Border Padding="3,3,3,3">
-                    <ComboBox MinWidth="250" ItemsSource="{Binding Source={StaticResource SpellFamilyName}}" />
+                    <ComboBox Name="cbSpellFamilyName"
+                              MinWidth="250"
+                              ItemsSource="{Binding Source={StaticResource SpellFamilyName}}"
+                              SelectionChanged="filter_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:D}}" />
+                                    <TextBlock Text="{Binding Value}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </Border>
                 <Border Padding="3,3,3,3">
-                    <ComboBox MinWidth="250" ItemsSource="{Binding Source={StaticResource SpellEffect}}" />
+                    <ComboBox Name="cbSpellEffect"
+                              MinWidth="250"
+                              ItemsSource="{Binding Source={StaticResource SpellEffect}}"
+                              SelectionChanged="filter_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:D}}" />
+                                    <TextBlock Text="{Binding Value}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </Border>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -217,7 +251,9 @@
                         <ColumnDefinition Width="12*" />
                     </Grid.ColumnDefinitions>
                     <Border Grid.Column="0" Padding="3,3,3,3">
-                        <ComboBox ItemsSource="{Binding Source={StaticResource TargetsA}}">
+                        <ComboBox Name="cbTargetA"
+                                  ItemsSource="{Binding Source={StaticResource TargetsA}}"
+                                  SelectionChanged="filter_SelectionChanged">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -229,7 +265,9 @@
                         </ComboBox>
                     </Border>
                     <Border Grid.Column="1" Padding="3,3,3,3">
-                        <ComboBox ItemsSource="{Binding Source={StaticResource TargetsB}}">
+                        <ComboBox Name="cbTargetB"
+                                  ItemsSource="{Binding Source={StaticResource TargetsB}}"
+                                  SelectionChanged="filter_SelectionChanged">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">

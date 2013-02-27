@@ -33,12 +33,14 @@ namespace SpellWork
             var spellFamilyName = (int)((KeyValuePair<object, object>)cbFamilyName.SelectedValue).Key;
 
             var spells = from Spell in DBC.Spell.Records
-                         where Spell.SpellFamilyName == spellFamilyName
+                         
                          join sk in DBC.SkillLineAbility.Records on Spell.ID equals sk.SpellId into temp1
                          from Skill in temp1.DefaultIfEmpty()
                                                               // stupid exception
                          join skl in DBC.SkillLine.Records on (Skill != null ? Skill : new SkillLineAbilityEntry()).SkillId equals skl.ID into temp2
                          from SkillLine in temp2.DefaultIfEmpty()
+                         
+                         where Spell.SpellFamilyName == spellFamilyName
                          select new
                          {
                              Spell,
@@ -76,7 +78,7 @@ namespace SpellWork
 
                     var name = new StringBuilder();
                     var toolTip = new StringBuilder();
-
+                    name.Append(spell.SpellName);
                     if (IsSkill)
                     {
                         name.AppendFormat("(Skill: ({0}) {1}) ", elem.SkillId, elem.SkillLine.Name);
@@ -120,9 +122,9 @@ namespace SpellWork
         public uint Mask2 { get; set; }
         public uint Mask3 { get; set; }
 
-        public void SetInfo(bool ch, uint id, string name)
+        public void SetInfo(bool isSkill, uint id, string name)
         {
-            SpellList.Add(new SpellRecord(ch, id, name));
+            SpellList.Add(new SpellRecord(isSkill, id, name));
             PropChenged("SpellList");
         }
 
@@ -162,13 +164,14 @@ namespace SpellWork
                 }
             }
         }
+        public bool IsSkill { get; set; }
         public uint SpellId { get; set; }
         public string SpellName { get; set; }
 
-        public SpellRecord(bool ch, uint id, string name)
+        public SpellRecord(bool isSkill, uint id, string name)
         {
-            this.IsChecked = ch;
-            this.SpellId = id;
+            this.IsSkill   = isSkill;
+            this.SpellId   = id;
             this.SpellName = name;
         }
 
