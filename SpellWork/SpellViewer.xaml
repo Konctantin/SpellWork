@@ -53,106 +53,48 @@
         </ListView>
 
         <FlowDocumentScrollViewer Grid.RowSpan="2">
-            <FlowDocument>
-                <Table Margin="0" CellSpacing="0">
-                    <Table.Columns>
-                        <TableColumn Width="212.67" />
-                        <TableColumn Width="212.67" />
-                        <TableColumn Width="212.73" />
-                    </Table.Columns>
-                    <TableRowGroup>
-                        <TableRow>
-
-                            <TableCell BorderBrush="Black"
-                                       BorderThickness="1"
-                                       Padding="7.2,0">
-                                <Paragraph Margin="0"
-                                           FontFamily="Calibri"
-                                           FontSize="14.6666666666667"
-                                           TextAlignment="Left">
-                                    <Run Text="{Binding ID, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Black"
-                                       BorderThickness="1"
-                                       Padding="7.2,0">
-                                <Paragraph Margin="0"
-                                           FontFamily="Calibri"
-                                           FontSize="14.6666666666667"
-                                           TextAlignment="Left">
-                                    <Run Text="{Binding SpellName, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Black"
-                                       BorderThickness="1"
-                                       Padding="7.2,0">
-                                <Paragraph Margin="0"
-                                           FontFamily="Calibri"
-                                           FontSize="14.6666666666667"
-                                           TextAlignment="Left">
-                                    <Run Text="{Binding Description, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell BorderBrush="Black"
-                                       BorderThickness="1"
-                                       Padding="7.2,0">
-                                <Paragraph Margin="0"
-                                           FontFamily="Calibri"
-                                           FontSize="14.6666666666667"
-                                           TextAlignment="Left" />
-                            </TableCell>
-                            <TableCell BorderBrush="Black"
-                                       BorderThickness="1"
-                                       Padding="7.2,0">
-                                <Paragraph Margin="0"
-                                           FontFamily="Calibri"
-                                           FontSize="14.6666666666667"
-                                           TextAlignment="Left" />
-                            </TableCell>
-                            <TableCell BorderBrush="Black"
-                                       BorderThickness="1"
-                                       Padding="7.2,0">
-                                <Paragraph Margin="0"
-                                           FontFamily="Calibri"
-                                           FontSize="14.6666666666667"
-                                           TextAlignment="Left" />
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell BorderBrush="Black"
-                                       BorderThickness="1"
-                                       Padding="7.2,0">
-                                <Paragraph Margin="0"
-                                           FontFamily="Calibri"
-                                           FontSize="14.6666666666667"
-                                           TextAlignment="Left" />
-                            </TableCell>
-                            <TableCell BorderBrush="Black"
-                                       BorderThickness="1"
-                                       Padding="7.2,0">
-                                <Paragraph Margin="0"
-                                           FontFamily="Calibri"
-                                           FontSize="14.6666666666667"
-                                           TextAlignment="Left" />
-                            </TableCell>
-                            <TableCell BorderBrush="Black"
-                                       BorderThickness="1"
-                                       Padding="7.2,0">
-                                <Paragraph Margin="0"
-                                           FontFamily="Calibri"
-                                           FontSize="14.6666666666667"
-                                           TextAlignment="Left" />
-                            </TableCell>
-                        </TableRow>
-                    </TableRowGroup>
-                </Table>
-                <Paragraph Margin="0,0,0,13.33"
-                           FontFamily="Calibri"
-                           FontSize="14.6666666666667"
-                           TextAlignment="Left" />
+            <FlowDocument FontFamily="Consolas"
+                          FontSize="14"
+                          TextAlignment="Left">
                 <!--  todo: implement  -->
+                <Paragraph FontFamily="./Resources/#MORPHEUS"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           TextAlignment="Left">
+                    <Span>
+                        <Run Text="Spell:" />
+                        <Run Text="{Binding ID, StringFormat={}{0} –, Mode=OneWay}" />
+                        <Run Text="{Binding SpellName, Mode=OneWay}" />
+                    </Span>
+                </Paragraph>
+                <Paragraph>
+                    <Span>
+                        <Run FontWeight="Bold" Text="Description:" />
+                        <Run Text="{Binding Description, Mode=OneWay}" />
+                        <LineBreak />
+                        <Run FontWeight="Bold" Text="ToolTip:" />
+                        <Run Text="{Binding ToolTip, Mode=OneWay}" />
+                    </Span>
+                </Paragraph>
+                <Paragraph>
+                    <Span>
+                        <Run FontWeight="Bold" Text="Modal Next Spell:" />
+                        <Run Text="{Binding Path=SpellClassOptions.ModalNextSpell, Mode=OneWay}" />
+                        <LineBreak />
+                        <Run FontWeight="Bold" Text="Category:" />
+                        <Run Text="{Binding Path=SpellCategories, Mode=OneWay}" />
+                        <LineBreak />
+                        <Run FontWeight="Bold" Text="SpellIconID =" />
+                        <Run Text="{Binding Path=SpellIconID, Mode=OneWay}" />
+                        <Run FontWeight="Bold" Text=", activeIconID =" />
+                        <Run Text="{Binding Path=ActiveIconID, Mode=OneWay}" />
+                        <Run FontWeight="Bold" Text=", SpellVisual = (" />
+                        <Run Text="{Binding Path=SpellVisual[0], Mode=OneWay}" />
+                        <Run FontWeight="Bold" Text="," />
+                        <Run Text="{Binding Path=SpellVisual[1], Mode=OneWay}" />
+                        <Run FontWeight="Bold" Text=")" />
+                    </Span>
+                </Paragraph>
             </FlowDocument>
         </FlowDocumentScrollViewer>
 

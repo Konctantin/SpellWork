@@ -361,32 +361,12 @@ namespace SpellWork.Dbc
 
         public SpellCategoriesEntry SpellCategories
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellCategories[SpellCategoriesId];
-                }
-                catch
-                {
-                    return default(SpellCategoriesEntry);
-                }
-            }
+            get { return DBC.SpellCategories.TryGetDefaultValue(SpellCategoriesId); }
         }
 
         public SpellShapeshiftEntry SpellShapeshift
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellShapeshift[SpellShapeshiftId];
-                }
-                catch
-                {
-                    return default(SpellShapeshiftEntry);
-                }
-            }
+            get { return DBC.SpellShapeshift.TryGetDefaultValue(SpellShapeshiftId); }
         }
 
         public SpellAuraOptionsEntry SpellAuraOptions

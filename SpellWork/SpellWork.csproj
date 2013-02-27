@@ -130,6 +130,7 @@
     <Compile Include="Enums\SpellSpecific.cs" />
     <Compile Include="Enums\Targets.cs" />
     <Compile Include="Enums\UnitMods.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="FullNameAttribute.cs" />
     <Compile Include="ProcFlagsStrings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -396,6 +397,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\MORPHEUS.TTF" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBFilesClient.NET\DBFilesClient.NET.csproj">
