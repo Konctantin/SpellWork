@@ -24,7 +24,7 @@ namespace SpellWork.Dbc
         {
             return string.Format("Id: {0}, DamsgeClass: {1}, Dispel: {2}, Mechanic: {3}, PreventionType: {4}, StartRecoveryCategory: {5}",
                 Category, DmgClass,
-                DBC.SpellDispelType.TryGetDefaultValue(Dispel), 
+                DBC.SpellDispelType.GetValueOrDefault(Dispel), 
                 (Mechanics)Mechanic, (SpellPreventionType)PreventionType, StartRecoveryCategory);
         }
     };

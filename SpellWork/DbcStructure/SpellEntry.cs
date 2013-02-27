@@ -257,14 +257,11 @@ namespace SpellWork.Dbc
 
         public SpellEffectEntry GetEffect(uint index)
         {
-            try
-            {
-                return DBC.SpellEffects[ID][index];
-            }
-            catch
-            {
-                return default(SpellEffectEntry);
-            }
+            if (DBC.SpellEffects.ContainsKey(ID))
+                if (DBC.SpellEffects[ID].ContainsKey(index))
+                    return DBC.SpellEffects[ID][index];
+
+            return default(SpellEffectEntry);
         }
 
         public string CastTime
@@ -323,87 +320,37 @@ namespace SpellWork.Dbc
 
         public SpellTargetRestrictionsEntry SpellTargetRestrictions
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellTargetRestrictions[SpellTargetRestrictionsId];
-                }
-                catch
-                {
-                    return default(SpellTargetRestrictionsEntry);
-                }
-            }
+            get { return DBC.SpellTargetRestrictions.GetValueOrDefault(SpellTargetRestrictionsId); }
         }
 
         public SpellAuraRestrictionsEntry SpellAuraRestrictions
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellAuraRestrictions[SpellAuraRestrictionsId];
-                }
-                catch
-                {
-                    return default(SpellAuraRestrictionsEntry);
-                }
-            }
+            get { return DBC.SpellAuraRestrictions.GetValueOrDefault(SpellAuraRestrictionsId); }
         }
 
         public SpellCooldownsEntry SpellCooldowns
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellCooldowns[SpellCooldownsId];
-                }
-                catch
-                {
-                    return default(SpellCooldownsEntry);
-                }
-            }
+            get { return DBC.SpellCooldowns.GetValueOrDefault(SpellCooldownsId); }
         }
 
         public SpellCategoriesEntry SpellCategories
         {
-            get { return DBC.SpellCategories.TryGetDefaultValue(SpellCategoriesId); }
+            get { return DBC.SpellCategories.GetValueOrDefault(SpellCategoriesId); }
         }
 
         public SpellShapeshiftEntry SpellShapeshift
         {
-            get { return DBC.SpellShapeshift.TryGetDefaultValue(SpellShapeshiftId); }
+            get { return DBC.SpellShapeshift.GetValueOrDefault(SpellShapeshiftId); }
         }
 
         public SpellAuraOptionsEntry SpellAuraOptions
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellAuraOptions[SpellAuraOptionsId];
-                }
-                catch
-                {
-                    return default(SpellAuraOptionsEntry);
-                }
-            }
+            get { return DBC.SpellAuraOptions.GetValueOrDefault(SpellAuraOptionsId); }
         }
 
         public SpellLevelsEntry SpellLevels
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellLevels[SpellLevelsId];
-                }
-                catch
-                {
-                    return default(SpellLevelsEntry);
-                }
-            }
+            get { return DBC.SpellLevels.GetValueOrDefault(SpellLevelsId); }
         }
 
         public uint SpellFamilyName
@@ -419,67 +366,27 @@ namespace SpellWork.Dbc
 
         public SpellClassOptionsEntry SpellClassOptions
         {
-            get { return DBC.SpellClassOptions.TryGetDefaultValue(SpellClassOptionsId); }
+            get { return DBC.SpellClassOptions.GetValueOrDefault(SpellClassOptionsId); }
         }
 
         public SpellCastingRequirementsEntry SpellCastingRequirements
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellCastingRequirements[SpellCastingRequirementsId];
-                }
-                catch
-                {
-                    return default(SpellCastingRequirementsEntry);
-                }
-            }
+            get { return DBC.SpellCastingRequirements.GetValueOrDefault(SpellCastingRequirementsId); }
         }
 
         public SpellPowerEntry SpellPower
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellPower[SpellPowerId];
-                }
-                catch
-                {
-                    return default(SpellPowerEntry);
-                }
-            }
+            get { return DBC.SpellPower.GetValueOrDefault(SpellPowerId);  }
         }
 
         public SpellInterruptsEntry SpellInterrupts
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellInterrupts[SpellInterruptsId];
-                }
-                catch
-                {
-                    return default(SpellInterruptsEntry);
-                }
-            }
+            get { return DBC.SpellInterrupts.GetValueOrDefault(SpellInterruptsId); }
         }
 
         public SpellEquippedItemsEntry SpellEquippedItems
         {
-            get
-            {
-                try
-                {
-                    return DBC.SpellEquippedItems[SpellEquippedItemsId];
-                }
-                catch
-                {
-                    return default(SpellEquippedItemsEntry);
-                }
-            }
+            get { return DBC.SpellEquippedItems.GetValueOrDefault(SpellEquippedItemsId); }
         }
 
         public string Reagents

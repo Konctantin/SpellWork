@@ -8,7 +8,7 @@ namespace SpellWork
 {
     public static class CollectionExtensions
     {
-        public static V TryGetDefaultValue<V>(this DBCStorage<V> dictionary, uint key) where V : class, new()
+        public static V GetValueOrDefault<V>(this DBCStorage<V> dictionary, uint key) where V : class, new()
         {
             if (dictionary == null)
                 return default(V);
