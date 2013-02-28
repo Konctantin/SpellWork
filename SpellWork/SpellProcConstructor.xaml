@@ -40,10 +40,16 @@
                         <HierarchicalDataTemplate.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding IsSkill, Converter={sc:BooleanToImageConverter}}" />
-                                    <CheckBox Checked="CheckBox_Checked_1" IsChecked="{Binding IsChecked}" />
-                                    <TextBlock Width="50" Text="{Binding SpellId}" />
-                                    <TextBlock Text="{Binding SpellName}" />
+                                    <Border BorderThickness="1" BorderBrush="#FF2D8140">
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox Width="30" Name="cbA" Content="A" Checked="CheckBox_Checked_1" />
+                                            <CheckBox Width="30" Name="cbB" Content="B" Checked="CheckBox_Checked_1" />
+                                            <CheckBox Width="30" Name="cbC" Content="C" Checked="CheckBox_Checked_1" />
+                                        </StackPanel>
+                                    </Border>
+                                    <Image Margin="5,0,5,0" Source="{Binding IsSkill, Converter={sc:BooleanToImageConverter}}" />
+                                    <TextBlock Name="tbSpellId" Width="50" Text="{Binding SpellId}" Foreground="{Binding IsSkill, Converter={sc:BooleanToColorConverter}, Mode=OneWay}" />
+                                    <TextBlock Text="{Binding SpellName}" Foreground="{Binding IsSkill, Converter={sc:BooleanToColorConverter}, Mode=OneWay}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </HierarchicalDataTemplate.ItemTemplate>

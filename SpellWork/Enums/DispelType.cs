@@ -5,6 +5,7 @@ using System.Text;
 
 namespace SpellWork.Enums
 {
+    [Obsolete("Used DBC")]
     public enum DispelType
     {
         DISPEL_NONE         = 0,

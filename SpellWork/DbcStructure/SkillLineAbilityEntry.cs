@@ -13,10 +13,10 @@ namespace SpellWork.Dbc
         public uint ID;                                             // 0        m_ID
         public uint SkillId;                                        // 1        m_skillLine
         public uint SpellId;                                        // 2        m_spell
-        public uint Racemask;                                       // 3        m_raceMask
-        public uint Classmask;                                      // 4        m_classMask
-        public uint RacemaskNot;                                    // 5        m_excludeRace
-        public uint ClassmaskNot;                                   // 6        m_excludeClass
+        public uint RaceMask;                                       // 3        m_raceMask
+        public uint ClassMask;                                      // 4        m_classMask
+        public uint RaceMaskNot;                                    // 5        m_excludeRace
+        public uint ClassMaskNot;                                   // 6        m_excludeClass
         public uint Req_skill_value;                                // 7        m_minSkillLineRank
         public uint Forward_spellid;                                // 8        m_supercededBySpell
         public uint LearnOnGetSkill;                                // 9        m_acquireMethod

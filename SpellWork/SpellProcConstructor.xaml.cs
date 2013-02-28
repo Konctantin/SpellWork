@@ -77,12 +77,10 @@ namespace SpellWork
                     var IsSkill = elem.SkillId != 0;
 
                     var name = new StringBuilder();
-                    var toolTip = new StringBuilder();
                     name.Append(spell.SpellName);
                     if (IsSkill)
                     {
-                        name.AppendFormat("(Skill: ({0}) {1}) ", elem.SkillId, elem.SkillLine.Name);
-                        toolTip.AppendLine();
+                        name.AppendFormat(" Skill: ({0}) {1} ", elem.SkillId, elem.SkillLine.Name);
                     }
 
                     int index = 0;
@@ -164,6 +162,7 @@ namespace SpellWork
                 }
             }
         }
+
         public bool IsSkill { get; set; }
         public uint SpellId { get; set; }
         public string SpellName { get; set; }

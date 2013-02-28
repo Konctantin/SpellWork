@@ -273,9 +273,9 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <TextBlock VerticalAlignment="Center" Text="Icon Id: " />
-                        <TextBox Name="tbSpellName2"
+                        <TextBox Name="tbSpellIcon"
                                  Grid.Column="1"
-                                 Text="{Binding SpellNameFilter}" />
+                                 Text="{Binding SpellIconFilter}" />
 
                     </Grid>
                 </Border>
@@ -286,9 +286,9 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <TextBlock VerticalAlignment="Center" Text="Attributes: " />
-                        <TextBox Name="tbSpellName3"
+                        <TextBox Name="tbSpellAttributes"
                                  Grid.Column="1"
-                                 Text="{Binding SpellNameFilter}" />
+                                 Text="{Binding SpellAttributesFilter}" />
 
                     </Grid>
                 </Border>

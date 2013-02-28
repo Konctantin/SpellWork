@@ -29,10 +29,22 @@ namespace SpellWork
         {
             var spellList = CollectionViewSource.GetDefaultView(lvSpellList.ItemsSource);
 
+            // spell id or name
+            bool hasSpellNameOrId = !string.IsNullOrWhiteSpace(tbSpellName.Text);
             int spellId = 0;
             int.TryParse(tbSpellName.Text, out spellId);
 
-            Func<ComboBox, int> getValue = (comboBox) => { 
+            // spell icon
+            bool hasSpellIcon = !string.IsNullOrWhiteSpace(tbSpellIcon.Text);
+            int iconId = 0;
+            int.TryParse(tbSpellIcon.Text, out iconId);
+
+            // spell attribute
+            bool hasSpellAttribute = !string.IsNullOrWhiteSpace(tbSpellAttributes.Text);
+            int attrib = 0;
+            int.TryParse(tbSpellAttributes.Text, out attrib);
+
+            Func<ComboBox, int> getValue = (comboBox) => {
                 return comboBox.SelectedIndex > 0 
                     ? (int)((KeyValuePair<object, object>)comboBox.SelectedValue).Value 
                     : -1; 
@@ -45,12 +57,12 @@ namespace SpellWork
             var targetB     = getValue(cbTargetB);
 
             // disable filter
-            if (string.IsNullOrWhiteSpace(tbSpellName.Text) 
-                && spellFamily == -1 
-                && auraType == -1 
+            if (!hasSpellNameOrId && !hasSpellIcon && !hasSpellAttribute
+                && spellFamily == -1
+                && auraType    == -1
                 && spellEffect == -1
-                && targetA == -1
-                && targetB == -1
+                && targetA     == -1
+                && targetB     == -1
                 )
             {
                 spellList.Filter = null;
@@ -66,7 +78,21 @@ namespace SpellWork
                         from spellClassOptionEntry in _sco.DefaultIfEmpty()
 
                         where (spellId == 0 || spell.ID == spellId)
-                            && (string.IsNullOrWhiteSpace(tbSpellName.Text) || spell.SpellName.IndexOf(tbSpellName.Text, StringComparison.CurrentCultureIgnoreCase) > -1)
+                            && (!hasSpellNameOrId || spell.SpellName.IndexOf(tbSpellName.Text, StringComparison.CurrentCultureIgnoreCase) > -1)
+
+                            && (!hasSpellIcon || spell.ActiveIconID == iconId)
+
+                            && (!hasSpellAttribute || (
+                                ((spell.m_Attributes    & attrib) != 0) ||
+                                ((spell.m_AttributesEx  & attrib) != 0) ||
+                                ((spell.m_AttributesEx2 & attrib) != 0) ||
+                                ((spell.m_AttributesEx3 & attrib) != 0) ||
+                                ((spell.m_AttributesEx4 & attrib) != 0) ||
+                                ((spell.m_AttributesEx5 & attrib) != 0) ||
+                                ((spell.m_AttributesEx6 & attrib) != 0) ||
+                                ((spell.m_AttributesEx7 & attrib) != 0) ||
+                                ((spell.m_AttributesEx8 & attrib) != 0)
+                            ))
 
                             && (spellFamily == -1 || (spellClassOptionEntry != null && spellClassOptionEntry.SpellFamilyName == spellFamily))
 
