@@ -132,6 +132,9 @@
     <Compile Include="Enums\Targets.cs" />
     <Compile Include="Enums\UnitMods.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="FlagsPresenter.xaml.cs">
+      <DependentUpon>FlagsPresenter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FullNameAttribute.cs" />
     <Compile Include="ProcFlagsStrings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -155,6 +158,10 @@
     <Compile Include="VehicleViewer.xaml.cs">
       <DependentUpon>VehicleViewer.xaml</DependentUpon>
     </Compile>
+    <Page Include="FlagsPresenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SpellProcConstructor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

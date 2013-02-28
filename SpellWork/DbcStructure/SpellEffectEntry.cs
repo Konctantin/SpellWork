@@ -37,6 +37,12 @@ namespace SpellWork.Dbc
         public uint EffectSpellId;                                // new 4.0.0
         public uint EffectIndex;                                  // new 4.0.0
         public int unk;
+
+        public SpellEffectEntry()
+        {
+            // for default value
+            EffectSpellClassMaskA = new uint[DBC.MAX_EFFECT_INDEX];
+        }
     };
 
 }

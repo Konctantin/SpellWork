@@ -20,6 +20,29 @@ namespace SpellWork
     /// </summary>
     public partial class SpellViewer : UserControl
     {
+        #region SelectedSpell
+
+        public static readonly DependencyProperty SelectedSpellProperty = DependencyProperty.Register("SelectedSpell", typeof(SpellEntry), typeof(SpellViewer),
+            new PropertyMetadata(default(SpellEntry), new PropertyChangedCallback(SelectedSpellPropertySelectedChanged)));
+
+        private static void SelectedSpellPropertySelectedChanged(DependencyObject dependecyObject, DependencyPropertyChangedEventArgs e)
+        {
+            if (!(e.NewValue is SpellEntry))
+                return;
+
+            var spellViewer = dependecyObject as SpellViewer;
+            if (spellViewer != null && e.NewValue != e.OldValue)
+                spellViewer.lvSpellList.SelectedValue = e.NewValue;
+        }
+
+        public SpellEntry SelectedSpell
+        {
+            get { return (SpellEntry)GetValue(SelectedSpellProperty); }
+            set { SetValue(SelectedSpellProperty, value); }
+        }
+
+        #endregion
+
         public SpellViewer()
         {
             InitializeComponent();
@@ -115,6 +138,13 @@ namespace SpellWork
         private void filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ApplyFilter(sender, null);
+        }
+
+        private void lvSpellList_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            var listView = sender as ListView;
+            if (listView != null && listView.SelectedValue is SpellEntry)
+                this.SelectedSpell = listView.SelectedValue as SpellEntry;
         }
     }
 }

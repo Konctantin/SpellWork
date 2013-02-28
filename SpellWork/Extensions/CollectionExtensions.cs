@@ -18,5 +18,12 @@ namespace SpellWork
 
             return default(V);
         }
+
+        public static IEnumerable<TSource> NewIfEmpty<TSource>(this IEnumerable<TSource> source) where TSource : class, new()
+        {
+            foreach (var str in source)
+                yield return str == null ? new TSource() : str;
+
+        }
     }
 }

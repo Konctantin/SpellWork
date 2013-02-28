@@ -32,7 +32,7 @@
         </Grid.RowDefinitions>
 
         <GridSplitter Grid.RowSpan="2" Grid.Column="1" Width="5" HorizontalAlignment="Left" ShowsPreview="True" />
-        <ListView Name="lvSpellList" Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}">
+        <ListView Name="lvSpellList" Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" SelectionChanged="lvSpellList_SelectionChanged_1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="60" DisplayMemberBinding="{Binding ID}" Header="ID"/>
@@ -287,8 +287,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock VerticalAlignment="Center" Text="Attributes: " />
                         <TextBox Name="tbSpellAttributes"
-                                 Grid.Column="1"
-                                 Text="{Binding SpellAttributesFilter}" />
+                                 Grid.Column="1" />
 
                     </Grid>
                 </Border>
@@ -296,7 +295,7 @@
                     <ComboBox Name="cbAuraType"
                               MinWidth="250"
                               ItemsSource="{Binding Source={StaticResource AuraType}}"
-                              SelectionChanged="filter_SelectionChanged">
+                              SelectionChanged="filter_SelectionChanged" >
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

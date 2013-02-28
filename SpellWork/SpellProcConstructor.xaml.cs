@@ -22,6 +22,9 @@ namespace SpellWork
     /// </summary>
     public partial class SpellProcConstructor : UserControl
     {
+        public static ObservableCollection<SpellFamilyRecord> TreeRecords = new ObservableCollection<SpellFamilyRecord>();
+        public static ObservableCollection<SpellEntry> ProcSpells = new ObservableCollection<SpellEntry>();
+
         public SpellProcConstructor()
         {
             InitializeComponent();
@@ -49,7 +52,7 @@ namespace SpellWork
                              SkillLine
                          };
 
-            var treeRecord = new ObservableCollection<SpellFamilyRecord>();
+            TreeRecords.Clear();
 
             if (cbFamilyName.SelectedIndex > 1)
             {
@@ -65,11 +68,9 @@ namespace SpellWork
                         mask[2] = 1U << (i - 64);
 
                     var rec = new SpellFamilyRecord(mask[0], mask[1], mask[2]);
-                    treeRecord.Add(rec);
+                    TreeRecords.Add(rec);
                     #warning need implement here
                 }
-
-                tree.ItemsSource = treeRecord;
 
                 foreach (var elem in spells)
                 {
@@ -84,7 +85,7 @@ namespace SpellWork
                     }
 
                     int index = 0;
-                    foreach (var node in treeRecord)
+                    foreach (var node in TreeRecords)
                     {
                         var mask = new uint[3];
 
@@ -99,7 +100,7 @@ namespace SpellWork
                             ((spell.SpellClassOptions.SpellFamilyFlags[1] & mask[1]) != 0) ||
                             ((spell.SpellClassOptions.SpellFamilyFlags[2] & mask[2]) != 0))
                         {
-                            node.SetInfo(IsSkill, spell.ID, name.ToString());
+                            node.AddSpellInfo(IsSkill, spell.ID, name.ToString());
                             //
                         }
                         ++index;
@@ -110,17 +111,98 @@ namespace SpellWork
 
         private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
         {
+            var mask = new uint[3];
 
+            foreach (var record in TreeRecords)
+            {
+                if (record.IsCheckedA || record.IsCheckedB || record.IsCheckedC)
+                {
+                    mask[0] |= record.Mask1;
+                    mask[1] |= record.Mask2;
+                    mask[2] |= record.Mask3;
+                }
+            }
+
+            if (spellViewer.SelectedSpell.SpellClassOptions == null)
+                return;
+
+            var query = (from spell in DBC.Spell.Values
+                         //opt.SpellFamilyName == arg.SpellFamilyName && opt.SpellFamilyFlags != null && opt.SpellFamilyFlags.ContainsElement(mask)
+
+                         join pco in DBC.SpellClassOptions.Records on spell.SpellClassOptionsId equals pco.Id into _pco
+                         from spellclassOption in _pco.NewIfEmpty()
+
+                         join sk in DBC.SkillLineAbility.Records on spell.ID equals sk.SpellId into temp1
+                         from Skill in temp1.NewIfEmpty()
+
+                         where spellclassOption.SpellFamilyName == spellViewer.SelectedSpell.SpellClassOptions.SpellFamilyName
+
+                         && (spell.GetEffect(0).EffectSpellClassMaskA[0] & mask[0]) != 0
+
+                         && spellclassOption != null && spellclassOption.SpellFamilyFlags != null && spellclassOption.Id == spell.SpellClassOptionsId &&
+                             (spellclassOption.SpellFamilyFlags[0] == mask[0] ||
+                              spellclassOption.SpellFamilyFlags[1] == mask[1] ||
+                              spellclassOption.SpellFamilyFlags[2] == mask[2])
+                         //join skl in DBC.SkillLine on Skill.Value.SkillId equals skl.Value.ID into temp2
+                         //from SkillLine in temp2.DefaultIfEmpty()
+                         orderby Skill.ID descending
+                         select spell).ToList();
+
+            ProcSpells.Clear();
+            foreach (var spell in query)
+                ProcSpells.Add(spell);
         }
     }
 
     public class SpellFamilyRecord : INotifyPropertyChanged
     {
+        private bool isCheckedA;
+        public bool IsCheckedA
+        {
+            get { return isCheckedA; }
+            set
+            {
+                if (isCheckedA != value)
+                {
+                    isCheckedA = value;
+                    PropChenged("IsCheckedA");
+                }
+            }
+        }
+
+        private bool isCheckedB;
+        public bool IsCheckedB
+        {
+            get { return isCheckedB; }
+            set
+            {
+                if (isCheckedB != value)
+                {
+                    isCheckedB = value;
+                    PropChenged("IsCheckedB");
+                }
+            }
+        }
+
+        private bool isCheckedC;
+        public bool IsCheckedC
+        {
+            get { return isCheckedC; }
+            set
+            {
+                if (isCheckedC != value)
+                {
+                    isCheckedC = value;
+                    PropChenged("IsCheckedC");
+                }
+            }
+        }
+
         public uint Mask1 { get; set; }
         public uint Mask2 { get; set; }
         public uint Mask3 { get; set; }
 
-        public void SetInfo(bool isSkill, uint id, string name)
+        public void AddSpellInfo(bool isSkill, uint id, string name)
         {
             SpellList.Add(new SpellRecord(isSkill, id, name));
             PropChenged("SpellList");
@@ -147,22 +229,8 @@ namespace SpellWork
         public event PropertyChangedEventHandler PropertyChanged;
     }
 
-    public class SpellRecord : INotifyPropertyChanged
+    public class SpellRecord
     {
-        private bool isChecked;
-        public bool IsChecked
-        {
-            get { return isChecked; }
-            set 
-            {
-                if (isChecked != value)
-                {
-                    isChecked = value;
-                    PropChenged("IsChecked");
-                }
-            }
-        }
-
         public bool IsSkill { get; set; }
         public uint SpellId { get; set; }
         public string SpellName { get; set; }
@@ -172,14 +240,6 @@ namespace SpellWork
             this.IsSkill   = isSkill;
             this.SpellId   = id;
             this.SpellName = name;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void PropChenged(string pname)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(pname));
         }
     }
 }

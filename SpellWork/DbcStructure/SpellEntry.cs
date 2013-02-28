@@ -261,7 +261,7 @@ namespace SpellWork.Dbc
                 if (DBC.SpellEffects[ID].ContainsKey(index))
                     return DBC.SpellEffects[ID][index];
 
-            return default(SpellEffectEntry);
+            return new SpellEffectEntry();
         }
 
         public string CastTime

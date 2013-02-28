@@ -8,6 +8,10 @@
              d:DesignHeight="561"
              d:DesignWidth="765"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="treeView" Source="{x:Static local:SpellProcConstructor.TreeRecords}" />
+        <CollectionViewSource x:Key="listView" Source="{x:Static local:SpellProcConstructor.ProcSpells}" />
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250" />
@@ -20,7 +24,7 @@
             <RowDefinition Height="150" />
         </Grid.RowDefinitions>
 
-        <local:SpellViewer Grid.Row="1"
+        <local:SpellViewer Grid.Row="1" x:Name="spellViewer"
                            Grid.RowSpan="2"
                            Grid.Column="1"
                            Margin="5,0,0,0"
@@ -29,24 +33,24 @@
         <ScrollViewer Grid.Row="2"
                       Grid.RowSpan="2"
                       HorizontalScrollBarVisibility="Auto">
-            <TreeView Name="tree">
+            <TreeView Name="tree" ItemsSource="{Binding Source={StaticResource treeView}}">
                 <TreeView.ItemTemplate>
                     <HierarchicalDataTemplate DataType="{x:Type local:SpellFamilyRecord}" ItemsSource="{Binding SpellList}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="60" Text="{Binding Mask1, StringFormat={}{0:X8}}" />
-                            <TextBlock Width="60" Text="{Binding Mask2, StringFormat={}{0:X8}}" />
-                            <TextBlock Width="60" Text="{Binding Mask3, StringFormat={}{0:X8}}" />
+                            <Border BorderThickness="1" BorderBrush="#FF2D8140">
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox Width="30" Name="cbA" Content="A" Checked="CheckBox_Checked_1" IsChecked="{Binding IsCheckedA}"/>
+                                    <CheckBox Width="30" Name="cbB" Content="B" Checked="CheckBox_Checked_1" IsChecked="{Binding IsCheckedB}"/>
+                                    <CheckBox Width="30" Name="cbC" Content="C" Checked="CheckBox_Checked_1" IsChecked="{Binding IsCheckedC}"/>
+                                </StackPanel>
+                            </Border>
+                            <TextBlock Width="60" Text="{Binding Mask1, StringFormat={}{0:X8}}" VerticalAlignment="Center" Margin="5,0,0,0" />
+                            <TextBlock Width="60" Text="{Binding Mask2, StringFormat={}{0:X8}}" VerticalAlignment="Center" />
+                            <TextBlock Width="60" Text="{Binding Mask3, StringFormat={}{0:X8}}" VerticalAlignment="Center" />
                         </StackPanel>
                         <HierarchicalDataTemplate.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Border BorderThickness="1" BorderBrush="#FF2D8140">
-                                        <StackPanel Orientation="Horizontal">
-                                            <CheckBox Width="30" Name="cbA" Content="A" Checked="CheckBox_Checked_1" />
-                                            <CheckBox Width="30" Name="cbB" Content="B" Checked="CheckBox_Checked_1" />
-                                            <CheckBox Width="30" Name="cbC" Content="C" Checked="CheckBox_Checked_1" />
-                                        </StackPanel>
-                                    </Border>
                                     <Image Margin="5,0,5,0" Source="{Binding IsSkill, Converter={sc:BooleanToImageConverter}}" />
                                     <TextBlock Name="tbSpellId" Width="50" Text="{Binding SpellId}" Foreground="{Binding IsSkill, Converter={sc:BooleanToColorConverter}, Mode=OneWay}" />
                                     <TextBlock Text="{Binding SpellName}" Foreground="{Binding IsSkill, Converter={sc:BooleanToColorConverter}, Mode=OneWay}"/>
@@ -57,12 +61,14 @@
                 </TreeView.ItemTemplate>
             </TreeView>
         </ScrollViewer>
-        <ListView Grid.Row="3"
+        <ListView Grid.Row="3" Name="lvProcSpells" ItemsSource="{Binding Source={StaticResource listView}}"
                   Grid.Column="1"
                   Margin="5,0,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn />
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding ID}" Width="60"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding SpellName}" />
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}"/>
                 </GridView>
             </ListView.View>
         </ListView>
