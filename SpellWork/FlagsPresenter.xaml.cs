@@ -22,8 +22,8 @@ namespace SpellWork
         #region DataSource
 
         public static DependencyProperty DataSourceProperty = 
-            DependencyProperty.Register("DataSource", typeof(Enum), typeof(FlagsPresenter),
-                new PropertyMetadata(default(Enum), DataSourcePropertyChanged));
+            DependencyProperty.Register("DataSource", typeof(Type), typeof(FlagsPresenter),
+                new PropertyMetadata(default(Type), DataSourcePropertyChanged));
 
         public Type DataSource
         {
