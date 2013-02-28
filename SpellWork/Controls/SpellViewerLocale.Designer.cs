@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SpellWork {
+namespace SpellWork.Controls {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SpellWork {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SpellWork.SpellViewerLocale", typeof(SpellViewerLocale).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SpellWork.Controls.SpellViewerLocale", typeof(SpellViewerLocale).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

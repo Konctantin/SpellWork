@@ -94,7 +94,7 @@
     <Compile Include="DbcStructure\SpellShapeshiftFormEntry.cs" />
     <Compile Include="DbcStructure\SpellTargetRestrictionsEntry.cs" />
     <Compile Include="DbcStructure\SpellTotemsEntry.cs" />
-    <Compile Include="EnumExtension.cs" />
+    <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="Enums\AuraState.cs" />
     <Compile Include="Enums\AuraType.cs" />
     <Compile Include="Enums\CombatRating.cs" />
@@ -132,41 +132,40 @@
     <Compile Include="Enums\Targets.cs" />
     <Compile Include="Enums\UnitMods.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
-    <Compile Include="FlagsPresenter.xaml.cs">
+    <Compile Include="Controls\FlagsPresenter.xaml.cs">
       <DependentUpon>FlagsPresenter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FullNameAttribute.cs" />
-    <Compile Include="ProcFlagsStrings.Designer.cs">
+    <Compile Include="Controls\ProcFlagsStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProcFlagsStrings.resx</DependentUpon>
     </Compile>
-    <Compile Include="SpellProcConstructor.xaml.cs">
+    <Compile Include="Controls\SpellProcConstructor.xaml.cs">
       <DependentUpon>SpellProcConstructor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SpellViewer.xaml.cs">
+    <Compile Include="Controls\SpellViewer.xaml.cs">
       <DependentUpon>SpellViewer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SpellViewerLocale.Designer.cs">
+    <Compile Include="Controls\SpellViewerLocale.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SpellViewerLocale.resx</DependentUpon>
     </Compile>
-    <Compile Include="SqlData.xaml.cs">
+    <Compile Include="Controls\SqlData.xaml.cs">
       <DependentUpon>SqlData.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VehicleViewer.xaml.cs">
+    <Compile Include="Controls\VehicleViewer.xaml.cs">
       <DependentUpon>VehicleViewer.xaml</DependentUpon>
     </Compile>
-    <Page Include="FlagsPresenter.xaml">
+    <Page Include="Controls\FlagsPresenter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SpellProcConstructor.xaml">
+    <Page Include="Controls\SpellProcConstructor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SqlData.xaml">
+    <Page Include="Controls\SqlData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,11 +189,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SpellViewer.xaml">
+    <Page Include="Controls\SpellViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VehicleViewer.xaml">
+    <Page Include="Controls\VehicleViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,7 +212,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="ProcFlagsStrings.resx">
+    <EmbeddedResource Include="Controls\ProcFlagsStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProcFlagsStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -221,7 +220,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SpellViewerLocale.resx">
+    <EmbeddedResource Include="Controls\SpellViewerLocale.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SpellViewerLocale.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -419,6 +418,7 @@
   <ItemGroup>
     <Resource Include="Resources\plus.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
