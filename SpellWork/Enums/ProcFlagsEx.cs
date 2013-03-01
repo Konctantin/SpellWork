@@ -6,7 +6,7 @@ using System.Text;
 namespace SpellWork.Enums
 {
     [Flags]
-    public enum ProcFlagsEx
+    public enum ProcFlagsEx : uint
     {
         PROC_EX_NONE                    = 0x0000000,                 // If none can trigger on Hit/Crit only (passive spells MUST defined by SpellFamily flag)
 

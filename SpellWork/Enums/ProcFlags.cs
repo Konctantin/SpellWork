@@ -9,7 +9,7 @@ namespace SpellWork.Enums
     ///Spell proc event related declarations (accessed using SpellMgr functions)
     ///</summary>
     [Flags]
-    public enum ProcFlags
+    public enum ProcFlags : uint
     {
         PROC_FLAG_NONE                              = 0x00000000,
 
