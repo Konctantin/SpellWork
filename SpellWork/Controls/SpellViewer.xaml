@@ -4,6 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:setting="clr-namespace:SpellWork.Properties"
+             xmlns:fd="clr-namespace:SpellWork.FlowDocumentExtension"
              d:DesignHeight="472"
              d:DesignWidth="783"
              mc:Ignorable="d">
@@ -83,168 +84,58 @@
                         <Run Text="{Binding SpellClassOptions, Mode=OneWay}" />
                     </Span>
                 </Paragraph>
-                <Table BorderBrush="Green" CellSpacing="0">
-                    <Table.Columns>
-                        <TableColumn Width="130" />
-                        <TableColumn Width="100" />
-                        <TableColumn Width="Auto" />
-                    </Table.Columns>
-                    <TableRowGroup>
-                        <TableRow>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="Attributes" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding uAttributes, Mode=OneWay, StringFormat=0x{0:X8}}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding Attributes, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx1" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding uAttributesEx1, Mode=OneWay, StringFormat=0x{0:X8}}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding AttributesEx1, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx2" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding uAttributesEx2, Mode=OneWay, StringFormat=0x{0:X8}}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding AttributesEx2, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx3" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding uAttributesEx3, Mode=OneWay, StringFormat=0x{0:X8}}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding AttributesEx3, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx4" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding uAttributesEx4, Mode=OneWay, StringFormat=0x{0:X8}}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding AttributesEx4, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx5" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding uAttributesEx5, Mode=OneWay, StringFormat=0x{0:X8}}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding AttributesEx5, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx6" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding uAttributesEx6, Mode=OneWay, StringFormat=0x{0:X8}}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding AttributesEx6, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx7" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding uAttributesEx7, Mode=OneWay, StringFormat=0x{0:X8}}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding AttributesEx7, Mode=OneWay}" />
-                                </Paragraph>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run FontWeight="Bold" Foreground="#FF007EFF" Text="AttributesEx8" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <Run Text="{Binding uAttributesEx8, Mode=OneWay, StringFormat=0x{0:X8}}" />
-                                </Paragraph>
-                            </TableCell>
-                            <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
-                                <Paragraph>
-                                    <!--  <Run Text="{Binding AttributeEx8, Mode=OneWay}" />  -->
-                                </Paragraph>
-                            </TableCell>
-                        </TableRow>
-                    </TableRowGroup>
-                </Table>
+                
+                <fd:ItemsContent ItemsSource="{Binding AttributesList}" >
+                    <fd:ItemsContent.ItemsPanel>
+                        <DataTemplate>
+                            <fd:Fragment>
+                                <Table BorderBrush="Green" CellSpacing="0" BorderThickness="1">
+                                    <Table.Columns>
+                                        <TableColumn Width="130" />
+                                        <TableColumn Width="100" />
+                                        <TableColumn Width="Auto" />
+                                    </Table.Columns>
+                                    <TableRowGroup fd:Attached.IsItemsHost="True">
+                                        <TableRow FontWeight="Bold" Foreground="#FF007EFF">
+                                            <TableCell Padding="7,0" BorderThickness="1" TextAlignment="Center">
+                                                <Paragraph>Name</Paragraph>
+                                            </TableCell>
+                                            <TableCell Padding="7,0" TextAlignment="Center" BorderThickness="1">
+                                                <Paragraph>Hex</Paragraph>
+                                            </TableCell>
+                                            <TableCell Padding="7,0" BorderThickness="1">
+                                                <Paragraph>Text</Paragraph>
+                                            </TableCell>
+                                        </TableRow>
+                                    </TableRowGroup>
+                                </Table>
+                            </fd:Fragment>
+                        </DataTemplate>
+                    </fd:ItemsContent.ItemsPanel>
+                    <fd:ItemsContent.ItemTemplate>
+                        <DataTemplate>
+                            <fd:Fragment>
+                                <TableRow >
+                                    <TableCell Padding="7,0" BorderBrush="Green" BorderThickness="1">
+                                        <Paragraph FontWeight="Bold" Foreground="#FF007EFF">
+                                            <fd:BindableRun BoundText="{Binding Item1}" />
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                        <Paragraph>
+                                            <fd:BindableRun BoundText="{Binding Item2, StringFormat=0x{0:X8}}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
+                                        <Paragraph>
+                                            <fd:BindableRun BoundText="{Binding Item3}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                            </fd:Fragment>
+                        </DataTemplate>
+                    </fd:ItemsContent.ItemTemplate>
+                </fd:ItemsContent>
             </FlowDocument>
         </FlowDocumentScrollViewer>
 

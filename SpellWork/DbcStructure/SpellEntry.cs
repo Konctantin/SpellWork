@@ -63,23 +63,32 @@ namespace SpellWork.Dbc
 
         
         public uint ID { get {return m_ID; } }
-        public uint uAttributes { get { return m_Attributes; } } 			     // 1        m_attribute
-        public uint uAttributesEx1 { get { return m_AttributesEx; } } 			 // 2        m_attributesEx
-        public uint uAttributesEx2 { get { return m_AttributesEx2; } } 			 // 3        m_attributesExB
-        public uint uAttributesEx3 { get { return m_AttributesEx3; } } 			 // 4        m_attributesExC
-        public uint uAttributesEx4 { get { return m_AttributesEx4; } } 			 // 5        m_attributesExD
-        public uint uAttributesEx5 { get { return m_AttributesEx5; } } 			 // 6        m_attributesExE
-        public uint uAttributesEx6 { get { return m_AttributesEx6; } } 			 // 7        m_attributesExF
-        public uint uAttributesEx7 { get { return m_AttributesEx7; } } 			 // 8        3.2.0 (0x20 - totems, 0x4 - paladin auras, etc...)
-        public uint uAttributesEx8 { get { return m_AttributesEx8; } } 			 // 7        m_attributesExF
-        public SpellAtribute    Attributes    { get { return (SpellAtribute)m_Attributes; } }
-        public SpellAtributeEx  AttributesEx1 { get { return (SpellAtributeEx)m_AttributesEx; } }
-        public SpellAtributeEx2 AttributesEx2 { get { return (SpellAtributeEx2)m_AttributesEx2; } }
-        public SpellAtributeEx3 AttributesEx3 { get { return (SpellAtributeEx3)m_AttributesEx3; } }
-        public SpellAtributeEx4 AttributesEx4 { get { return (SpellAtributeEx4)m_AttributesEx4; } }
-        public SpellAtributeEx5 AttributesEx5 { get { return (SpellAtributeEx5)m_AttributesEx5; } }
-        public SpellAtributeEx6 AttributesEx6 { get { return (SpellAtributeEx6)m_AttributesEx6; } }
-        public SpellAtributeExG AttributesEx7 { get { return (SpellAtributeExG)m_AttributesEx7; } }
+
+        public IEnumerable<Tuple<string, uint, object>> AttributesList
+        {
+            get
+            {
+                if (m_Attributes != 0)
+                    yield return new Tuple<string, uint, object>("Attributes", m_Attributes, (SpellAtribute)m_Attributes);
+                if (m_AttributesEx != 0)
+                    yield return new Tuple<string, uint, object>("AttributesEx1", m_AttributesEx, (SpellAtributeEx)m_AttributesEx);
+                if (m_AttributesEx2 != 0)
+                    yield return new Tuple<string, uint, object>("AttributesEx2", m_AttributesEx2, (SpellAtributeEx2)m_AttributesEx2);
+                if (m_AttributesEx3 != 0)
+                    yield return new Tuple<string, uint, object>("AttributesEx3", m_AttributesEx3, (SpellAtributeEx3)m_AttributesEx3);
+                if (m_AttributesEx4 != 0)
+                    yield return new Tuple<string, uint, object>("AttributesEx4", m_AttributesEx4, (SpellAtributeEx4)m_AttributesEx4);
+                if (m_AttributesEx5 != 0)
+                    yield return new Tuple<string, uint, object>("AttributesEx5", m_AttributesEx5, (SpellAtributeEx5)m_AttributesEx5);
+                if (m_AttributesEx6 != 0)
+                    yield return new Tuple<string, uint, object>("AttributesEx6", m_AttributesEx6, (SpellAtributeEx6)m_AttributesEx6);
+                if (m_AttributesEx7 != 0)
+                    yield return new Tuple<string, uint, object>("AttributesEx7", m_AttributesEx7, (SpellAtributeEx7)m_AttributesEx7);
+                if (m_AttributesEx8 != 0)
+                    yield return new Tuple<string, uint, object>("AttributesEx8", m_AttributesEx8, m_AttributesEx8);
+            }
+        }
+
         //public SpellAtribute AttributesEx8 { get { return (SpellAtributeEx8)m_AttributesEx8; } } 
         public uint SomeFlags { get { return m_SomeFlags; } } 			         // 9        4.0.0
         public uint CastingTimeIndex { get { return m_CastingTimeIndex; } } 	 // 11       m_castingTimeIndex

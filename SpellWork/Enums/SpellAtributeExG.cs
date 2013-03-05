@@ -6,7 +6,7 @@ using System.Text;
 namespace SpellWork.Enums
 {
     [Flags]
-    public enum SpellAtributeExG
+    public enum SpellAtributeEx7
     {
         SPELL_ATTR_EXG_ALL                        =        -1,
         SPELL_ATTR_EXG_NONE                       =      0x00,
