@@ -181,6 +181,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FlowDocumentExtension\Attached.cs" />
+    <Compile Include="FlowDocumentExtension\BindableRun.cs" />
+    <Compile Include="FlowDocumentExtension\BlockTemplateContent.cs" />
+    <Compile Include="FlowDocumentExtension\Fragment.cs" />
+    <Compile Include="FlowDocumentExtension\Helpers.cs" />
+    <Compile Include="FlowDocumentExtension\ItemsContent.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
