@@ -67,7 +67,7 @@ namespace SpellWork
                     else
                         mask[2] = 1U << (i - 64);
 
-                    var rec = new SpellFamilyRecord(mask[0], mask[1], mask[2]);
+                    var rec = new SpellFamilyRecord(mask[2], mask[1], mask[0]);
                     TreeRecords.Add(rec);
                     #warning need implement here
                 }
