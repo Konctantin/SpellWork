@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
+﻿using System.Runtime.InteropServices;
 using DBFilesClient.NET;
 
 namespace SpellWork.Dbc
@@ -11,11 +7,12 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public class SpellReagentsEntry
     {
-        public uint Id;                                           // 0        m_ID
-        [StoragePresence(StoragePresenceOption.Include, ArraySize = 8)]
-        public int[] Reagent;                                    // 54-61    m_reagent
-        [StoragePresence(StoragePresenceOption.Include, ArraySize = 8)]
-        public uint[] ReagentCount;                               // 62-69    m_reagentCount
-    };
+        public uint Id;
 
+        [StoragePresence(StoragePresenceOption.Include, ArraySize = 8)]
+        public int[] Reagent;
+
+        [StoragePresence(StoragePresenceOption.Include, ArraySize = 8)]
+        public uint[] ReagentCount;
+    };
 }

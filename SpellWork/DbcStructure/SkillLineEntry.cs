@@ -11,7 +11,7 @@ namespace SpellWork.Dbc
     {
         public uint ID;                                           // 0        m_ID
         public int CategoryId;                                    // 1        m_categoryID
-        //public uint SkillCostID;                                  // 2        m_skillCostsID
+        //public uint SkillCostID;                                // 2        m_skillCostsID
         public string _Name;                                      // 3-18     m_displayName_lang
         public string _Description;                               // 20-35    m_description_lang
         public uint SpellIcon;                                    // 37       m_spellIconID
@@ -33,5 +33,4 @@ namespace SpellWork.Dbc
             get { return _AlternateVerb; }
         }
     };
-
 }

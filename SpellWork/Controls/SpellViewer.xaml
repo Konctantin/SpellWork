@@ -44,20 +44,19 @@
 
         <FlowDocumentScrollViewer Grid.RowSpan="2">
             <FlowDocument FontFamily="Consolas" FontSize="14" TextAlignment="Left">
-                <Paragraph FontFamily="./Resources/#MORPHEUS" FontSize="16" FontWeight="Bold" TextAlignment="Left">
+                <Paragraph FontFamily="./Resources/#MORPHEUS" FontSize="16" FontWeight="Bold" TextAlignment="Left" Background="Black">
                     <Span>
                         <Run FontWeight="Bold" Foreground="#FF007EFF" Text="Spell:" />
                         <Run Text="{Binding ID, Mode=OneWay, StringFormat={}{0} –}" />
                         <Run Text="{Binding SpellName, Mode=OneWay}" />
-                    </Span>
-                </Paragraph>
-                <Paragraph>
-                    <Span>
-                        <Run FontWeight="Bold" Foreground="#FF007EFF" Text="Description:" />
-                        <Run Text="{Binding Description, Mode=OneWay}" />
                         <LineBreak />
-                        <Run FontWeight="Bold" Foreground="#FF007EFF" Text="ToolTip:" />
-                        <Run Text="{Binding ToolTip, Mode=OneWay}" />
+                        <Span Background="Black" FontSize="14" FontWeight="Normal">
+                            <Run FontWeight="Bold" Foreground="#FF007EFF" Text="Description:" />
+                            <Run Text="{Binding Description, Mode=OneWay}" />
+                            <LineBreak />
+                            <Run FontWeight="Bold" Foreground="#FF007EFF" Text="ToolTip:" />
+                            <Run Text="{Binding ToolTip, Mode=OneWay}" />
+                        </Span>
                     </Span>
                 </Paragraph>
                 <Paragraph>

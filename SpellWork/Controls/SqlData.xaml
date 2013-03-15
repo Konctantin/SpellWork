@@ -17,19 +17,19 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding entry}" Header="entry" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SchoolMask}" Header="SchoolMask" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SchoolMask, StringFormat={}0x{0:X4}}" Header="SchoolMask" />
                     <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyName}" Header="SpellFamilyName" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskA0}" Header="SpellFamilyMaskA0" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskA1}" Header="SpellFamilyMaskA1" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskA2}" Header="SpellFamilyMaskA2" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskB0}" Header="SpellFamilyMaskB0" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskB1}" Header="SpellFamilyMaskB1" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskB2}" Header="SpellFamilyMaskB2" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskC0}" Header="SpellFamilyMaskC0" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskC1}" Header="SpellFamilyMaskC1" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskC2}" Header="SpellFamilyMaskC2" />
-                    <GridViewColumn DisplayMemberBinding="{Binding procFlags}" Header="procFlags" />
-                    <GridViewColumn DisplayMemberBinding="{Binding procEx}" Header="procEx" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskA0, StringFormat={}0x{0:X8}}" Header="SpellFamilyMaskA0" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskA1, StringFormat={}0x{0:X8}}" Header="SpellFamilyMaskA1" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskA2, StringFormat={}0x{0:X8}}" Header="SpellFamilyMaskA2" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskB0, StringFormat={}0x{0:X8}}" Header="SpellFamilyMaskB0" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskB1, StringFormat={}0x{0:X8}}" Header="SpellFamilyMaskB1" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskB2, StringFormat={}0x{0:X8}}" Header="SpellFamilyMaskB2" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskC0, StringFormat={}0x{0:X8}}" Header="SpellFamilyMaskC0" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskC1, StringFormat={}0x{0:X8}}" Header="SpellFamilyMaskC1" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SpellFamilyMaskC2, StringFormat={}0x{0:X8}}" Header="SpellFamilyMaskC2" />
+                    <GridViewColumn DisplayMemberBinding="{Binding procFlags, StringFormat={}0x{0:X8}}" Header="procFlags" />
+                    <GridViewColumn DisplayMemberBinding="{Binding procEx, StringFormat={}0x{0:X8}}" Header="procEx" />
                     <GridViewColumn DisplayMemberBinding="{Binding ppmRate}" Header="ppmRate" />
                     <GridViewColumn DisplayMemberBinding="{Binding CustomChance}" Header="CustomChance" />
                     <GridViewColumn DisplayMemberBinding="{Binding Cooldown}" Header="Cooldown" />

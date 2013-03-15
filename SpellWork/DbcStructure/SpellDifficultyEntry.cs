@@ -12,6 +12,19 @@ namespace SpellWork.Dbc
     {
         public uint Id;
         [StoragePresence(StoragePresenceOption.Include, ArraySize = 4)]
-        public int[] Spells;
+        public uint[] Spells;
+
+        public IEnumerable<SpellEntry> SpellList
+        {
+            get 
+            {
+                foreach (var spell_id in Spells)
+                {
+                    SpellEntry spell;
+                    if (DBC.Spell.TryGetValue(spell_id, out spell))
+                        yield return spell;
+                }
+            }
+        }
     };
 }

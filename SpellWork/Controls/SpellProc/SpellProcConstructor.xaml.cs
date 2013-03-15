@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SpellWork.Controls;
 using SpellWork.Dbc;
 
 namespace SpellWork
@@ -40,7 +41,8 @@ namespace SpellWork
                          join sk in DBC.SkillLineAbility.Records on Spell.ID equals sk.SpellId into temp1
                          from Skill in temp1.DefaultIfEmpty()
                                                               // stupid exception
-                         join skl in DBC.SkillLine.Records on (Skill != null ? Skill : new SkillLineAbilityEntry()).SkillId equals skl.ID into temp2
+                         join skl in DBC.SkillLine.Records 
+                            on (Skill != null ? Skill : new SkillLineAbilityEntry()).SkillId equals skl.ID into temp2
                          from SkillLine in temp2.DefaultIfEmpty()
                          
                          where Spell.SpellFamilyName == spellFamilyName
@@ -96,13 +98,20 @@ namespace SpellWork
                         else
                             mask[2] = 1U << (index - 64);
 
-                        if (((spell.SpellClassOptions.SpellFamilyFlags[0] & mask[0]) != 0) ||
-                            ((spell.SpellClassOptions.SpellFamilyFlags[1] & mask[1]) != 0) ||
-                            ((spell.SpellClassOptions.SpellFamilyFlags[2] & mask[2]) != 0))
+                        var flags = spell.SpellClassOptions.SpellFamilyFlags;
+
+                        int effindex = 0;
+                        foreach (var eff in spell.SpellEffectList)
                         {
-                            node.AddSpellInfo(IsSkill, spell.ID, name.ToString());
-                            //
+                            for (int i = 0; i < 3; ++i)
+                            {
+                                if ((eff.EffectSpellClassMaskA[i] & mask[i]) != 0)
+                                {
+                                    node.AddSpellInfo(IsSkill, spell.ID, effindex++, name.ToString());
+                                }
+                            }
                         }
+
                         ++index;
                     }
                 }                
@@ -151,95 +160,6 @@ namespace SpellWork
             ProcSpells.Clear();
             foreach (var spell in query)
                 ProcSpells.Add(spell);
-        }
-    }
-
-    public class SpellFamilyRecord : INotifyPropertyChanged
-    {
-        private bool isCheckedA;
-        public bool IsCheckedA
-        {
-            get { return isCheckedA; }
-            set
-            {
-                if (isCheckedA != value)
-                {
-                    isCheckedA = value;
-                    PropChenged("IsCheckedA");
-                }
-            }
-        }
-
-        private bool isCheckedB;
-        public bool IsCheckedB
-        {
-            get { return isCheckedB; }
-            set
-            {
-                if (isCheckedB != value)
-                {
-                    isCheckedB = value;
-                    PropChenged("IsCheckedB");
-                }
-            }
-        }
-
-        private bool isCheckedC;
-        public bool IsCheckedC
-        {
-            get { return isCheckedC; }
-            set
-            {
-                if (isCheckedC != value)
-                {
-                    isCheckedC = value;
-                    PropChenged("IsCheckedC");
-                }
-            }
-        }
-
-        public uint Mask1 { get; set; }
-        public uint Mask2 { get; set; }
-        public uint Mask3 { get; set; }
-
-        public void AddSpellInfo(bool isSkill, uint id, string name)
-        {
-            SpellList.Add(new SpellRecord(isSkill, id, name));
-            PropChenged("SpellList");
-        }
-
-        public ObservableCollection<SpellRecord> SpellList { get; set; }
-
-        public SpellFamilyRecord(uint mask1, uint mask2, uint mask3)
-        {
-            this.Mask1 = mask1;
-            this.Mask2 = mask2;
-            this.Mask3 = mask3;
-
-            this.SpellList = new ObservableCollection<SpellRecord>();
-        }
-
-        private void PropChenged(string pname)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(pname));
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-    }
-
-    public class SpellRecord
-    {
-        public bool IsSkill { get; set; }
-        public uint SpellId { get; set; }
-        public string SpellName { get; set; }
-
-        public SpellRecord(bool isSkill, uint id, string name)
-        {
-            this.IsSkill   = isSkill;
-            this.SpellId   = id;
-            this.SpellName = name;
         }
     }
 }

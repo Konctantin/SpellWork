@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:SpellWork"
+             xmlns:proc="clr-namespace:SpellWork.Controls"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sc="clr-namespace:SpellWork.Converters"
              d:DesignHeight="561"
@@ -35,7 +36,7 @@
                       HorizontalScrollBarVisibility="Auto">
             <TreeView Name="tree" ItemsSource="{Binding Source={StaticResource treeView}}">
                 <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type local:SpellFamilyRecord}" ItemsSource="{Binding SpellList}">
+                    <HierarchicalDataTemplate DataType="{x:Type proc:SpellFamilyRecord}" ItemsSource="{Binding SpellList}">
                         <StackPanel Orientation="Horizontal">
                             <Border BorderThickness="1" BorderBrush="#FF2D8140">
                                 <StackPanel Orientation="Horizontal">
@@ -51,6 +52,14 @@
                         <HierarchicalDataTemplate.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
+                                    <!--<TextBlock Text="{Binding EffectIndex}" Foreground="{Binding IsSkill, Converter={sc:BooleanToColorConverter}, Mode=OneWay}" />-->
+                                    <Border BorderThickness="1" BorderBrush="#FF2D8140">
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox Width="30" Content="A" IsChecked="{Binding IsEffect[0]}" />
+                                            <CheckBox Width="30" Content="B" IsChecked="{Binding IsEffect[1]}"/>
+                                            <CheckBox Width="30" Content="C" IsChecked="{Binding IsEffect[2]}"/>
+                                        </StackPanel>
+                                    </Border>
                                     <Image Margin="5,0,5,0" Source="{Binding IsSkill, Converter={sc:BooleanToImageConverter}}" />
                                     <TextBlock Name="tbSpellId" Width="50" Text="{Binding SpellId}" Foreground="{Binding IsSkill, Converter={sc:BooleanToColorConverter}, Mode=OneWay}" />
                                     <TextBlock Text="{Binding SpellName}" Foreground="{Binding IsSkill, Converter={sc:BooleanToColorConverter}, Mode=OneWay}"/>
