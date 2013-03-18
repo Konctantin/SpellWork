@@ -83,17 +83,15 @@ namespace SpellWork
             var flagsPresenter = dependecyObject as FlagsPresenter;
             if (flagsPresenter != null && e.NewValue != e.OldValue)
             {
-                var i = 0;
                 foreach (CheckBox checkBox in flagsPresenter.panel.Children)
                 {
-                    var isChecked = ((uint)e.NewValue & (1u << i - 1)) != 0;
+                    var isChecked = ((uint)e.NewValue & (uint)checkBox.Tag) != 0;
 
-                    if (i == 0 && (uint)e.NewValue == 0)
+                    if ((uint)checkBox.Tag == 0 && (uint)e.NewValue == 0)
                         isChecked = true;
 
                     if (checkBox.IsChecked != isChecked)
                         checkBox.SetValue(CheckBox.IsCheckedProperty, isChecked);
-                    i++;
                 }
             }
         }
