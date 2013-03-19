@@ -64,6 +64,7 @@
     <Compile Include="Converters\BooleanToColorConverter.cs" />
     <Compile Include="Converters\BooleanToImageConverter.cs" />
     <Compile Include="Converters\ConverterBase.cs" />
+    <Compile Include="Converters\StringToUintConverter.cs" />
     <Compile Include="DataBase\Sql.cs" />
     <Compile Include="DbcStores.cs" />
     <Compile Include="DbcStructure\CurrencyTypesEntry.cs" />
