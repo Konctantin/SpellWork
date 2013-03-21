@@ -24,12 +24,12 @@ namespace SpellWork
         #region HeaderProperty
 
         public static DependencyProperty HeaderProperty =
-            DependencyProperty.Register("Header", typeof(string), typeof(FlagsPresenter),
-                new PropertyMetadata(string.Empty, HeaderPropertyChanged));
+            DependencyProperty.Register("Header", typeof(object), typeof(FlagsPresenter),
+                new PropertyMetadata(null, HeaderPropertyChanged));
 
-        public string Header
+        public object Header
         {
-            get { return (string)GetValue(HeaderProperty); }
+            get { return GetValue(HeaderProperty); }
             set { SetValue(HeaderProperty, value); }
         }
 
