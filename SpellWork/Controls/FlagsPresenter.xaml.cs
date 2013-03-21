@@ -78,16 +78,26 @@ namespace SpellWork
 
                         checkBox.Tag = enumValue;
 
-                        checkBox.Checked   += (o, r) => {
+                        checkBox.Checked   += (o, r) =>
+                        {
                             var val = (uint)flagsPresenter.GetValue(ValueProperty);
-                            flagsPresenter.SetValue(ValueProperty, (val |=  (uint)(o as CheckBox).Tag));
+                            var flagValue = (uint)(o as CheckBox).Tag;
+                            val |= flagValue;
+
+                            if (flagValue == 0u)
+                                val = 0u;
+
+                            flagsPresenter.SetValue(ValueProperty, val);
                             if (flagsPresenter.ChechedChanged != null)
                                 flagsPresenter.ChechedChanged(o, new EventArgs());
                         };
 
-                        checkBox.Unchecked += (o, r) => {
+                        checkBox.Unchecked += (o, r) =>
+                        {
                             var val = (uint)flagsPresenter.GetValue(ValueProperty);
-                            flagsPresenter.SetValue(ValueProperty, (val &= ~(uint)(o as CheckBox).Tag));
+                            val &= ~(uint)(o as CheckBox).Tag;
+
+                            flagsPresenter.SetValue(ValueProperty, val);
                             if (flagsPresenter.ChechedChanged != null)
                                 flagsPresenter.ChechedChanged(o, new EventArgs());
                         };
