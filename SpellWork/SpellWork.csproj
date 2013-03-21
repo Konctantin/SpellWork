@@ -60,6 +60,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\SpellProc\SpellFamilyRecord.cs" />
+    <Compile Include="Controls\SpellProc\SpellProcEntry.cs" />
     <Compile Include="Controls\SpellProc\SpellRecord.cs" />
     <Compile Include="Converters\BooleanToColorConverter.cs" />
     <Compile Include="Converters\BooleanToImageConverter.cs" />

@@ -11,7 +11,7 @@ namespace SpellWork
         {
             if (!type.IsEnum)
                 throw new ArgumentException("type");
-            //new System.Collections.Generic.KeyValuePair<System.Object, System.Object>();
+
             yield return new KeyValuePair<object, object>(-1, noValue);
 
             foreach (var element in Enum.GetValues(type))

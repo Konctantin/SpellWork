@@ -6,6 +6,7 @@
              xmlns:proc="clr-namespace:SpellWork.Controls"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sc="clr-namespace:SpellWork.Converters"
+             xmlns:enums="clr-namespace:SpellWork.Enums"
              d:DesignHeight="561"
              d:DesignWidth="765"
              mc:Ignorable="d">
@@ -19,19 +20,20 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
-            <RowDefinition Height="25" />
+            <RowDefinition Height="78" />
+            <RowDefinition Height="116"/>
+            <RowDefinition Height="27" />
             <RowDefinition />
             <RowDefinition Height="150" />
         </Grid.RowDefinitions>
 
-        <local:SpellViewer Grid.Row="1" x:Name="spellViewer"
+        <local:SpellViewer Grid.Row="2" x:Name="spellViewer"
                            Grid.RowSpan="2"
                            Grid.Column="1"
                            Margin="5,0,0,0"
                            DataContext="{Binding}" />
 
-        <ScrollViewer Grid.Row="2"
+        <ScrollViewer Grid.Row="3"
                       Grid.RowSpan="2"
                       HorizontalScrollBarVisibility="Auto">
             <TreeView Name="tree" ItemsSource="{Binding Source={StaticResource treeView}}">
@@ -70,7 +72,7 @@
                 </TreeView.ItemTemplate>
             </TreeView>
         </ScrollViewer>
-        <ListView Grid.Row="3" Name="lvProcSpells" ItemsSource="{Binding Source={StaticResource listView}}"
+        <ListView Grid.Row="4" Name="lvProcSpells" ItemsSource="{Binding Source={StaticResource listView}}"
                   Grid.Column="1"
                   Margin="5,0,0,0">
             <ListView.View>
@@ -81,12 +83,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <GridSplitter Grid.Row="1"
+        <GridSplitter Grid.Row="2"
                       Grid.RowSpan="3"
                       Grid.Column="1"
                       Width="5"
                       HorizontalAlignment="Left" />
-        <GridSplitter Grid.Row="3"
+        <GridSplitter Grid.Row="4"
                       Grid.Column="1"
                       Height="5"
                       HorizontalAlignment="Stretch"
@@ -94,22 +96,37 @@
         <GridSplitter Grid.ColumnSpan="2"
                       Height="5"
                       HorizontalAlignment="Stretch"
-                      VerticalAlignment="Bottom" />
+                      VerticalAlignment="Bottom" Grid.Row="1" />
         <ComboBox Name="cbFamilyName"
-                  Grid.Row="1"
+                  Grid.Row="2"
                   ItemsSource="{Binding Source={StaticResource SpellFamilyName}}"
                   SelectionChanged="cbFamilyName_SelectionChanged_1">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="30"
-                                   VerticalAlignment="Center"
-                                   Text="{Binding Key,
-                                                  StringFormat={}{0:D}}" />
+                        <TextBlock Width="30" VerticalAlignment="Center" Text="{Binding Key, StringFormat={}{0:D}}" />
                         <TextBlock VerticalAlignment="Center" Text="{Binding Value}" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <local:FlagsPresenter Grid.Column="1" DataSource="{x:Type enums:ProcFlagsEx}" Header="Proc Flags Ex"/>
+        <local:FlagsPresenter Grid.Column="1" DataSource="{x:Type enums:ProcFlags}" Grid.Row="1" Header="Proc Flags"/>
+        <local:FlagsPresenter Grid.Row="1"    DataSource="{x:Type enums:SpellSchoolMask}" Header="Spell School"/>
+        
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5,3,0,0" Text="PPM Rate:" Width="100"/>
+                <TextBox Text="{Binding Path=SpellProc.PpmRate}" Width="100" TextAlignment="Right"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5,3,0,0" Text="Custom Chance:" Width="100"/>
+                <TextBox Text="{Binding Path=SpellProc.PpmRate}" Width="100" TextAlignment="Right"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5,3,0,0" Text="Cooldown:" Width="100"/>
+                <TextBox Text="{Binding Path=SpellProc.PpmRate}" Width="100" TextAlignment="Right"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>

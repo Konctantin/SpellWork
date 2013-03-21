@@ -6,7 +6,7 @@ using System.Text;
 namespace SpellWork.Enums
 {
     [Flags]
-    public enum SpellSchoolMask
+    public enum SpellSchoolMask : uint
     {
         MASK_NONE      = 0x00,                         // not exist
         MASK_PHYSICAL  = (1 << SpellSchools.PHYSICAL), // PHYSICAL (Armor)
@@ -16,14 +16,5 @@ namespace SpellWork.Enums
         MASK_FROST     = (1 << SpellSchools.FROST),
         MASK_SHADOW    = (1 << SpellSchools.SHADOW),
         MASK_ARCANE    = (1 << SpellSchools.ARCANE),
-
-        // unions
-
-        // 124, not include normal and holy damage
-        MASK_SPELL     = (MASK_FIRE | MASK_NATURE | MASK_FROST | MASK_SHADOW | MASK_ARCANE),
-        // 126
-        MASK_MAGIC     = (MASK_HOLY | MASK_SPELL),
-        // 127
-        MASK_ALL       = (MASK_PHYSICAL | MASK_MAGIC)
     };
 }

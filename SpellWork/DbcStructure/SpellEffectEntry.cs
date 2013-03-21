@@ -44,5 +44,4 @@ namespace SpellWork.Dbc
             EffectSpellClassMaskA = new uint[DBC.MAX_EFFECT_INDEX];
         }
     };
-
 }

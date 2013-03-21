@@ -97,29 +97,29 @@ namespace SpellWork.DataBase
 
         #region UpdateQuery
         const string UpdateQuery = @"
-UPDATE spell_proc_event SET 
-SchoolMask        = @SchoolMask,       
-SpellFamilyName   = @SpellFamilyName,  
-SpellFamilyMaskA0 = @SpellFamilyMaskA0,
-SpellFamilyMaskA1 = @SpellFamilyMaskA1,
-SpellFamilyMaskA2 = @SpellFamilyMaskA2,
-SpellFamilyMaskB0 = @SpellFamilyMaskB0,
-SpellFamilyMaskB1 = @SpellFamilyMaskB1,
-SpellFamilyMaskB2 = @SpellFamilyMaskB2,
-SpellFamilyMaskC0 = @SpellFamilyMaskC0,
-SpellFamilyMaskC1 = @SpellFamilyMaskC1,
-SpellFamilyMaskC2 = @SpellFamilyMaskC2,
-procFlags         = @procFlags,    
-procEx            = @procEx,       
-ppmRate           = @ppmRate,      
-CustomChance      = @CustomChance,  
-Cooldown          = @Cooldown
-WHERE entry       = @entry;";
+            UPDATE spell_proc_event SET 
+            SchoolMask        = @SchoolMask,       
+            SpellFamilyName   = @SpellFamilyName,  
+            SpellFamilyMaskA0 = @SpellFamilyMaskA0,
+            SpellFamilyMaskA1 = @SpellFamilyMaskA1,
+            SpellFamilyMaskA2 = @SpellFamilyMaskA2,
+            SpellFamilyMaskB0 = @SpellFamilyMaskB0,
+            SpellFamilyMaskB1 = @SpellFamilyMaskB1,
+            SpellFamilyMaskB2 = @SpellFamilyMaskB2,
+            SpellFamilyMaskC0 = @SpellFamilyMaskC0,
+            SpellFamilyMaskC1 = @SpellFamilyMaskC1,
+            SpellFamilyMaskC2 = @SpellFamilyMaskC2,
+            procFlags         = @procFlags,    
+            procEx            = @procEx,       
+            ppmRate           = @ppmRate,      
+            CustomChance      = @CustomChance,  
+            Cooldown          = @Cooldown
+            WHERE entry       = @entry;";
         #endregion
 
         const string InsertQuery = @"
-INSERT INTO spell_proc_event (entry, SchoolMask, SpellFamilyName, SpellFamilyMaskA0, SpellFamilyMaskA1, SpellFamilyMaskA2, SpellFamilyMaskB0, SpellFamilyMaskB1, SpellFamilyMaskB2, SpellFamilyMaskC0, SpellFamilyMaskC1, SpellFamilyMaskC2, procFlags, procEx, ppmRate, CustomChance, Cooldown) 
-VALUES (@entry, @SchoolMask, @SpellFamilyName, @SpellFamilyMaskA0, @SpellFamilyMaskA1, @SpellFamilyMaskA2, @SpellFamilyMaskB0, @SpellFamilyMaskB1, @SpellFamilyMaskB2, @SpellFamilyMaskC0, @SpellFamilyMaskC1, @SpellFamilyMaskC2, @procFlags, @procEx, @ppmRate, @CustomChance, @Cooldown);";
+            INSERT INTO spell_proc_event (entry, SchoolMask, SpellFamilyName, SpellFamilyMaskA0, SpellFamilyMaskA1, SpellFamilyMaskA2, SpellFamilyMaskB0, SpellFamilyMaskB1, SpellFamilyMaskB2, SpellFamilyMaskC0, SpellFamilyMaskC1, SpellFamilyMaskC2, procFlags, procEx, ppmRate, CustomChance, Cooldown) 
+            VALUES (@entry, @SchoolMask, @SpellFamilyName, @SpellFamilyMaskA0, @SpellFamilyMaskA1, @SpellFamilyMaskA2, @SpellFamilyMaskB0, @SpellFamilyMaskB1, @SpellFamilyMaskB2, @SpellFamilyMaskC0, @SpellFamilyMaskC1, @SpellFamilyMaskC2, @procFlags, @procEx, @ppmRate, @CustomChance, @Cooldown);";
 
         const string SelectQuery = @"SELECT * FROM spell_proc_event;";
         const string DeleteQuery = @"DELETE FROM spell_proc_event WHERE entry = @entry;";

@@ -11,18 +11,18 @@ namespace SpellWork
         public static V GetValueOrDefault<V>(this DBCStorage<V> dictionary, uint key) where V : class, new()
         {
             if (dictionary == null)
-                return default(V);
+                return new V();
 
             if (dictionary.ContainsKey(key))
                 return dictionary[key];
 
-            return default(V);
+            return new V();
         }
 
         public static IEnumerable<TSource> NewIfEmpty<TSource>(this IEnumerable<TSource> source) where TSource : class, new()
         {
-            foreach (var str in source)
-                yield return str == null ? new TSource() : str;
+            foreach (var element in source)
+                yield return element ?? new TSource();
 
         }
     }

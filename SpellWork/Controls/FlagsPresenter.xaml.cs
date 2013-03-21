@@ -19,6 +19,36 @@ namespace SpellWork
     /// </summary>
     public partial class FlagsPresenter : UserControl
     {
+        public event EventHandler ChechedChanged;
+
+        #region HeaderProperty
+
+        public static DependencyProperty HeaderProperty =
+            DependencyProperty.Register("Header", typeof(string), typeof(FlagsPresenter),
+                new PropertyMetadata(string.Empty, HeaderPropertyChanged));
+
+        public string Header
+        {
+            get { return (string)GetValue(HeaderProperty); }
+            set { SetValue(HeaderProperty, value); }
+        }
+
+        public GroupBox MainGroupBox
+        {
+            get { return groupBox; }
+        }
+
+        private static void HeaderPropertyChanged(DependencyObject dependecyObject, DependencyPropertyChangedEventArgs e)
+        {
+            var flagsPresenter = dependecyObject as FlagsPresenter;
+            if (flagsPresenter != null && e.NewValue != e.OldValue)
+            {
+                flagsPresenter.MainGroupBox.Header = e.NewValue;
+            }
+        }
+
+        #endregion
+
         #region DataSource
 
         public static DependencyProperty DataSourceProperty = 
@@ -50,12 +80,16 @@ namespace SpellWork
 
                         checkBox.Checked   += (o, r) => {
                             var val = (uint)flagsPresenter.GetValue(ValueProperty);
-                            flagsPresenter.SetValue(ValueProperty, (val |=  (uint)(o as CheckBox).Tag)); 
+                            flagsPresenter.SetValue(ValueProperty, (val |=  (uint)(o as CheckBox).Tag));
+                            if (flagsPresenter.ChechedChanged != null)
+                                flagsPresenter.ChechedChanged(o, new EventArgs());
                         };
 
                         checkBox.Unchecked += (o, r) => {
                             var val = (uint)flagsPresenter.GetValue(ValueProperty);
-                            flagsPresenter.SetValue(ValueProperty, (val &= ~(uint)(o as CheckBox).Tag)); 
+                            flagsPresenter.SetValue(ValueProperty, (val &= ~(uint)(o as CheckBox).Tag));
+                            if (flagsPresenter.ChechedChanged != null)
+                                flagsPresenter.ChechedChanged(o, new EventArgs());
                         };
 
                         flagsPresenter.panel.Children.Add(checkBox);
