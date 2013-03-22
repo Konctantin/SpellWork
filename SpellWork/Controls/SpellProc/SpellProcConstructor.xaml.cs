@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using SpellWork.Controls;
 using SpellWork.Controls.SpellProc;
 using SpellWork.Dbc;
-using SpellWork.Enums;
 
 namespace SpellWork
 {
@@ -164,55 +154,51 @@ namespace SpellWork
                 }
                 if (record.IsCheckedC)
                 {
-                    mask[3, 0] |= record.Mask1;
-                    mask[3, 1] |= record.Mask2;
-                    mask[3, 2] |= record.Mask3;
+                    mask[2, 0] |= record.Mask1;
+                    mask[2, 1] |= record.Mask2;
+                    mask[2, 2] |= record.Mask3;
                 }
             }
 
-            spellProc.SpellFamilyMaskA[0] = mask[0, 0];
-            spellProc.SpellFamilyMaskA[1] = mask[0, 1];
-            spellProc.SpellFamilyMaskA[2] = mask[0, 2];
+            this.SpellProc.SpellFamilyMaskA = new uint[] { mask[0, 0], mask[0, 1], mask[0, 2] };
+            this.SpellProc.SpellFamilyMaskB = new uint[] { mask[1, 0], mask[1, 1], mask[1, 2] };
+            this.SpellProc.SpellFamilyMaskC = new uint[] { mask[2, 0], mask[2, 1], mask[2, 2] };
 
-            spellProc.SpellFamilyMaskB[0] = mask[1, 0];
-            spellProc.SpellFamilyMaskB[1] = mask[1, 1];
-            spellProc.SpellFamilyMaskB[2] = mask[1, 2];
+            SetValue(SpellProcProperty, spellProc);
 
-            spellProc.SpellFamilyMaskC[0] = mask[2, 0];
-            spellProc.SpellFamilyMaskC[1] = mask[2, 1];
-            spellProc.SpellFamilyMaskC[2] = mask[2, 2];
+            if (spellViewer.SelectedSpell.SpellClassOptions == null)
+                return;
 
-            if (this.SpellProc != spellProc)
-                SetValue(SpellProcProperty, spellProc);
+            var query = (from spell in DBC.Spell.Values
+                         join pco in DBC.SpellClassOptions.Records on spell.SpellClassOptionsId equals pco.Id into _pco
+                         from spellclassOption in _pco.NewIfEmpty()
 
-            //if (spellViewer.SelectedSpell.SpellClassOptions == null)
-            //    return;
+                         join sk in DBC.SkillLineAbility.Records on spell.ID equals sk.SpellId into temp1
+                         from Skill in temp1.NewIfEmpty()
 
-            //var query = (from spell in DBC.Spell.Values
-            //             //opt.SpellFamilyName == arg.SpellFamilyName && opt.SpellFamilyFlags != null && opt.SpellFamilyFlags.ContainsElement(mask)
+                         where spellclassOption.SpellFamilyName == spellViewer.SelectedSpell.SpellClassOptions.SpellFamilyName
 
-            //             join pco in DBC.SpellClassOptions.Records on spell.SpellClassOptionsId equals pco.Id into _pco
-            //             from spellclassOption in _pco.NewIfEmpty()
+                         //join skl in DBC.SkillLine on Skill.Value.SkillId equals skl.Value.ID into temp2
+                         //from SkillLine in temp2.DefaultIfEmpty()
+                         orderby Skill.ID descending
+                         select spell).ToList();
 
-            //             join sk in DBC.SkillLineAbility.Records on spell.ID equals sk.SpellId into temp1
-            //             from Skill in temp1.NewIfEmpty()
-
-            //             where spellclassOption.SpellFamilyName == spellViewer.SelectedSpell.SpellClassOptions.SpellFamilyName
-
-            //             && (spell.GetEffect(0).EffectSpellClassMaskA[0] & mask[0]) != 0
-
-            //             && spellclassOption != null && spellclassOption.SpellFamilyFlags != null && spellclassOption.Id == spell.SpellClassOptionsId &&
-            //                 (spellclassOption.SpellFamilyFlags[0] == mask[0] ||
-            //                  spellclassOption.SpellFamilyFlags[1] == mask[1] ||
-            //                  spellclassOption.SpellFamilyFlags[2] == mask[2])
-            //             //join skl in DBC.SkillLine on Skill.Value.SkillId equals skl.Value.ID into temp2
-            //             //from SkillLine in temp2.DefaultIfEmpty()
-            //             orderby Skill.ID descending
-            //             select spell).ToList();
-
-            //ProcSpells.Clear();
-            //foreach (var spell in query)
-            //    ProcSpells.Add(spell);
+            ProcSpells.Clear();
+            foreach (var spell in query)
+            {
+                int j = 0;
+                foreach (var eff in spell.SpellEffectList)
+                {
+                    for (int i = 0; i < 3; ++i)
+                    {
+                        if ((eff.EffectSpellClassMaskA[i] & mask[j, i]) != 0)
+                        {
+                            ProcSpells.Add(spell);
+                        }
+                    }
+                    ++j;
+                }
+            }
         }
     }
 }

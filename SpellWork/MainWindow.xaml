@@ -11,20 +11,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="22" />
             <RowDefinition Height="463*" />
-            <RowDefinition Height="22" />
         </Grid.RowDefinitions>
         <TabControl Grid.Row="1">
             <TabItem Header="Spell Info">
                 <local:SpellViewer DataContext="{StaticResource spellCollections}" />
             </TabItem>
             <TabItem Header="SpellProcEvent">
-                <local:SpellProcConstructor DataContext="{StaticResource spellCollections}" />
+                <local:SpellProcConstructor x:Name="spellProcConstructor" DataContext="{StaticResource spellCollections}" />
             </TabItem>
             <TabItem Header="SqlData">
                 <local:SqlData />
-            </TabItem>
-            <TabItem Header="VehicleData">
-                <local:VehicleViewer />
             </TabItem>
         </TabControl>
     </Grid>

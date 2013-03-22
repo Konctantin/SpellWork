@@ -7,6 +7,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sc="clr-namespace:SpellWork.Converters"
              xmlns:enums="clr-namespace:SpellWork.Enums"
+             x:Name="spellProcConstructor"
              d:DesignHeight="561"
              d:DesignWidth="765"
              mc:Ignorable="d">
@@ -24,7 +25,8 @@
             <RowDefinition Height="116"/>
             <RowDefinition Height="27" />
             <RowDefinition />
-            <RowDefinition Height="150" />
+            <RowDefinition Height="120" />
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
 
         <local:SpellViewer Grid.Row="2" x:Name="spellViewer"
@@ -84,7 +86,7 @@
             </ListView.View>
         </ListView>
         <GridSplitter Grid.Row="2"
-                      Grid.RowSpan="3"
+                      Grid.RowSpan="4"
                       Grid.Column="1"
                       Width="5"
                       HorizontalAlignment="Left" />
@@ -110,23 +112,58 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <local:FlagsPresenter Grid.Column="1" DataSource="{x:Type enums:ProcFlagsEx}" Header="Proc Flags Ex"/>
-        <local:FlagsPresenter Grid.Column="1" DataSource="{x:Type enums:ProcFlags}" Grid.Row="1" Header="Proc Flags"/>
-        <local:FlagsPresenter Grid.Row="1"    DataSource="{x:Type enums:SpellSchoolMask}" Header="Spell School"/>
+        
+        <local:FlagsPresenter Grid.Column="1" 
+                              DataSource="{x:Type enums:ProcFlagsEx}" Header="Proc Flags Ex"
+                              Value="{Binding ElementName=spellProcConstructor, Path=SpellProc.ProcEx, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <local:FlagsPresenter Grid.Column="1" 
+                              DataSource="{x:Type enums:ProcFlags}" Grid.Row="1" Header="Proc Flags"
+                              Value="{Binding ElementName=spellProcConstructor, Path=SpellProc.ProcFlags, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <local:FlagsPresenter Grid.Row="1"    
+                              DataSource="{x:Type enums:SpellSchoolMask}" Header="Spell School"
+                              Value="{Binding ElementName=spellProcConstructor, Path=SpellProc.SchoolMask, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="5,3,0,0" Text="PPM Rate:" Width="100"/>
-                <TextBox Text="{Binding Path=SpellProc.PpmRate}" Width="100" TextAlignment="Right"/>
+                <TextBox Text="{Binding ElementName=spellProcConstructor, Path=SpellProc.PpmRate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="100" TextAlignment="Right"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="5,3,0,0" Text="Custom Chance:" Width="100"/>
-                <TextBox Text="{Binding Path=SpellProc.PpmRate}" Width="100" TextAlignment="Right"/>
+                <TextBox Text="{Binding ElementName=spellProcConstructor, Path=SpellProc.CustomChance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="100" TextAlignment="Right"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="5,3,0,0" Text="Cooldown:" Width="100"/>
-                <TextBox Text="{Binding Path=SpellProc.PpmRate}" Width="100" TextAlignment="Right"/>
+                <TextBox Text="{Binding ElementName=spellProcConstructor, Path=SpellProc.Cooldown, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="100" TextAlignment="Right"/>
             </StackPanel>
         </StackPanel>
+
+        <StatusBar Grid.Row="5" Grid.ColumnSpan="2">
+            <StackPanel>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}Spell: {0} 0x{1:X4} {2:d} A: 0x{3:X8} 0x{4:X8} 0x{5:X8} B: 0x{6:X8} 0x{7:X8} 0x{8:X8} C: 0x{9:X8} 0x{10:X8} 0x{11:X8} 0x{12:X8} 0x{13:X8} {14:f3} {15:f3} {16}">
+                            <Binding ElementName="spellViewer" Path="SelectedSpell.ID" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SchoolMask" Converter="{sc:EnumToUintConverter}"/>
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SpellFamilyName"/>
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SpellFamilyMaskA[0]" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SpellFamilyMaskA[1]" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SpellFamilyMaskA[2]" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SpellFamilyMaskB[0]" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SpellFamilyMaskB[1]" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SpellFamilyMaskB[2]" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SpellFamilyMaskC[0]" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SpellFamilyMaskC[1]" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.SpellFamilyMaskC[2]" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.ProcFlags" Converter="{sc:EnumToUintConverter}"/>
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.ProcEx" Converter="{sc:EnumToUintConverter}"/>
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.PpmRate" />
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.CustomChance"/>
+                            <Binding ElementName="spellProcConstructor" Path="SpellProc.Cooldown"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+        </StatusBar>
     </Grid>
 </UserControl>

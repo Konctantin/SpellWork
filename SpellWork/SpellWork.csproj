@@ -65,6 +65,7 @@
     <Compile Include="Converters\BooleanToColorConverter.cs" />
     <Compile Include="Converters\BooleanToImageConverter.cs" />
     <Compile Include="Converters\ConverterBase.cs" />
+    <Compile Include="Converters\EnumToUintConverter.cs" />
     <Compile Include="Converters\StringToUintConverter.cs" />
     <Compile Include="DataBase\Sql.cs" />
     <Compile Include="DbcStores.cs" />
@@ -162,9 +163,6 @@
     <Compile Include="Controls\SqlData.xaml.cs">
       <DependentUpon>SqlData.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\VehicleViewer.xaml.cs">
-      <DependentUpon>VehicleViewer.xaml</DependentUpon>
-    </Compile>
     <Page Include="Controls\FlagsPresenter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,10 +202,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SpellViewer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\VehicleViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

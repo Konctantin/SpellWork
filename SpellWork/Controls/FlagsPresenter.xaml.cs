@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SpellWork
 {
@@ -24,27 +14,12 @@ namespace SpellWork
         #region HeaderProperty
 
         public static DependencyProperty HeaderProperty =
-            DependencyProperty.Register("Header", typeof(object), typeof(FlagsPresenter),
-                new PropertyMetadata(null, HeaderPropertyChanged));
+            DependencyProperty.Register("Header", typeof(object), typeof(FlagsPresenter), new PropertyMetadata(null));
 
         public object Header
         {
             get { return GetValue(HeaderProperty); }
             set { SetValue(HeaderProperty, value); }
-        }
-
-        public GroupBox MainGroupBox
-        {
-            get { return groupBox; }
-        }
-
-        private static void HeaderPropertyChanged(DependencyObject dependecyObject, DependencyPropertyChangedEventArgs e)
-        {
-            var flagsPresenter = dependecyObject as FlagsPresenter;
-            if (flagsPresenter != null && e.NewValue != e.OldValue)
-            {
-                flagsPresenter.MainGroupBox.Header = e.NewValue;
-            }
         }
 
         #endregion
