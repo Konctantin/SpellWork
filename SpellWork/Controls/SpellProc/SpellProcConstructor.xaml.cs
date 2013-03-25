@@ -54,18 +54,17 @@ namespace SpellWork
             var spells = from Spell in DBC.Spell.Records
                          
                          join sk in DBC.SkillLineAbility.Records on Spell.ID equals sk.SpellId into temp1
-                         from Skill in temp1.DefaultIfEmpty()
-                                                              // stupid exception
-                         join skl in DBC.SkillLine.Records 
-                            on (Skill != null ? Skill : new SkillLineAbilityEntry()).SkillId equals skl.ID into temp2
-                         from SkillLine in temp2.DefaultIfEmpty()
+                         from Skill in temp1.NewIfEmpty()
+
+                         join skl in DBC.SkillLine.Records on Skill.SkillId equals skl.ID into temp2
+                         from SkillLine in temp2.NewIfEmpty()
                          
                          where Spell.SpellFamilyName == spellFamilyName
                          select new
                          {
                              Spell,
                              // stupid exception
-                             (Skill != null ? Skill : new SkillLineAbilityEntry()).SkillId,
+                             Skill.SkillId,
                              SkillLine
                          };
 
