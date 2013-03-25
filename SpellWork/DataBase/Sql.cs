@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using MySql.Data.MySqlClient;
+using SpellWork.Properties;
 
 namespace SpellWork.DataBase
 {
@@ -20,11 +21,16 @@ namespace SpellWork.DataBase
 
             try
             {
-                connection = new MySqlConnection(string.Format(
+                var connectionString = string.Format(
                     "Server={0};Port={1};Uid={2};Pwd={3};Database={4};character set=utf8;Connection Timeout=10",
-                    "localhost", 3306, "root", "mangos", "mangos")
+                    Settings.Default.Host,
+                    Settings.Default.Port,
+                    Settings.Default.UserName,
+                    Settings.Default.Password,
+                    Settings.Default.DataBase
                     );
 
+                connection  = new MySqlConnection(connectionString);
                 dataAdapter = new MySqlDataAdapter(SelectQuery, connection);
                 ConfigureDataAdapter();
 

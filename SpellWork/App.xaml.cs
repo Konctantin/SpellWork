@@ -30,7 +30,6 @@ namespace SpellWork
             {
                 //var sw = new Stopwatch();
                 //sw.Start();
-                //SpellWork.DataBase.Sql.Load();
                 LoadSpells();
                 //sw.Stop();
                 //MessageBox.Show(sw.ElapsedMilliseconds.ToString());
@@ -60,20 +59,20 @@ namespace SpellWork
             if (!File.Exists(fileName))
                 throw new FileNotFoundException(fileName);
 
-            var tmp = new DBCStorage<T>();
             var bytes = File.ReadAllBytes(fileName);
             using (var ms = new MemoryStream(bytes))
             {
                 try
                 {
+                    var tmp = new DBCStorage<T>();
                     tmp.Load(ms);
+                    return tmp;
                 }
                 catch (Exception ex)
                 {
                     throw new Exception("Can't load " + fileName, ex);
                 }
             }
-            return tmp;
         }
 
         public void LoadSpells()

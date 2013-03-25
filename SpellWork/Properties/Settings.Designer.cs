@@ -25,64 +25,6 @@ namespace SpellWork.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Aura Type")]
-        public string AuraTypeFilter {
-            get {
-                return ((string)(this["AuraTypeFilter"]));
-            }
-            set {
-                this["AuraTypeFilter"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public object SpellFamilyNameFilter {
-            get {
-                return ((object)(this["SpellFamilyNameFilter"]));
-            }
-            set {
-                this["SpellFamilyNameFilter"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public object SpellEffectFilter {
-            get {
-                return ((object)(this["SpellEffectFilter"]));
-            }
-            set {
-                this["SpellEffectFilter"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NO_TARGET")]
-        public global::SpellWork.Enums.Targets TargerAFilter {
-            get {
-                return ((global::SpellWork.Enums.Targets)(this["TargerAFilter"]));
-            }
-            set {
-                this["TargerAFilter"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NO_TARGET")]
-        public global::SpellWork.Enums.Targets TargetBFilter {
-            get {
-                return ((global::SpellWork.Enums.Targets)(this["TargetBFilter"]));
-            }
-            set {
-                this["TargetBFilter"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SpellNameFilter {
             get {
@@ -102,6 +44,66 @@ namespace SpellWork.Properties {
             }
             set {
                 this["SpellListWidht"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mangos")]
+        public string DataBase {
+            get {
+                return ((string)(this["DataBase"]));
+            }
+            set {
+                this["DataBase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3306")]
+        public string Port {
+            get {
+                return ((string)(this["Port"]));
+            }
+            set {
+                this["Port"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("root")]
+        public string UserName {
+            get {
+                return ((string)(this["UserName"]));
+            }
+            set {
+                this["UserName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mangos")]
+        public string Password {
+            get {
+                return ((string)(this["Password"]));
+            }
+            set {
+                this["Password"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
+        public string Host {
+            get {
+                return ((string)(this["Host"]));
+            }
+            set {
+                this["Host"] = value;
             }
         }
     }

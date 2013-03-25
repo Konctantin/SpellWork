@@ -2,26 +2,26 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SpellWork.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="AuraTypeFilter" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Aura Type</Value>
-    </Setting>
-    <Setting Name="SpellFamilyNameFilter" Type="System.Object" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="SpellEffectFilter" Type="System.Object" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="TargerAFilter" Type="SpellWork.Enums.Targets" Scope="User">
-      <Value Profile="(Default)">NO_TARGET</Value>
-    </Setting>
-    <Setting Name="TargetBFilter" Type="SpellWork.Enums.Targets" Scope="User">
-      <Value Profile="(Default)">NO_TARGET</Value>
-    </Setting>
     <Setting Name="SpellNameFilter" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SpellListWidht" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">350</Value>
+    </Setting>
+    <Setting Name="DataBase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mangos</Value>
+    </Setting>
+    <Setting Name="Port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3306</Value>
+    </Setting>
+    <Setting Name="UserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mangos</Value>
+    </Setting>
+    <Setting Name="Host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
     </Setting>
   </Settings>
 </SettingsFile>
