@@ -59,10 +59,8 @@ namespace SpellWork.FlowDocumentExtension
                     }
                 }
             }
-
             return false;
         }
-
 
         public static void UnFixupDataContext(DependencyObject dp)
         {
@@ -84,14 +82,14 @@ namespace SpellWork.FlowDocumentExtension
                 return new Paragraph((Inline)data);
             else if (data is BindingBase)
             {
-                var run = new BindableRun();
+                var run = new Run();
 
                 if (dataContext is BindingBase)
-                    run.SetBinding(BindableRun.DataContextProperty, (BindingBase)dataContext);
+                    run.SetBinding(Run.DataContextProperty, (BindingBase)dataContext);
                 else
                     run.DataContext = dataContext;
 
-                run.SetBinding(BindableRun.BoundTextProperty, (BindingBase)data);
+                run.SetBinding(Run.TextProperty, (BindingBase)data);
                 return new Paragraph(run);
             }
             else

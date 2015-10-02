@@ -84,7 +84,7 @@
                     </Span>
                 </Paragraph>
                 
-                <fd:ItemsContent ItemsSource="{Binding AttributesList}" >
+                <fd:ItemsContent ItemsSource="{Binding AttributesList}">
                     <fd:ItemsContent.ItemsPanel>
                         <DataTemplate>
                             <fd:Fragment>
@@ -114,20 +114,20 @@
                     <fd:ItemsContent.ItemTemplate>
                         <DataTemplate>
                             <fd:Fragment>
-                                <TableRow >
+                                <TableRow>
                                     <TableCell Padding="7,0" BorderBrush="Green" BorderThickness="1">
                                         <Paragraph FontWeight="Bold" Foreground="#FF007EFF">
-                                            <fd:BindableRun BoundText="{Binding Item1}" />
+                                            <Run Text="{Binding Item1, Mode=OneWay}" />
                                         </Paragraph>
                                     </TableCell>
                                     <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                         <Paragraph>
-                                            <fd:BindableRun BoundText="{Binding Item2, StringFormat=0x{0:X8}}"/>
+                                            <Run Text="{Binding Item2, Mode=OneWay, StringFormat=0x{0:X8}}"/>
                                         </Paragraph>
                                     </TableCell>
                                     <TableCell BorderBrush="Green" BorderThickness="1" Padding="7,0">
                                         <Paragraph>
-                                            <fd:BindableRun BoundText="{Binding Item3}"/>
+                                            <Run Text="{Binding Item3, Mode=OneWay}" />
                                         </Paragraph>
                                     </TableCell>
                                 </TableRow>

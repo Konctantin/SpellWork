@@ -67,8 +67,8 @@ namespace SpellWork.Dbc
                 if (RangeIndex == 0 || !DBC.SpellRange.ContainsKey(RangeIndex))
                     return String.Empty;
 
-                SpellRangeEntry range = DBC.SpellRange[RangeIndex];
-                StringBuilder sb = new StringBuilder(128);
+                var range = DBC.SpellRange[RangeIndex];
+                var sb = new StringBuilder(128);
                 sb.AppendFormat("SpellRange: (Id {0}) \"{1}\":\r\n", range.ID, range.Description1);
                 sb.AppendFormat("    MinRange = {0}, MinRangeFriendly = {1}\r\n", range.MinRange, range.MinRangeFriendly);
                 sb.AppendFormat("    MaxRange = {0}, MaxRangeFriendly = {1}\r\n", range.MaxRange, range.MaxRangeFriendly);

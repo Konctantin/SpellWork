@@ -53,7 +53,7 @@ namespace SpellWork
 
                         checkBox.Tag = enumValue;
 
-                        checkBox.Checked   += (o, r) =>
+                        checkBox.Checked += (o, r) =>
                         {
                             var val = (uint)flagsPresenter.GetValue(ValueProperty);
                             var flagValue = (uint)(o as CheckBox).Tag;

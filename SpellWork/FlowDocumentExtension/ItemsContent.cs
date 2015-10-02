@@ -61,9 +61,7 @@ namespace SpellWork.FlowDocumentExtension
                     if (panel == null)
                     {
                         if (itemsPanel == null)
-                        {
                             panel = this;
-                        }
                         else
                         {
                             var p = Helpers.LoadDataTemplate(itemsPanel);
@@ -85,20 +83,13 @@ namespace SpellWork.FlowDocumentExtension
                     Helpers.UnFixupDataContext(element);
 
                     if (panel is Section)
-                    {
                         ((Section)panel).Blocks.Add(Helpers.ConvertToBlock(data, element));
-                    }
                     else if (panel is TableRowGroup)
-                    {
                         ((TableRowGroup)panel).Rows.Add((TableRow)element);
-                    }
                     else
-                    {
                         throw new Exception(string.Format(
                             "Don't know how to add an instance of {0} to an instance of {1}",
-                            element.GetType(), panel.GetType()
-                            ));
-                    }
+                            element.GetType(), panel.GetType()));
                 }
             }
         }

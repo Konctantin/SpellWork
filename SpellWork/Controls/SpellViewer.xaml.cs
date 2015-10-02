@@ -77,11 +77,11 @@ namespace SpellWork
                             : -1;
                     };
 
-                    var auraType = getValue(cbAuraType);
+                    var auraType    = getValue(cbAuraType);
                     var spellFamily = getValue(cbSpellFamilyName);
                     var spellEffect = getValue(cbSpellEffect);
-                    var targetA = getValue(cbTargetA);
-                    var targetB = getValue(cbTargetB);
+                    var targetA     = getValue(cbTargetA);
+                    var targetB     = getValue(cbTargetB);
 
                     // disable filter
                     if (!hasSpellNameOrId && !hasSpellIcon && !hasSpellAttribute
@@ -105,13 +105,13 @@ namespace SpellWork
                                     from spellClassOptionEntry in _sco.DefaultIfEmpty()
 
                                     where (spellId == 0 || spell.ID == spellId)
-                                        && (!hasSpellNameOrId || spell.SpellName.IndexOf(tbSpellName.Text, StringComparison.CurrentCultureIgnoreCase) > -1)
+                                        && (!hasSpellNameOrId || spellId > 0 || spell.SpellName.IndexOf(tbSpellName.Text, StringComparison.CurrentCultureIgnoreCase) > -1)
 
                                         && (!hasSpellIcon || spell.ActiveIconID == iconId)
 
                                         && (!hasSpellAttribute || (
-                                            ((spell.m_Attributes & attrib)    != 0) ||
-                                            ((spell.m_AttributesEx & attrib)  != 0) ||
+                                            ((spell.m_Attributes    & attrib) != 0) ||
+                                            ((spell.m_AttributesEx  & attrib) != 0) ||
                                             ((spell.m_AttributesEx2 & attrib) != 0) ||
                                             ((spell.m_AttributesEx3 & attrib) != 0) ||
                                             ((spell.m_AttributesEx4 & attrib) != 0) ||
@@ -123,10 +123,10 @@ namespace SpellWork
 
                                         && (spellFamily == -1 || (spellClassOptionEntry != null && spellClassOptionEntry.SpellFamilyName == spellFamily))
 
-                                        && (spellEffect == -1 || (spellEffectEntry != null && spellEffectEntry.Effect == spellEffect))
-                                        && (auraType == -1 || (spellEffectEntry != null && spellEffectEntry.EffectApplyAuraName == auraType))
-                                        && (targetA == -1 || (spellEffectEntry != null && spellEffectEntry.EffectImplicitTargetA == targetA))
-                                        && (targetB == -1 || (spellEffectEntry != null && spellEffectEntry.EffectImplicitTargetB == targetB))
+                                        && (spellEffect == -1 || (spellEffectEntry != null && spellEffectEntry.Effect                == spellEffect))
+                                        && (auraType    == -1 || (spellEffectEntry != null && spellEffectEntry.EffectApplyAuraName   == auraType   ))
+                                        && (targetA     == -1 || (spellEffectEntry != null && spellEffectEntry.EffectImplicitTargetA == targetA    ))
+                                        && (targetB     == -1 || (spellEffectEntry != null && spellEffectEntry.EffectImplicitTargetB == targetB    ))
 
                                     #warning todo : implement additional filter
                                     //&& (!use1val      || spell.CreateFilter(field1, advVal1, field1ct))

@@ -26,14 +26,17 @@ namespace SpellWork.Dbc
 
         public override string ToString()
         {
+            if (Id == 0) return "";
+
             return string.Format(
-                "Family ({0}){1}, flag 0x{2:X8} {3:X8} {4:X8}\r\n"+
-                "\tModal next spell: {5}\r\n"+
+                "Family ({0}){1}, flag 0x{2:X8} {3:X8} {4:X8}\r\n" +
+                "\tModal next spell: {5}\r\n" +
                 "\tAura ToolTip: {6}",
-                SpellFamilyName, (SpellFamilyNames)SpellFamilyName, 
-                SpellFamilyFlags[0], SpellFamilyFlags[1], SpellFamilyFlags[2], 
+                SpellFamilyName, (SpellFamilyNames)SpellFamilyName,
+                SpellFamilyFlags[0], SpellFamilyFlags[1], SpellFamilyFlags[2],
                 ModalNextSpell, Description
                 );
+
         }
     };
 
