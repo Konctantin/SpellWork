@@ -12,6 +12,5 @@ namespace SpellWork.Dbc
         [StoragePresence(StoragePresenceOption.Include, ArraySize = 4)]
         public uint[] SpellFamilyFlags;
         public uint SpellFamilyName;
-        public string _Description;
     };
 }
