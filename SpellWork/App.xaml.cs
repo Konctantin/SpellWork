@@ -31,8 +31,8 @@ namespace SpellWork
             }
             catch (Exception ex)
             {
-                var innerMessage = ex.InnerException == null 
-                    ? string.Empty : 
+                var innerMessage = ex.InnerException == null
+                    ? string.Empty :
                     ex.InnerException.Message;
 
                 MessageBox.Show(
@@ -100,22 +100,6 @@ namespace SpellWork
             DBC.ItemClass                       = LoadDBC<ItemClassEntry>();
             DBC.SpellShapeshiftForm             = LoadDBC<SpellShapeshiftFormEntry>();
             DBC.SpellDispelType                 = LoadDBC<SpellDispelTypeEntry>();
-
-
-            // this is to speedup spelleffect lookups
-            foreach (SpellEffectEntry value in DBC.SpellEffect)
-            {
-                if (DBC.SpellEffects.ContainsKey(value.EffectSpellId))
-                {
-                    DBC.SpellEffects[value.EffectSpellId].Add(value.EffectIndex, value);
-                }
-                else
-                {
-                    Dictionary<uint, SpellEffectEntry> temp = new Dictionary<uint, SpellEffectEntry>(3);
-                    DBC.SpellEffects.Add(value.EffectSpellId, temp);
-                    DBC.SpellEffects[value.EffectSpellId].Add(value.EffectIndex, value);
-                }
-            }
         }
     }
 }

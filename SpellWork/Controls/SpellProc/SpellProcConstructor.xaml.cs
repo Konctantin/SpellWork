@@ -17,7 +17,7 @@ namespace SpellWork
     {
         #region Dependecy Property
 
-        public static readonly DependencyProperty SpellProcProperty = 
+        public static readonly DependencyProperty SpellProcProperty =
             DependencyProperty.Register("SpellProc", typeof(SpellProcEntry), typeof(SpellProcConstructor),
             new PropertyMetadata(new SpellProcEntry(), SpellProcPropertyChanged));
 
@@ -51,85 +51,85 @@ namespace SpellWork
             // because underlying type int
             var spellFamilyName = (int)((KeyValuePair<object, object>)cbFamilyName.SelectedValue).Key;
 
-            var spells = from Spell in DBC.Spell.Records
+//            var spells = from Spell in DBC.Spell.Records
 
-                         join sk in DBC.SkillLineAbility.Records on Spell.ID equals sk.SpellId into temp1
-                         from Skill in temp1.NewIfEmpty()
+//                         join sk in DBC.SkillLineAbility.Records on Spell.ID equals sk.SpellId into temp1
+//                         from Skill in temp1.NewIfEmpty()
 
-                         join skl in DBC.SkillLine.Records on Skill.SkillId equals skl.ID into temp2
-                         from SkillLine in temp2.NewIfEmpty()
+//                         join skl in DBC.SkillLine.Records on Skill.SkillId equals skl.ID into temp2
+//                         from SkillLine in temp2.NewIfEmpty()
 
-                         where Spell.SpellFamilyName == spellFamilyName
-                         select new
-                         {
-                             Spell,
-                             // stupid exception
-                             Skill.SkillId,
-                             SkillLine
-                         };
+//                         where Spell.SpellFamilyName == spellFamilyName
+//                         select new
+//                         {
+//                             Spell,
+//                             // stupid exception
+//                             Skill.SkillId,
+//                             SkillLine
+//                         };
 
-            TreeRecords.Clear();
+//            TreeRecords.Clear();
 
-            if (cbFamilyName.SelectedIndex > 1)
-            {
-                for (int i = 0; i < 96; i++)
-                {
-                    uint[] mask = new uint[3];
+//            if (cbFamilyName.SelectedIndex > 1)
+//            {
+//                for (int i = 0; i < 96; i++)
+//                {
+//                    uint[] mask = new uint[3];
 
-                    if (i < 32)
-                        mask[0] = 1U << i;
-                    else if (i < 64)
-                        mask[1] = 1U << (i - 32);
-                    else
-                        mask[2] = 1U << (i - 64);
+//                    if (i < 32)
+//                        mask[0] = 1U << i;
+//                    else if (i < 64)
+//                        mask[1] = 1U << (i - 32);
+//                    else
+//                        mask[2] = 1U << (i - 64);
 
-                    var rec = new SpellFamilyRecord(mask[2], mask[1], mask[0]);
-                    TreeRecords.Add(rec);
-#warning need implement here
-                }
+//                    var rec = new SpellFamilyRecord(mask[2], mask[1], mask[0]);
+//                    TreeRecords.Add(rec);
+//#warning need implement here
+//                }
 
-                foreach (var elem in spells)
-                {
-                    var spell = elem.Spell;
-                    var IsSkill = elem.SkillId != 0;
+//                foreach (var elem in spells)
+//                {
+//                    var spell = elem.Spell;
+//                    var IsSkill = elem.SkillId != 0;
 
-                    var name = new StringBuilder();
-                    name.Append(spell.SpellName);
-                    if (IsSkill)
-                    {
-                        name.AppendFormat(" Skill: ({0}) {1} ", elem.SkillId, elem.SkillLine.Name);
-                    }
+//                    var name = new StringBuilder();
+//                    name.Append(spell.SpellName);
+//                    if (IsSkill)
+//                    {
+//                        name.AppendFormat(" Skill: ({0}) {1} ", elem.SkillId, elem.SkillLine.Name);
+//                    }
 
-                    int index = 0;
-                    foreach (var node in TreeRecords)
-                    {
-                        var mask = new uint[3];
+//                    int index = 0;
+//                    foreach (var node in TreeRecords)
+//                    {
+//                        var mask = new uint[3];
 
-                        if (index < 32)
-                            mask[0] = 1U << index;
-                        else if (index < 64)
-                            mask[1] = 1U << (index - 32);
-                        else
-                            mask[2] = 1U << (index - 64);
+//                        if (index < 32)
+//                            mask[0] = 1U << index;
+//                        else if (index < 64)
+//                            mask[1] = 1U << (index - 32);
+//                        else
+//                            mask[2] = 1U << (index - 64);
 
-                        var flags = spell.SpellClassOptions.SpellFamilyFlags;
+//                        var flags = spell.SpellClassOptions.SpellFamilyFlags;
 
-                        int effindex = 0;
-                        foreach (var eff in spell.SpellEffectList)
-                        {
-                            for (int i = 0; i < 3; ++i)
-                            {
-                                if ((eff.EffectSpellClassMaskA[i] & mask[i]) != 0)
-                                {
-                                    node.AddSpellInfo(IsSkill, spell.ID, effindex++, name.ToString());
-                                }
-                            }
-                        }
+//                        int effindex = 0;
+//                        foreach (var eff in spell.SpellEffectList)
+//                        {
+//                            for (int i = 0; i < 3; ++i)
+//                            {
+//                                if ((eff.EffectSpellClassMaskA[i] & mask[i]) != 0)
+//                                {
+//                                    node.AddSpellInfo(IsSkill, spell.ID, effindex++, name.ToString());
+//                                }
+//                            }
+//                        }
 
-                        ++index;
-                    }
-                }
-            }
+//                        ++index;
+//                    }
+//                }
+//            }
         }
 
         void CheckBox_Checked_1(object sender, RoutedEventArgs e)
@@ -165,39 +165,39 @@ namespace SpellWork
 
             SetValue(SpellProcProperty, spellProc);
 
-            if (spellViewer.SelectedSpell.SpellClassOptions == null)
-                return;
+            //if (spellViewer.SelectedSpell.SpellClassOptions == null)
+            //    return;
 
-            var query = (from spell in DBC.Spell.Values
-                         join pco in DBC.SpellClassOptions.Records on spell.SpellClassOptionsId equals pco.Id into _pco
-                         from spellclassOption in _pco.NewIfEmpty()
+            //var query = (from spell in DBC.Spell.Values
+            //             join pco in DBC.SpellClassOptions.Records on spell.SpellClassOptionsId equals pco.Id into _pco
+            //             from spellclassOption in _pco.NewIfEmpty()
 
-                         join sk in DBC.SkillLineAbility.Records on spell.ID equals sk.SpellId into temp1
-                         from Skill in temp1.NewIfEmpty()
+            //             join sk in DBC.SkillLineAbility.Records on spell.ID equals sk.SpellId into temp1
+            //             from Skill in temp1.NewIfEmpty()
 
-                         where spellclassOption.SpellFamilyName == spellViewer.SelectedSpell.SpellClassOptions.SpellFamilyName
+            //             where spellclassOption.SpellFamilyName == spellViewer.SelectedSpell.SpellClassOptions.SpellFamilyName
 
-                         //join skl in DBC.SkillLine on Skill.Value.SkillId equals skl.Value.ID into temp2
-                         //from SkillLine in temp2.DefaultIfEmpty()
-                         orderby Skill.ID descending
-                         select spell).ToList();
+            //             //join skl in DBC.SkillLine on Skill.Value.SkillId equals skl.Value.ID into temp2
+            //             //from SkillLine in temp2.DefaultIfEmpty()
+            //             orderby Skill.ID descending
+            //             select spell).ToList();
 
-            ProcSpells.Clear();
-            foreach (var spell in query)
-            {
-                int j = 0;
-                foreach (var eff in spell.SpellEffectList)
-                {
-                    for (int i = 0; i < 3; ++i)
-                    {
-                        if ((eff.EffectSpellClassMaskA[i] & mask[j, i]) != 0)
-                        {
-                            ProcSpells.Add(spell);
-                        }
-                    }
-                    ++j;
-                }
-            }
+            //ProcSpells.Clear();
+            //foreach (var spell in query)
+            //{
+            //    int j = 0;
+            //    foreach (var eff in spell.SpellEffectList)
+            //    {
+            //        for (int i = 0; i < 3; ++i)
+            //        {
+            //            if ((eff.EffectSpellClassMaskA[i] & mask[j, i]) != 0)
+            //            {
+            //                ProcSpells.Add(spell);
+            //            }
+            //        }
+            //        ++j;
+            //    }
+            //}
         }
     }
 }
