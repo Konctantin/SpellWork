@@ -6,7 +6,7 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public partial class SpellEntry
     {
-        public uint   ID;                     // 0
+        public uint   mID;                     // 0
         public string Name_lang;              // 1
         public string NameSubtext_lang;       // 2
         public string Description_lang;       // 3

@@ -2,6 +2,7 @@
 {
     public partial class SpellEntry
     {
-        // empty
+        public uint ID { get { return mID; } }
+        public string SpellName { get { return Name_lang; } }
     }
 }
