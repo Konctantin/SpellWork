@@ -112,7 +112,6 @@
     <Compile Include="Enums\ItemSubClassArmorMask.cs" />
     <Compile Include="Enums\ItemSubClassMiscMask.cs" />
     <Compile Include="Enums\ItemSubClassWeaponMask.cs" />
-    <Compile Include="Enums\LocalesDBC.cs" />
     <Compile Include="Enums\Mechanics.cs" />
     <Compile Include="Enums\Powers.cs" />
     <Compile Include="Enums\ProcFlags.cs" />

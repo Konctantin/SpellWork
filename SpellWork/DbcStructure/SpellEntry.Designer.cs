@@ -144,24 +144,7 @@ namespace SpellWork.Dbc
         {
             get
             {
-                if (m_Attributes != 0)
-                    yield return new Tuple<string, uint, object>("Attributes", m_Attributes, (SpellAtributes)m_Attributes);
-                if (m_AttributesEx != 0)
-                    yield return new Tuple<string, uint, object>("AttributesEx1", m_AttributesEx, (SpellAtributeEx)m_AttributesEx);
-                if (m_AttributesEx2 != 0)
-                    yield return new Tuple<string, uint, object>("AttributesEx2", m_AttributesEx2, (SpellAtributeEx2)m_AttributesEx2);
-                if (m_AttributesEx3 != 0)
-                    yield return new Tuple<string, uint, object>("AttributesEx3", m_AttributesEx3, (SpellAtributeEx3)m_AttributesEx3);
-                if (m_AttributesEx4 != 0)
-                    yield return new Tuple<string, uint, object>("AttributesEx4", m_AttributesEx4, (SpellAtributeEx4)m_AttributesEx4);
-                if (m_AttributesEx5 != 0)
-                    yield return new Tuple<string, uint, object>("AttributesEx5", m_AttributesEx5, (SpellAtributeEx5)m_AttributesEx5);
-                if (m_AttributesEx6 != 0)
-                    yield return new Tuple<string, uint, object>("AttributesEx6", m_AttributesEx6, (SpellAtributeEx6)m_AttributesEx6);
-                if (m_AttributesEx7 != 0)
-                    yield return new Tuple<string, uint, object>("AttributesEx7", m_AttributesEx7, (SpellAtributeEx7)m_AttributesEx7);
-                if (m_AttributesEx8 != 0)
-                    yield return new Tuple<string, uint, object>("AttributesEx8", m_AttributesEx8, (SpellAtributeEx8)m_AttributesEx8);
+                yield break;
             }
         }
 

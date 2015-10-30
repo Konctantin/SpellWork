@@ -116,8 +116,6 @@ namespace SpellWork
                     DBC.SpellEffects[value.EffectSpellId].Add(value.EffectIndex, value);
                 }
             }
-
-            DBC.Locale = Enums.LocalesDBC.ruRU;
         }
     }
 }

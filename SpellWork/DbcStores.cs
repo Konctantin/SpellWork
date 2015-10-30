@@ -1,88 +1,49 @@
 ﻿using System.Collections.Generic;
 using DBFilesClient.NET;
 using SpellWork.Dbc;
-using SpellWork.Enums;
 
 namespace SpellWork
 {
     public static class DBC
     {
-        public const string VERSION = "SpellWork 4.3.4 (15595)";
+        public const string VERSION = "SpellWork 6.2.2 (20574)";
         public const string DBC_PATH = "dbc";
 
         public const int MAX_EFFECT_INDEX = 3;
         public const int SPELL_ENTRY_FOR_DETECT_LOCALE = 1;
 
-        public static DBCStorage<CurrencyTypesEntry>                    CurrencyTypes               { get; set; }
-        public static DBCStorage<SpellEntry>                            Spell                       { get; set; }
-        public static DBCStorage<SpellEffectEntry>                      SpellEffect                 { get; set; }
-        public static DBCStorage<SpellTargetRestrictionsEntry>          SpellTargetRestrictions     { get; set; }
-        public static DBCStorage<SpellAuraRestrictionsEntry>            SpellAuraRestrictions       { get; set; }
-        public static DBCStorage<SpellCooldownsEntry>                   SpellCooldowns              { get; set; }
-        public static DBCStorage<SpellCategoriesEntry>                  SpellCategories             { get; set; }
-        public static DBCStorage<SpellShapeshiftEntry>                  SpellShapeshift             { get; set; }
-        public static DBCStorage<SpellAuraOptionsEntry>                 SpellAuraOptions            { get; set; }
-        public static DBCStorage<SpellLevelsEntry>                      SpellLevels                 { get; set; }
-        public static DBCStorage<SpellClassOptionsEntry>                SpellClassOptions           { get; set; }
-        public static DBCStorage<SpellCastingRequirementsEntry>         SpellCastingRequirements    { get; set; }
-        public static DBCStorage<SpellPowerEntry>                       SpellPower                  { get; set; }
-        public static DBCStorage<SpellInterruptsEntry>                  SpellInterrupts             { get; set; }
-        public static DBCStorage<SpellEquippedItemsEntry>               SpellEquippedItems          { get; set; }
-        public static DBCStorage<SpellRadiusEntry>                      SpellRadius                 { get; set; }
-        public static DBCStorage<SpellCastTimesEntry>                   SpellCastTimes              { get; set; }
-        public static DBCStorage<SpellDifficultyEntry>                  SpellDifficulty             { get; set; }
-        public static DBCStorage<SpellRangeEntry>                       SpellRange                  { get; set; }
-        public static DBCStorage<SpellReagentsEntry>                    SpellReagents               { get; set; }
-        public static DBCStorage<SpellDurationEntry>                    SpellDuration               { get; set; }
-        public static DBCStorage<SkillLineAbilityEntry>                 SkillLineAbility            { get; set; }
-        public static DBCStorage<SkillLineEntry>                        SkillLine                   { get; set; }
-        public static DBCStorage<ScreenEffectEntry>                     ScreenEffect                { get; set; }
-        public static DBCStorage<OverrideSpellDataEntry>                OverrideSpellData           { get; set; }
-        public static DBCStorage<ItemClassEntry>                        ItemClass                   { get; set; }
-        public static DBCStorage<SpellShapeshiftFormEntry>              SpellShapeshiftForm         { get; set; }
-        public static DBCStorage<SpellDispelTypeEntry>                  SpellDispelType             { get; set; }
+        public static DBCStorage<CurrencyTypesEntry>            CurrencyTypes            { get; set; } = new DBCStorage<CurrencyTypesEntry>();
+        public static DBCStorage<SpellEntry>                    Spell                    { get; set; } = new DBCStorage<SpellEntry>();
+        public static DBCStorage<SpellEffectEntry>              SpellEffect              { get; set; } = new DBCStorage<SpellEffectEntry>();
+        public static DBCStorage<SpellTargetRestrictionsEntry>  SpellTargetRestrictions  { get; set; } = new DBCStorage<SpellTargetRestrictionsEntry>();
+        public static DBCStorage<SpellAuraRestrictionsEntry>    SpellAuraRestrictions    { get; set; } = new DBCStorage<SpellAuraRestrictionsEntry>();
+        public static DBCStorage<SpellCooldownsEntry>           SpellCooldowns           { get; set; } = new DBCStorage<SpellCooldownsEntry>();
+        public static DBCStorage<SpellCategoriesEntry>          SpellCategories          { get; set; } = new DBCStorage<SpellCategoriesEntry>();
+        public static DBCStorage<SpellShapeshiftEntry>          SpellShapeshift          { get; set; } = new DBCStorage<SpellShapeshiftEntry>();
+        public static DBCStorage<SpellAuraOptionsEntry>         SpellAuraOptions         { get; set; } = new DBCStorage<SpellAuraOptionsEntry>();
+        public static DBCStorage<SpellLevelsEntry>              SpellLevels              { get; set; } = new DBCStorage<SpellLevelsEntry>();
+        public static DBCStorage<SpellClassOptionsEntry>        SpellClassOptions        { get; set; } = new DBCStorage<SpellClassOptionsEntry>();
+        public static DBCStorage<SpellCastingRequirementsEntry> SpellCastingRequirements { get; set; } = new DBCStorage<SpellCastingRequirementsEntry>();
+        public static DBCStorage<SpellPowerEntry>               SpellPower               { get; set; } = new DBCStorage<SpellPowerEntry>();
+        public static DBCStorage<SpellInterruptsEntry>          SpellInterrupts          { get; set; } = new DBCStorage<SpellInterruptsEntry>();
+        public static DBCStorage<SpellEquippedItemsEntry>       SpellEquippedItems       { get; set; } = new DBCStorage<SpellEquippedItemsEntry>();
+        public static DBCStorage<SpellRadiusEntry>              SpellRadius              { get; set; } = new DBCStorage<SpellRadiusEntry>();
+        public static DBCStorage<SpellCastTimesEntry>           SpellCastTimes           { get; set; } = new DBCStorage<SpellCastTimesEntry>();
+        public static DBCStorage<SpellDifficultyEntry>          SpellDifficulty          { get; set; } = new DBCStorage<SpellDifficultyEntry>();
+        public static DBCStorage<SpellRangeEntry>               SpellRange               { get; set; } = new DBCStorage<SpellRangeEntry>();
+        public static DBCStorage<SpellReagentsEntry>            SpellReagents            { get; set; } = new DBCStorage<SpellReagentsEntry>();
+        public static DBCStorage<SpellDurationEntry>            SpellDuration            { get; set; } = new DBCStorage<SpellDurationEntry>();
+        public static DBCStorage<SkillLineAbilityEntry>         SkillLineAbility         { get; set; } = new DBCStorage<SkillLineAbilityEntry>();
+        public static DBCStorage<SkillLineEntry>                SkillLine                { get; set; } = new DBCStorage<SkillLineEntry>();
+        public static DBCStorage<ScreenEffectEntry>             ScreenEffect             { get; set; } = new DBCStorage<ScreenEffectEntry>();
+        public static DBCStorage<OverrideSpellDataEntry>        OverrideSpellData        { get; set; } = new DBCStorage<OverrideSpellDataEntry>();
+        public static DBCStorage<ItemClassEntry>                ItemClass                { get; set; } = new DBCStorage<ItemClassEntry>();
+        public static DBCStorage<SpellShapeshiftFormEntry>      SpellShapeshiftForm      { get; set; } = new DBCStorage<SpellShapeshiftFormEntry>();
+        public static DBCStorage<SpellDispelTypeEntry>          SpellDispelType          { get; set; } = new DBCStorage<SpellDispelTypeEntry>();
 
-
-        public static Dictionary<uint, Dictionary<uint, SpellEffectEntry>> SpellEffects { get; set; }
-
-        static DBC()
-        {
-            CurrencyTypes               = new DBCStorage<CurrencyTypesEntry>();
-            Spell                       = new DBCStorage<SpellEntry>();
-            SpellEffect                 = new DBCStorage<SpellEffectEntry>();
-            SpellTargetRestrictions     = new DBCStorage<SpellTargetRestrictionsEntry>();
-            SpellAuraRestrictions       = new DBCStorage<SpellAuraRestrictionsEntry>();
-            SpellCooldowns              = new DBCStorage<SpellCooldownsEntry>();
-            SpellCategories             = new DBCStorage<SpellCategoriesEntry>();
-            SpellShapeshift             = new DBCStorage<SpellShapeshiftEntry>();
-            SpellAuraOptions            = new DBCStorage<SpellAuraOptionsEntry>();
-            SpellLevels                 = new DBCStorage<SpellLevelsEntry>();
-            SpellClassOptions           = new DBCStorage<SpellClassOptionsEntry>();
-            SpellCastingRequirements    = new DBCStorage<SpellCastingRequirementsEntry>();
-            SpellPower                  = new DBCStorage<SpellPowerEntry>();
-            SpellInterrupts             = new DBCStorage<SpellInterruptsEntry>();
-            SpellEquippedItems          = new DBCStorage<SpellEquippedItemsEntry>();
-            SpellRadius                 = new DBCStorage<SpellRadiusEntry>();
-            SpellCastTimes              = new DBCStorage<SpellCastTimesEntry>();
-            SpellDifficulty             = new DBCStorage<SpellDifficultyEntry>();
-            SpellRange                  = new DBCStorage<SpellRangeEntry>();
-            SpellReagents               = new DBCStorage<SpellReagentsEntry>();
-            SpellDuration               = new DBCStorage<SpellDurationEntry>();
-            SkillLineAbility            = new DBCStorage<SkillLineAbilityEntry>();
-            SkillLine                   = new DBCStorage<SkillLineEntry>();
-            ScreenEffect                = new DBCStorage<ScreenEffectEntry>();
-            OverrideSpellData           = new DBCStorage<OverrideSpellDataEntry>();
-            ItemClass                   = new DBCStorage<ItemClassEntry>();
-            SpellShapeshiftForm         = new DBCStorage<SpellShapeshiftFormEntry>();
-            SpellDispelType             = new DBCStorage<SpellDispelTypeEntry>();
-
-            SpellEffects                = new Dictionary<uint, Dictionary<uint, SpellEffectEntry>>();
-        }
+        public static Dictionary<uint, Dictionary<uint, SpellEffectEntry>> SpellEffects { get; set; } = new Dictionary<uint, Dictionary<uint, SpellEffectEntry>>();
 
         // DB2? 
         // public static List<ItemEntry> ItemTemplate = new List<ItemEntry>();
-
-        // Locale
-        public static LocalesDBC Locale { get; set; }
     }
 }
