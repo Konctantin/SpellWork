@@ -8,9 +8,7 @@ namespace SpellWork
     {
         public const string VERSION = "SpellWork 6.2.2 (20574)";
         public const string DBC_PATH = "dbc";
-
         public const int MAX_EFFECT_INDEX = 3;
-        public const int SPELL_ENTRY_FOR_DETECT_LOCALE = 1;
 
         public static DBCStorage<CurrencyTypesEntry>            CurrencyTypes            { get; set; } = new DBCStorage<CurrencyTypesEntry>();
         public static DBCStorage<SpellEntry>                    Spell                    { get; set; } = new DBCStorage<SpellEntry>();
