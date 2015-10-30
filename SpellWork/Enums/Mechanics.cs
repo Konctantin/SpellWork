@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SpellWork.Enums
+﻿namespace SpellWork.Enums
 {
     public enum Mechanics
     {
@@ -38,6 +33,7 @@ namespace SpellWork.Enums
         MECHANIC_DISCOVERY          = 28,
         MECHANIC_IMMUNE_SHIELD      = 29,  // Divine (Blessing) Shield/Protection and Ice Block
         MECHANIC_SAPPED             = 30,
-        MECHANIC_ENRAGED            = 31
+        MECHANIC_ENRAGED            = 31,
+        MECHANIC_WOUNDED            = 32,
     };
 }

@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SpellWork.Enums
 {
     [Flags]
     public enum SpellHitType
     {
-        SPELL_HIT_TYPE_UNK1 = 0x00001,
-        SPELL_HIT_TYPE_CRIT = 0x00002,
-        SPELL_HIT_TYPE_UNK3 = 0x00004,
-        SPELL_HIT_TYPE_UNK4 = 0x00008,
-        SPELL_HIT_TYPE_UNK5 = 0x00010,                          // replace caster?
-        SPELL_HIT_TYPE_UNK6 = 0x00020
+        CRIT_DEBUG         = 0x01,
+        CRIT               = 0x02,
+        HIT_DEBUG          = 0x04,
+        SPLIT              = 0x08,
+        VICTIM_IS_ATTACKER = 0x10,
+        ATTACK_TABLE_DEBUG = 0x20,
+        UNK                = 0x40,
+        NO_ATTACKER        = 0x80, // does the same as SPELL_ATTR4_COMBAT_LOG_NO_CASTER
     };
 }

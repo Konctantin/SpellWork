@@ -117,7 +117,6 @@
     <Compile Include="Enums\Powers.cs" />
     <Compile Include="Enums\ProcFlags.cs" />
     <Compile Include="Enums\ProcFlagsEx.cs" />
-    <Compile Include="Enums\ShapeshiftFormMask.cs" />
     <Compile Include="Enums\SpellAtributes.cs" />
     <Compile Include="Enums\SpellCastTargetFlags.cs" />
     <Compile Include="Enums\SpellDmgClass.cs" />
@@ -127,7 +126,6 @@
     <Compile Include="Enums\SpellMissInfo.cs" />
     <Compile Include="Enums\SpellModOp.cs" />
     <Compile Include="Enums\SpellPreventionType.cs" />
-    <Compile Include="Enums\SpellSchoolMask.cs" />
     <Compile Include="Enums\SpellSchools.cs" />
     <Compile Include="Enums\SpellSpecific.cs" />
     <Compile Include="Enums\Targets.cs" />
