@@ -145,7 +145,7 @@ namespace SpellWork.Dbc
             get
             {
                 if (m_Attributes != 0)
-                    yield return new Tuple<string, uint, object>("Attributes", m_Attributes, (SpellAtribute)m_Attributes);
+                    yield return new Tuple<string, uint, object>("Attributes", m_Attributes, (SpellAtributes)m_Attributes);
                 if (m_AttributesEx != 0)
                     yield return new Tuple<string, uint, object>("AttributesEx1", m_AttributesEx, (SpellAtributeEx)m_AttributesEx);
                 if (m_AttributesEx2 != 0)

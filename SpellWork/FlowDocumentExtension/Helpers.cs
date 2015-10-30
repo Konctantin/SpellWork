@@ -106,7 +106,7 @@ namespace SpellWork.FlowDocumentExtension
             var content = dataTemplate.LoadContent();
             if (content is Fragment)
             {
-                return (FrameworkContentElement)((Fragment)content).Content;
+                return ((Fragment)content).Content;
             }
             else if (content is TextBlock)
             {
