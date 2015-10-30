@@ -99,6 +99,7 @@ namespace SpellWork
         public void LoadSpells()
         {
             DBC.Spell                           = LoadDBC<SpellEntry>();
+            DBC.SpellMisc                       = LoadDB2<SpellMiscEntry>();
             DBC.SpellEffect                     = LoadDBC<SpellEffectEntry>();
             DBC.SpellTargetRestrictions         = LoadDBC<SpellTargetRestrictionsEntry>();
             DBC.SpellAuraRestrictions           = LoadDB2<SpellAuraRestrictionsEntry>();

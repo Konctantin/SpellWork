@@ -11,6 +11,7 @@ namespace SpellWork
 
         //public static DBCStorage<CurrencyTypesEntry>            CurrencyTypes            { get; set; } = new DBCStorage<CurrencyTypesEntry>();
         public static DBCStorage<SpellEntry>                    Spell                    { get; set; } = new DBCStorage<SpellEntry>();
+        public static DB2Storage<SpellMiscEntry>                SpellMisc                { get; set; } = new DB2Storage<SpellMiscEntry>();
         public static DBCStorage<SpellEffectEntry>              SpellEffect              { get; set; } = new DBCStorage<SpellEffectEntry>();
         public static DBCStorage<SpellTargetRestrictionsEntry>  SpellTargetRestrictions  { get; set; } = new DBCStorage<SpellTargetRestrictionsEntry>();
         public static DB2Storage<SpellAuraRestrictionsEntry>    SpellAuraRestrictions    { get; set; } = new DB2Storage<SpellAuraRestrictionsEntry>();

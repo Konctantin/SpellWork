@@ -93,6 +93,7 @@
     <Compile Include="DbcStructure\SpellEquippedItemsEntry.cs" />
     <Compile Include="DbcStructure\SpellInterruptsEntry.cs" />
     <Compile Include="DbcStructure\SpellLevelsEntry.cs" />
+    <Compile Include="DbcStructure\SpellMiscEntry.cs" />
     <Compile Include="DbcStructure\SpellPowerEntry.cs" />
     <Compile Include="DbcStructure\SpellRadiusEntry.cs" />
     <Compile Include="DbcStructure\SpellRangeEntry.cs" />
@@ -258,6 +259,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="dbc\SpellLevels.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellMisc.db2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="dbc\SpellPower.db2">
