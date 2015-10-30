@@ -102,7 +102,6 @@
     <Compile Include="DbcStructure\SpellShapeshiftFormEntry.cs" />
     <Compile Include="DbcStructure\SpellTargetRestrictionsEntry.cs" />
     <Compile Include="DbcStructure\SpellTotemsEntry.cs" />
-    <Compile Include="Enums\SpellAtributeEx8.cs" />
     <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="Enums\AuraState.cs" />
     <Compile Include="Enums\AuraType.cs" />
@@ -119,14 +118,7 @@
     <Compile Include="Enums\ProcFlags.cs" />
     <Compile Include="Enums\ProcFlagsEx.cs" />
     <Compile Include="Enums\ShapeshiftFormMask.cs" />
-    <Compile Include="Enums\SpellAtribute.cs" />
-    <Compile Include="Enums\SpellAtributeEx.cs" />
-    <Compile Include="Enums\SpellAtributeEx2.cs" />
-    <Compile Include="Enums\SpellAtributeEx3.cs" />
-    <Compile Include="Enums\SpellAtributeEx4.cs" />
-    <Compile Include="Enums\SpellAtributeEx5.cs" />
-    <Compile Include="Enums\SpellAtributeEx6.cs" />
-    <Compile Include="Enums\SpellAtributeEx7.cs" />
+    <Compile Include="Enums\SpellAtributes.cs" />
     <Compile Include="Enums\SpellCastTargetFlags.cs" />
     <Compile Include="Enums\SpellDmgClass.cs" />
     <Compile Include="Enums\SpellEffects.cs" />
