@@ -1,0 +1,3 @@
+[submodule "DBFilesClient.NET"]
+	path = DBFilesClient.NET
+	url = https://github.com/LordJZ/DBFilesClient.NET.git
