@@ -1,5 +1,5 @@
 ﻿using System.Runtime.InteropServices;
-using DBFilesClient.NET;
+using SpellWork.Enums;
 
 namespace SpellWork.Dbc
 {
@@ -9,9 +9,9 @@ namespace SpellWork.Dbc
     {
         public uint   ID;
         public uint   DifficultyID;
-        public uint   Effect;
+        public SpellEffects Effect;
         public float  EffectAmplitude;
-        public uint   EffectAura;
+        public AuraType EffectAura;
         public uint   EffectAuraPeriod;
         public uint   EffectBasePoints;
         public float  EffectBonusCoefficient;
@@ -32,8 +32,8 @@ namespace SpellWork.Dbc
         public uint   EffectSpellClassMask3;
         public uint   EffectTriggerSpell;
         public float  EffectPosFacing;
-        public uint   ImplicitTarget0;
-        public uint   ImplicitTarget1;
+        public Targets ImplicitTarget0;
+        public Targets ImplicitTarget1;
         public uint   SpellID;
         public uint   EffectIndex;
         public uint   EffectAttributes;
