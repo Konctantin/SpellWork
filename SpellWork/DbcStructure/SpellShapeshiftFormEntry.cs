@@ -6,12 +6,18 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public class SpellShapeshiftFormEntry
     {
-        public int Id;
-        public int Index;
-        public string _name;
-        [StoragePresence(StoragePresenceOption.Include, ArraySize = 18)]
-        public int[] unk;
-
-        public string Name { get { return _name; } }
+        public uint ID;
+        public uint BonusActionBar;
+        public string Name_lang;
+        public uint Flags;
+        public int CreatureType;
+        public uint AttackIconID;
+        public uint CombatRoundTime;
+        [StoragePresence(StoragePresenceOption.Include, ArraySize = 4)]
+        public uint[] CreatureDisplayID;
+        [StoragePresence(StoragePresenceOption.Include, ArraySize = 8)]
+        public uint[] PresetSpellID;
+        public uint MountTypeID;
+        public uint ExitSoundEntriesID;
     }
 }

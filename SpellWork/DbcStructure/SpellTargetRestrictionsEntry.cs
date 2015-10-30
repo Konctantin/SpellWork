@@ -6,12 +6,14 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public class SpellTargetRestrictionsEntry
     {
-        public uint Id;                                           // 0        m_ID
-        public float MaxTargetRadius;
-        public uint MaxAffectedTargets;                           // 152      m_maxTargets
-        public uint MaxTargetLevel;                               // 147      m_maxTargetLevel
-        public uint TargetCreatureType;                           // 18       m_targetCreatureType
-        public uint Targets;                                      // 17       m_targets
+        public uint ID;
+        public uint SpellID;
+        public uint DifficultyID;
+        public float ConeAngle;
+        public float Width;
+        public uint MaxAffectedTargets;
+        public uint MaxTargetLevel;
+        public uint TargetCreatureType;
+        public uint Targets;
     };
-
 }

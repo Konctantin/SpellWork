@@ -10,7 +10,7 @@ namespace SpellWork.Dbc
         // Value 10 also used in SpellInfo.AuraModTypeName
         [StoragePresence(StoragePresenceOption.Include, ArraySize = 10)]
         public uint[] Spells;
-        public uint unk;
+        public uint PlayerActionbarFileDataID;
         public string AltBarStringIndex; // string
     };
 

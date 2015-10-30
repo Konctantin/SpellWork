@@ -5,28 +5,14 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public class SkillLineEntry
     {
-        public uint ID;                                           // 0        m_ID
-        public int CategoryId;                                    // 1        m_categoryID
-        //public uint SkillCostID;                                // 2        m_skillCostsID
-        public string _Name;                                      // 3-18     m_displayName_lang
-        public string _Description;                               // 20-35    m_description_lang
-        public uint SpellIcon;                                    // 37       m_spellIconID
-        public string _AlternateVerb;                             // 38-53    m_alternateVerb_lang
-        public uint CanLink;                                      // 55       m_canLink (prof. with recipes
-
-        public string Name
-        {
-            get { return _Name; }
-        }
-
-        public string Description
-        {
-            get { return _Description; }
-        }
-
-        public string AlternateVerb
-        {
-            get { return _AlternateVerb; }
-        }
+        public uint ID;                   // 0        m_ID
+        public int CategoryID;            // 1        m_categoryID
+        public string DisplayName_lang;   // 2        m_displayName_lang
+        public string Description_lang;   // 3        m_description_lang
+        public uint SpellIconID;          // 4        m_spellIconID
+        public string AlternateVerb_lang; // 5        m_alternateVerb_lang
+        public uint CanLink;              // 6        m_canLink (prof. with recipes)
+        public uint ParentSkillLineID;    // 7
+        public uint Flags;                // 8
     };
 }

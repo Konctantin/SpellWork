@@ -22,5 +22,4 @@ namespace SpellWork.Dbc
             get { return _Name; }
         }
     };
-
 }

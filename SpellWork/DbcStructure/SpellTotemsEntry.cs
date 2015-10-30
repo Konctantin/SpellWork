@@ -7,10 +7,10 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public class SpellTotemsEntry
     {
-        public uint Id;                                           // 0        m_ID
+        public uint Id;
         [StoragePresence(StoragePresenceOption.Include, ArraySize = 2)]
-        public uint[] TotemCategory;                              // 162-163  m_requiredTotemCategoryID
+        public uint[] TotemCategory;
         [StoragePresence(StoragePresenceOption.Include, ArraySize = 2)]
-        public uint[] Totem;                                      // 52-53    m_totem
+        public uint[] Totem;
     };
 }

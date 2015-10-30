@@ -6,7 +6,9 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public class SpellLevelsEntry
     {
-        public uint Id;
+        public uint ID;
+        public uint SpellID;
+        public uint DifficultyID;
         public uint BaseLevel;
         public uint MaxLevel;
         public uint SpellLevel;

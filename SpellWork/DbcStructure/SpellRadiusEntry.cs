@@ -7,8 +7,8 @@ namespace SpellWork.Dbc
     {
         public uint ID;
         public float Radius;
-        public int Zero;
-        public float Radius2;
+        public float RadiusPerLevel;
+        public float RadiusMin;
+        public float RadiusMax;
     };
-
 }

@@ -6,13 +6,13 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public class SpellCastingRequirementsEntry
     {
-        public uint Id;                                           // 0        m_ID
-        public uint FacingCasterFlags;                            // 20       m_facingCasterFlags
-        public uint MinFactionId;                                 // 159      m_minFactionID not used
-        public uint MinReputation;                                // 160      m_minReputation not used
-        public int AreaGroupId;                                   // 164      m_requiredAreaGroupId
-        public uint RequiredAuraVision;                           // 161      m_requiredAuraVision not used
-        public uint RequiresSpellFocus;                           // 19       m_requiresSpellFocus
+        public uint Id;
+        public uint FacingCasterFlags;
+        public uint MinFactionId;
+        public uint MinReputation;
+        public uint AreaGroupId;
+        public uint RequiredAuraVision;
+        public uint RequiresSpellFocus;
     };
 
 }

@@ -8,20 +8,15 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public class SpellCategoriesEntry
     {
-        public uint Id;                     // 0        m_ID
-        public uint Category;               // 1        m_category
-        public uint DmgClass;               // 153      m_defenseType
-        public uint Dispel;                 // 2        m_dispelType
-        public uint Mechanic;               // 3        m_mechanic
-        public uint PreventionType;         // 154      m_preventionType
-        public uint StartRecoveryCategory;  // 145      m_startRecoveryCategory
-
-        public override string ToString()
-        {
-            return string.Format("Id: {0}, DamsgeClass: {1}, Dispel: {2}, Mechanic: {3}, PreventionType: {4}, StartRecoveryCategory: {5}",
-                Category, DmgClass,
-                DBC.SpellDispelType.GetValueOrDefault(Dispel), 
-                (Mechanics)Mechanic, (SpellPreventionType)PreventionType, StartRecoveryCategory);
-        }
+        public uint ID;
+        public uint SpellID;
+        public uint DifficultyID;
+        public uint Category;
+        public uint DefenseType;
+        public uint DispelType;
+        public uint Mechanic;
+        public uint PreventionType;
+        public uint StartRecoveryCategory;
+        public uint ChargeCategory;
     };
 }

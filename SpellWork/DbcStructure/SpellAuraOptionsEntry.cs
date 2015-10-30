@@ -6,11 +6,14 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public class SpellAuraOptionsEntry
     {
-        public uint Id;                                           // 0        m_ID
-        public uint StackAmount;                                  // 51       m_cumulativeAura
-        public uint ProcChance;                                   // 38       m_procChance
-        public uint ProcCharges;                                  // 39       m_procCharges
-        public uint ProcFlags;                                    // 37       m_procTypeMask
+        public uint ID;                    // 0
+        public uint SpellID;               // 1
+        public uint DifficultyID;          // 2
+        public uint CumulativeAura;        // 3
+        public uint ProcChance;            // 4
+        public uint ProcCharges;           // 5
+        public uint ProcTypeMask;          // 6
+        public uint ProcCategoryRecovery;  // 7
+        public uint SpellProcsPerMinuteID; // 8
     };
-
 }

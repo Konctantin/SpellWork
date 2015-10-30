@@ -1,5 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using DBFilesClient.NET;
 
 namespace SpellWork.Dbc
@@ -8,13 +7,7 @@ namespace SpellWork.Dbc
     public class SpellDurationEntry
     {
         public uint ID;
-        [StoragePresence(StoragePresenceOption.Include, ArraySize = DBC.MAX_EFFECT_INDEX)]
+        [StoragePresence(StoragePresenceOption.Include, ArraySize = 3)]
         public int[] Duration;
-
-        public override string ToString()
-        {
-            return String.Format("Duration: ID ({0})  {1}, {2}, {3}", ID, Duration[0], Duration[1], Duration[2]);
-        }
     };
-
 }

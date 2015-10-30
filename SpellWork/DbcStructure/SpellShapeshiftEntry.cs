@@ -13,5 +13,4 @@ namespace SpellWork.Dbc
         public uint unk2;
         public uint StanceBarOrder;
     };
-
 }

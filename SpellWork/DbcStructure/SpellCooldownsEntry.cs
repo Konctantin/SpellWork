@@ -6,10 +6,11 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public class SpellCooldownsEntry
     {
-        public uint Id;                                           // 0        m_ID
-        public uint CategoryRecoveryTime;                         // 31       m_categoryRecoveryTime
-        public uint RecoveryTime;                                 // 30       m_recoveryTime
-        public uint StartRecoveryTime;                            // 146      m_startRecoveryTime
+        public uint ID;
+        public uint SpellID;
+        public uint DifficultyID;
+        public uint CategoryRecoveryTime;
+        public uint RecoveryTime;
+        public uint StartRecoveryTime;
     };
-
 }

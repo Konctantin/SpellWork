@@ -8,10 +8,8 @@ namespace SpellWork.Dbc
     public class SpellReagentsEntry
     {
         public uint Id;
-
         [StoragePresence(StoragePresenceOption.Include, ArraySize = 8)]
         public int[] Reagent;
-
         [StoragePresence(StoragePresenceOption.Include, ArraySize = 8)]
         public uint[] ReagentCount;
     };
