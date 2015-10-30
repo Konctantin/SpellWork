@@ -7,15 +7,15 @@ namespace SpellWork.FlowDocumentExtension
 {
     public class ItemsContent : Section
     {
-        private static readonly DependencyProperty ItemsSourceProperty =
+        static readonly DependencyProperty ItemsSourceProperty =
             DependencyProperty.Register("ItemsSource", typeof(IEnumerable), typeof(ItemsContent),
                 new PropertyMetadata((d, e) => ((ItemsContent)d).OnItemsSourceChanged((IEnumerable)e.NewValue)));
 
-        private static readonly DependencyProperty ItemTemplateProperty =
+        static readonly DependencyProperty ItemTemplateProperty =
             DependencyProperty.Register("ItemTemplate", typeof(DataTemplate), typeof(ItemsContent),
                 new PropertyMetadata((d, e) => ((ItemsContent)d).OnItemTemplateChanged((DataTemplate)e.NewValue)));
 
-        private static readonly DependencyProperty ItemsPanelProperty =
+        static readonly DependencyProperty ItemsPanelProperty =
             DependencyProperty.Register("ItemsPanel", typeof(DataTemplate), typeof(ItemsContent),
                 new PropertyMetadata((d, e) => ((ItemsContent)d).OnItemsPanelChanged((DataTemplate)e.NewValue)));
 
@@ -48,7 +48,7 @@ namespace SpellWork.FlowDocumentExtension
             set { SetValue(ItemsPanelProperty, value); }
         }
 
-        private void GenerateContent(DataTemplate itemsPanel, DataTemplate itemTemplate, IEnumerable itemsSource)
+        void GenerateContent(DataTemplate itemsPanel, DataTemplate itemTemplate, IEnumerable itemsSource)
         {
             Blocks.Clear();
 
@@ -94,24 +94,24 @@ namespace SpellWork.FlowDocumentExtension
             }
         }
 
-        private void GenerateContent()
+        void GenerateContent()
         {
             GenerateContent(ItemsPanel, ItemTemplate, ItemsSource);
         }
 
-        private void OnItemsSourceChanged(IEnumerable newValue)
+        void OnItemsSourceChanged(IEnumerable newValue)
         {
             if (IsLoaded)
                 GenerateContent(ItemsPanel, ItemTemplate, newValue);
         }
 
-        private void OnItemTemplateChanged(DataTemplate newValue)
+        void OnItemTemplateChanged(DataTemplate newValue)
         {
             if (IsLoaded)
                 GenerateContent(ItemsPanel, newValue, ItemsSource);
         }
 
-        private void OnItemsPanelChanged(DataTemplate newValue)
+        void OnItemsPanelChanged(DataTemplate newValue)
         {
             if (IsLoaded)
                 GenerateContent(newValue, ItemTemplate, ItemsSource);

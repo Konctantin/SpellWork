@@ -5,11 +5,11 @@ namespace SpellWork.FlowDocumentExtension
 {
     public class Attached
     {
-        private static readonly DependencyProperty IsItemsHostProperty =
+        static readonly DependencyProperty IsItemsHostProperty =
             DependencyProperty.RegisterAttached("IsItemsHost", typeof(bool), typeof(Attached),
                 new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.NotDataBindable, OnIsItemsHostChanged));
 
-        private static readonly DependencyProperty ItemsHostProperty =
+        static readonly DependencyProperty ItemsHostProperty =
             DependencyProperty.RegisterAttached("ItemsHost", typeof(FrameworkContentElement), typeof(Attached),
                 new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.NotDataBindable));
 
@@ -23,7 +23,7 @@ namespace SpellWork.FlowDocumentExtension
             target.SetValue(IsItemsHostProperty, value);
         }
 
-        private static void SetItemsHost(FrameworkContentElement element)
+        static void SetItemsHost(FrameworkContentElement element)
         {
             var parent = element;
             while (parent.Parent != null)
@@ -36,7 +36,7 @@ namespace SpellWork.FlowDocumentExtension
             return (FrameworkContentElement)dp.GetValue(ItemsHostProperty);
         }
 
-        private static void OnIsItemsHostChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        static void OnIsItemsHostChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if ((bool)e.NewValue)
             {
@@ -48,7 +48,7 @@ namespace SpellWork.FlowDocumentExtension
             }
         }
 
-        private static void ItemsHost_Initialized(object sender, EventArgs e)
+        static void ItemsHost_Initialized(object sender, EventArgs e)
         {
             var element = (FrameworkContentElement)sender;
             element.Initialized -= ItemsHost_Initialized;

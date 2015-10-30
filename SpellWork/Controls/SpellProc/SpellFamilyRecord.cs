@@ -5,7 +5,7 @@ namespace SpellWork.Controls
 {
     public class SpellFamilyRecord : INotifyPropertyChanged
     {
-        private bool isCheckedA;
+        bool isCheckedA;
         public bool IsCheckedA
         {
             get { return isCheckedA; }
@@ -19,7 +19,7 @@ namespace SpellWork.Controls
             }
         }
 
-        private bool isCheckedB;
+        bool isCheckedB;
         public bool IsCheckedB
         {
             get { return isCheckedB; }
@@ -33,7 +33,7 @@ namespace SpellWork.Controls
             }
         }
 
-        private bool isCheckedC;
+        bool isCheckedC;
         public bool IsCheckedC
         {
             get { return isCheckedC; }
@@ -80,7 +80,7 @@ namespace SpellWork.Controls
             this.SpellList = new ObservableCollection<SpellRecord>();
         }
 
-        private void PropChenged(string pname)
+        void PropChenged(string pname)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(pname));

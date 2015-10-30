@@ -6,8 +6,8 @@ namespace SpellWork.DataBase
 {
     public class Sql
     {
-        private static MySqlConnection connection;
-        private static MySqlDataAdapter dataAdapter;
+        static MySqlConnection connection;
+        static MySqlDataAdapter dataAdapter;
 
         public static DataTable DataTable { get; set; }
 
@@ -37,46 +37,46 @@ namespace SpellWork.DataBase
             }
         }
 
-        private static void ConfigureDataAdapter()
+        static void ConfigureDataAdapter()
         {
             var UpdateCommand = new MySqlCommand(UpdateQuery, connection);
-            UpdateCommand.Parameters.Add("@entry",              MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SchoolMask",         MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SpellFamilyName",    MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SpellFamilyMaskA0",  MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SpellFamilyMaskA1",  MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SpellFamilyMaskA2",  MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SpellFamilyMaskB0",  MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SpellFamilyMaskB1",  MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SpellFamilyMaskB2",  MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SpellFamilyMaskC0",  MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SpellFamilyMaskC1",  MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@SpellFamilyMaskC2",  MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@procFlags",          MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@procEx",             MySqlDbType.UInt32);
-            UpdateCommand.Parameters.Add("@ppmRate",            MySqlDbType.Float);
-            UpdateCommand.Parameters.Add("@CustomChance",       MySqlDbType.Float);
-            UpdateCommand.Parameters.Add("@Cooldown",           MySqlDbType.UInt32);
-            
+            UpdateCommand.Parameters.Add("@entry", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SchoolMask", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SpellFamilyName", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SpellFamilyMaskA0", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SpellFamilyMaskA1", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SpellFamilyMaskA2", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SpellFamilyMaskB0", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SpellFamilyMaskB1", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SpellFamilyMaskB2", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SpellFamilyMaskC0", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SpellFamilyMaskC1", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@SpellFamilyMaskC2", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@procFlags", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@procEx", MySqlDbType.UInt32);
+            UpdateCommand.Parameters.Add("@ppmRate", MySqlDbType.Float);
+            UpdateCommand.Parameters.Add("@CustomChance", MySqlDbType.Float);
+            UpdateCommand.Parameters.Add("@Cooldown", MySqlDbType.UInt32);
+
             var InsertCommand = new MySqlCommand(UpdateQuery, connection);
-            InsertCommand.Parameters.Add("@entry",              MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SchoolMask",         MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SpellFamilyName",    MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SpellFamilyMaskA0",  MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SpellFamilyMaskA1",  MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SpellFamilyMaskA2",  MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SpellFamilyMaskB0",  MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SpellFamilyMaskB1",  MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SpellFamilyMaskB2",  MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SpellFamilyMaskC0",  MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SpellFamilyMaskC1",  MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@SpellFamilyMaskC2",  MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@procFlags",          MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@procEx",             MySqlDbType.UInt32);
-            InsertCommand.Parameters.Add("@ppmRate",            MySqlDbType.Float);
-            InsertCommand.Parameters.Add("@CustomChance",       MySqlDbType.Float);
-            InsertCommand.Parameters.Add("@Cooldown",           MySqlDbType.UInt32);
-            
+            InsertCommand.Parameters.Add("@entry", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SchoolMask", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SpellFamilyName", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SpellFamilyMaskA0", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SpellFamilyMaskA1", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SpellFamilyMaskA2", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SpellFamilyMaskB0", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SpellFamilyMaskB1", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SpellFamilyMaskB2", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SpellFamilyMaskC0", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SpellFamilyMaskC1", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@SpellFamilyMaskC2", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@procFlags", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@procEx", MySqlDbType.UInt32);
+            InsertCommand.Parameters.Add("@ppmRate", MySqlDbType.Float);
+            InsertCommand.Parameters.Add("@CustomChance", MySqlDbType.Float);
+            InsertCommand.Parameters.Add("@Cooldown", MySqlDbType.UInt32);
+
             var DeleteCommand = new MySqlCommand(UpdateQuery, connection);
             DeleteCommand.Parameters.Add("@entry", MySqlDbType.UInt32);
 

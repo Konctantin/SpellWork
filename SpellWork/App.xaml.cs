@@ -45,7 +45,7 @@ namespace SpellWork
             base.OnStartup(e);
         }
 
-        private DBCStorage<T> LoadDBC<T>() where T : class, new()
+        DBCStorage<T> LoadDBC<T>() where T : class, new()
         {
             var name = typeof(T).Name;
             name = name.Substring(0, name.Length - "Entry".Length);

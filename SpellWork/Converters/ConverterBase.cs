@@ -22,6 +22,6 @@ namespace SpellWork.Converters
             return m_converter;
         }
 
-        private static T m_converter = null;
+        static T m_converter = null;
     }
 }

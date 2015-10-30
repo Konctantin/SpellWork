@@ -27,7 +27,7 @@ namespace SpellWork
             set { SetValue(SpellProcProperty, value); }
         }
 
-        private static void SpellProcPropertyChanged(DependencyObject dependecyObject, DependencyPropertyChangedEventArgs e)
+        static void SpellProcPropertyChanged(DependencyObject dependecyObject, DependencyPropertyChangedEventArgs e)
         {
             var constructor = dependecyObject as SpellProcConstructor;
             if (constructor != null && e.NewValue != e.OldValue)
@@ -46,19 +46,19 @@ namespace SpellWork
             InitializeComponent();
         }
 
-        private void cbFamilyName_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        void cbFamilyName_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-                                // because underlying type int
+            // because underlying type int
             var spellFamilyName = (int)((KeyValuePair<object, object>)cbFamilyName.SelectedValue).Key;
 
             var spells = from Spell in DBC.Spell.Records
-                         
+
                          join sk in DBC.SkillLineAbility.Records on Spell.ID equals sk.SpellId into temp1
                          from Skill in temp1.NewIfEmpty()
 
                          join skl in DBC.SkillLine.Records on Skill.SkillId equals skl.ID into temp2
                          from SkillLine in temp2.NewIfEmpty()
-                         
+
                          where Spell.SpellFamilyName == spellFamilyName
                          select new
                          {
@@ -85,7 +85,7 @@ namespace SpellWork
 
                     var rec = new SpellFamilyRecord(mask[2], mask[1], mask[0]);
                     TreeRecords.Add(rec);
-                    #warning need implement here
+#warning need implement here
                 }
 
                 foreach (var elem in spells)
@@ -128,11 +128,11 @@ namespace SpellWork
 
                         ++index;
                     }
-                }                
+                }
             }
         }
 
-        private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
+        void CheckBox_Checked_1(object sender, RoutedEventArgs e)
         {
             var spellProc = this.SpellProc;
             var mask = new uint[3, 3];

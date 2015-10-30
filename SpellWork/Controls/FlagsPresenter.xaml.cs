@@ -97,7 +97,7 @@ namespace SpellWork
             set { SetValue(ValueProperty, value); }
         }
 
-        private static void ValuePropertyChanged(DependencyObject dependecyObject, DependencyPropertyChangedEventArgs e)
+        static void ValuePropertyChanged(DependencyObject dependecyObject, DependencyPropertyChangedEventArgs e)
         {
             var flagsPresenter = dependecyObject as FlagsPresenter;
             if (flagsPresenter != null && e.NewValue != e.OldValue)

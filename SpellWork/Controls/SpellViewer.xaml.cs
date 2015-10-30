@@ -43,7 +43,7 @@ namespace SpellWork
             InitializeComponent();
         }
 
-        private void ApplyFilter(object sender, ExecutedRoutedEventArgs e)
+        void ApplyFilter(object sender, ExecutedRoutedEventArgs e)
         {
             Action applyFilter = () =>
                 {
@@ -71,19 +71,19 @@ namespace SpellWork
                             : -1;
                     };
 
-                    var auraType    = getValue(cbAuraType);
+                    var auraType = getValue(cbAuraType);
                     var spellFamily = getValue(cbSpellFamilyName);
                     var spellEffect = getValue(cbSpellEffect);
-                    var targetA     = getValue(cbTargetA);
-                    var targetB     = getValue(cbTargetB);
+                    var targetA = getValue(cbTargetA);
+                    var targetB = getValue(cbTargetB);
 
                     // disable filter
                     if (!hasSpellNameOrId && !hasSpellIcon && !hasSpellAttribute
                         && spellFamily == -1
-                        && auraType    == -1
+                        && auraType == -1
                         && spellEffect == -1
-                        && targetA     == -1
-                        && targetB     == -1
+                        && targetA == -1
+                        && targetB == -1
                         )
                     {
                         spellList.Filter = null;
@@ -104,8 +104,8 @@ namespace SpellWork
                                         && (!hasSpellIcon || spell.ActiveIconID == iconId)
 
                                         && (!hasSpellAttribute || (
-                                            ((spell.m_Attributes    & attrib) != 0) ||
-                                            ((spell.m_AttributesEx  & attrib) != 0) ||
+                                            ((spell.m_Attributes & attrib) != 0) ||
+                                            ((spell.m_AttributesEx & attrib) != 0) ||
                                             ((spell.m_AttributesEx2 & attrib) != 0) ||
                                             ((spell.m_AttributesEx3 & attrib) != 0) ||
                                             ((spell.m_AttributesEx4 & attrib) != 0) ||
@@ -117,12 +117,12 @@ namespace SpellWork
 
                                         && (spellFamily == -1 || (spellClassOptionEntry != null && spellClassOptionEntry.SpellFamilyName == spellFamily))
 
-                                        && (spellEffect == -1 || (spellEffectEntry != null && spellEffectEntry.Effect                == spellEffect))
-                                        && (auraType    == -1 || (spellEffectEntry != null && spellEffectEntry.EffectApplyAuraName   == auraType   ))
-                                        && (targetA     == -1 || (spellEffectEntry != null && spellEffectEntry.EffectImplicitTargetA == targetA    ))
-                                        && (targetB     == -1 || (spellEffectEntry != null && spellEffectEntry.EffectImplicitTargetB == targetB    ))
+                                        && (spellEffect == -1 || (spellEffectEntry != null && spellEffectEntry.Effect == spellEffect))
+                                        && (auraType == -1 || (spellEffectEntry != null && spellEffectEntry.EffectApplyAuraName == auraType))
+                                        && (targetA == -1 || (spellEffectEntry != null && spellEffectEntry.EffectImplicitTargetA == targetA))
+                                        && (targetB == -1 || (spellEffectEntry != null && spellEffectEntry.EffectImplicitTargetB == targetB))
 
-                                    #warning todo : implement additional filter
+#warning todo : implement additional filter
                                     //&& (!use1val      || spell.CreateFilter(field1, advVal1, field1ct))
                                     //&& (!use2val      || spell.CreateFilter(field2, advVal2, field2ct))
                                     select spell.ID).ToList();
@@ -136,12 +136,12 @@ namespace SpellWork
             new Task(applyFilter).RunSynchronously();
         }
 
-        private void filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        void filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ApplyFilter(sender, null);
         }
 
-        private void lvSpellList_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        void lvSpellList_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             var listView = sender as ListView;
             if (listView != null && listView.SelectedValue is SpellEntry)

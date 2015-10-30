@@ -5,7 +5,7 @@ namespace SpellWork.Controls.SpellProc
 {
     public class SpellProcEntry : INotifyPropertyChanged
     {
-        private int entry;
+        int entry;
         public int Entry
         { 
             get { return entry; }
@@ -19,7 +19,7 @@ namespace SpellWork.Controls.SpellProc
             }
         }
 
-        private SpellSchoolMask schoolMask;
+        SpellSchoolMask schoolMask;
         public SpellSchoolMask SchoolMask
         {
             get { return schoolMask; }
@@ -33,7 +33,7 @@ namespace SpellWork.Controls.SpellProc
             }
         }
 
-        private SpellFamilyNames spellFamilyName;
+        SpellFamilyNames spellFamilyName;
         public SpellFamilyNames SpellFamilyName
         {
             get { return spellFamilyName; }
@@ -47,7 +47,7 @@ namespace SpellWork.Controls.SpellProc
             }
         }
 
-        private uint[] spellFamilyMaskA;
+        uint[] spellFamilyMaskA;
         public uint[] SpellFamilyMaskA
         {
             get { return spellFamilyMaskA; }
@@ -61,7 +61,7 @@ namespace SpellWork.Controls.SpellProc
             }
         }
 
-        private uint[] spellFamilyMaskB;
+        uint[] spellFamilyMaskB;
         public uint[] SpellFamilyMaskB
         {
             get { return spellFamilyMaskB; }
@@ -75,7 +75,7 @@ namespace SpellWork.Controls.SpellProc
             }
         }
 
-        private uint[] spellFamilyMaskC;
+        uint[] spellFamilyMaskC;
         public uint[] SpellFamilyMaskC
         {
             get { return spellFamilyMaskC; }
@@ -89,7 +89,7 @@ namespace SpellWork.Controls.SpellProc
             }
         }
 
-        private ProcFlags procFlags;
+        ProcFlags procFlags;
         public ProcFlags ProcFlags
         {
             get { return procFlags; }
@@ -103,7 +103,7 @@ namespace SpellWork.Controls.SpellProc
             }
         }
 
-        private ProcFlagsEx procEx;
+        ProcFlagsEx procEx;
         public ProcFlagsEx ProcEx
         {
             get { return procEx; }
@@ -117,7 +117,7 @@ namespace SpellWork.Controls.SpellProc
             }
         }
 
-        private float ppmRate;
+        float ppmRate;
         public float PpmRate
         {
             get { return ppmRate; }
@@ -131,7 +131,7 @@ namespace SpellWork.Controls.SpellProc
             }
         }
 
-        private float customChance;
+        float customChance;
         public float CustomChance
         {
             get { return customChance; }
@@ -145,7 +145,7 @@ namespace SpellWork.Controls.SpellProc
             }
         }
 
-        private int cooldown;
+        int cooldown;
         public int Cooldown
         {
             get { return cooldown; }
@@ -168,7 +168,7 @@ namespace SpellWork.Controls.SpellProc
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void SendPropertyChange(string propertyName)
+        void SendPropertyChange(string propertyName)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));

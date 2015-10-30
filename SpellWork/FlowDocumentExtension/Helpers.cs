@@ -29,18 +29,18 @@ namespace SpellWork.FlowDocumentExtension
         }
 
 
-        private static bool InternalUnFixupDataContext(DependencyObject dependencyObject)
+        static bool InternalUnFixupDataContext(DependencyObject dependencyObject)
         {
             // only consider those elements for which we've called FixupDataContext(): they all belong to this namespace
             if (dependencyObject is FrameworkContentElement && dependencyObject.GetType().Namespace == typeof(Helpers).Namespace)
             {
                 var binding = BindingOperations.GetBinding(dependencyObject, FrameworkContentElement.DataContextProperty);
                 if (binding != null
-                    && binding.Path != null 
+                    && binding.Path != null
                     && binding.Path.Path == FrameworkContentElement.DataContextProperty.Name
-                    && binding.RelativeSource != null 
-                    && binding.RelativeSource.Mode == RelativeSourceMode.FindAncestor 
-                    && binding.RelativeSource.AncestorType == typeof(FrameworkElement) 
+                    && binding.RelativeSource != null
+                    && binding.RelativeSource.Mode == RelativeSourceMode.FindAncestor
+                    && binding.RelativeSource.AncestorType == typeof(FrameworkElement)
                     && binding.RelativeSource.AncestorLevel == 1)
                 {
                     BindingOperations.ClearBinding(dependencyObject, FrameworkContentElement.DataContextProperty);
