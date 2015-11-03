@@ -7,13 +7,9 @@ namespace SpellWork
     {
         public static V GetValueOrDefault<V>(this DBCStorage<V> dictionary, uint key) where V : class, new()
         {
-            if (dictionary == null)
-                return new V();
-
-            if (dictionary.ContainsKey(key))
-                return dictionary[key];
-
-            return new V();
+            V val = default(V);
+            dictionary?.TryGetValue(key, out val);
+            return val;
         }
 
         public static IEnumerable<TSource> NewIfEmpty<TSource>(this IEnumerable<TSource> source) where TSource : class, new()
