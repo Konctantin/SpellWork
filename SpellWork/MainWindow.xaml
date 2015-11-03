@@ -5,8 +5,7 @@
         Title="MainWindow"
         Width="837"
         Height="535"
-        Style="{Binding Mode=OneWay,
-                        Source={StaticResource KamillaStyle}}">
+>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="22" />
@@ -17,7 +16,7 @@
                 <local:SpellViewer DataContext="{StaticResource spellCollections}" />
             </TabItem>
             <TabItem Header="SpellProcEvent">
-                <local:SpellProcConstructor x:Name="spellProcConstructor" DataContext="{StaticResource spellCollections}" />
+                <!--<local:SpellProcConstructor x:Name="spellProcConstructor" DataContext="{StaticResource spellCollections}" />-->
             </TabItem>
             <TabItem Header="SqlData">
                 <local:SqlData />

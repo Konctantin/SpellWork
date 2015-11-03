@@ -59,9 +59,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\SpellAdvancedFilter.xaml.cs">
+      <DependentUpon>SpellAdvancedFilter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SpellProc\SpellFamilyRecord.cs" />
     <Compile Include="Controls\SpellProc\SpellProcEntry.cs" />
     <Compile Include="Controls\SpellProc\SpellRecord.cs" />
+    <Compile Include="Controls\SpellList.xaml.cs">
+      <DependentUpon>SpellList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\BooleanToColorConverter.cs" />
     <Compile Include="Converters\BooleanToImageConverter.cs" />
     <Compile Include="Converters\ConverterBase.cs" />
@@ -157,7 +163,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\SpellAdvancedFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SpellProc\SpellProcConstructor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SpellList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
