@@ -6,29 +6,29 @@ namespace SpellWork.Dbc
     [StructLayout(LayoutKind.Sequential)]
     public partial class SpellEntry
     {
-        public uint   mID;                     // 0
-        public string Name_lang;              // 1
-        public string NameSubtext_lang;       // 2
-        public string Description_lang;       // 3
-        public string AuraDescription_lang;   // 4
-        public uint   RuneCostID;             // 5
-        public uint   SpellMissileID;         // 6
-        public uint   DescriptionVariablesID; // 7
-        public uint   ScalingID;              // 8
-        public uint   AuraOptionsID;          // 9
-        public uint   AuraRestrictionsID;     // 10
-        public uint   CastingRequirementsID;  // 11
-        public uint   CategoriesID;           // 12
-        public uint   ClassOptionsID;         // 13
-        public uint   CooldownsID;            // 14
-        public uint   EquippedItemsID;        // 15
-        public uint   InterruptsID;           // 16
-        public uint   LevelsID;               // 17
-        public uint   ReagentsID;             // 18
-        public uint   ShapeshiftID;           // 19
-        public uint   TargetRestrictionsID;   // 20
-        public uint   TotemsID;               // 21
-        public uint   RequiredProjectID;      // 22
-        public uint   MiscID;                 // 23
+        public uint   m_ID;                     // 0
+        public string m_Name;                   // 1
+        public string m_NameSubtext;            // 2
+        public string m_Description;            // 3
+        public string m_AuraDescription;        // 4
+        public uint   m_RuneCostID;             // 5
+        public uint   m_SpellMissileID;         // 6
+        public uint   m_DescriptionVariablesID; // 7
+        public uint   m_ScalingID;              // 8
+        public uint   m_AuraOptionsID;          // 9
+        public uint   m_AuraRestrictionsID;     // 10
+        public uint   m_CastingRequirementsID;  // 11
+        public uint   m_CategoriesID;           // 12
+        public uint   m_ClassOptionsID;         // 13
+        public uint   m_CooldownsID;            // 14
+        public uint   m_EquippedItemsID;        // 15
+        public uint   m_InterruptsID;           // 16
+        public uint   m_LevelsID;               // 17
+        public uint   m_ReagentsID;             // 18
+        public uint   m_ShapeshiftID;           // 19
+        public uint   m_TargetRestrictionsID;   // 20
+        public uint   m_TotemsID;               // 21
+        public uint   m_RequiredProjectID;      // 22
+        public uint   m_MiscID;                 // 23
     };
 }

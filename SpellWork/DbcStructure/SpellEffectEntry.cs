@@ -19,7 +19,7 @@ namespace SpellWork.Dbc
         public uint   EffectChainTargets;
         public uint   EffectDieSides;
         public uint   EffectItemType;
-        public uint   EffectMechanic;
+        public Mechanics EffectMechanic;
         public int    EffectMiscValue;
         public int    EffectMiscValueB;
         public float  EffectPointsPerResource;

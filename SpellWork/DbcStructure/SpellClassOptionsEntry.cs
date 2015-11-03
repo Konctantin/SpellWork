@@ -1,5 +1,5 @@
 ﻿using System.Runtime.InteropServices;
-using DBFilesClient.NET;
+using SpellWork.Enums;
 
 namespace SpellWork.Dbc
 {
@@ -9,8 +9,10 @@ namespace SpellWork.Dbc
     {
         public uint Id;
         public uint ModalNextSpell;
-        [StoragePresence(StoragePresenceOption.Include, ArraySize = 4)]
-        public uint[] SpellFamilyFlags;
-        public uint SpellFamilyName;
+        public uint SpellFamilyFlags0;
+        public uint SpellFamilyFlags1;
+        public uint SpellFamilyFlags2;
+        public uint SpellFamilyFlags3;
+        public SpellFamilyNames SpellFamilyName;
     };
 }
