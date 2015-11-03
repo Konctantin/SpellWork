@@ -83,7 +83,7 @@
                         <Run Text="{Binding SpellClassOptions, Mode=OneWay}" />
                     </Span>
                 </Paragraph>
-                
+
                 <fd:ItemsContent ItemsSource="{Binding AttributesList}">
                     <fd:ItemsContent.ItemsPanel>
                         <DataTemplate>
@@ -189,8 +189,8 @@
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:D}}" />
-                                    <TextBlock Text="{Binding Value}" />
+                                    <TextBlock Width="30" Text="{Binding Path=., StringFormat={}{0:D}}" />
+                                    <TextBlock Text="{Binding}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
@@ -204,8 +204,8 @@
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:D}}" />
-                                    <TextBlock Text="{Binding Value}" />
+                                    <TextBlock Width="30" Text="{Binding Path=., StringFormat={}{0:D}}" />
+                                    <TextBlock Text="{Binding}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
@@ -219,8 +219,8 @@
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:D}}" />
-                                    <TextBlock Text="{Binding Value}" />
+                                    <TextBlock Width="30" Text="{Binding Path=., StringFormat={}{0:D}}" />
+                                    <TextBlock Text="{Binding}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
@@ -238,8 +238,8 @@
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:D}}" />
-                                        <TextBlock Text="{Binding Value}" />
+                                        <TextBlock Width="30" Text="{Binding Path=., StringFormat={}{0:D}}" />
+                                        <TextBlock Text="{Binding}" />
                                     </StackPanel>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
@@ -252,8 +252,8 @@
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Width="30" Text="{Binding Key, StringFormat={}{0:D}}" />
-                                        <TextBlock Text="{Binding Value}" />
+                                        <TextBlock Width="30" Text="{Binding Path=., StringFormat={}{0:D}}" />
+                                        <TextBlock Text="{Binding}" />
                                     </StackPanel>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>

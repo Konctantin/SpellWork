@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace SpellWork
 {
-    public class EnumExtension
+    public static class EnumExtension
     {
-        public static IEnumerable<KeyValuePair<object, object>>GetValues(Type type, object noValue)
+        public static T SelectedValue<T>(this ComboBox comboBox)
         {
-            if (!type.IsEnum)
-                throw new ArgumentException("type");
-
-            yield return new KeyValuePair<object, object>(-1, noValue);
-
-            foreach (var element in Enum.GetValues(type))
-                yield return
-                    new KeyValuePair<object, object>(element, element);
+            if (comboBox.SelectedValue != null)
+                return (T)comboBox.SelectedValue;
+            return default(T);
         }
     }
 }

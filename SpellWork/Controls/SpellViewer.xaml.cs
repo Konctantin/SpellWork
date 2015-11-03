@@ -65,26 +65,19 @@ namespace SpellWork
                     int attrib = 0;
                     int.TryParse(tbSpellAttributes.Text, out attrib);
 
-                    Func<ComboBox, int> getValue = (comboBox) =>
-                    {
-                        return comboBox.SelectedIndex > 0
-                            ? (int)((KeyValuePair<object, object>)comboBox.SelectedValue).Value
-                            : -1;
-                    };
-
-                    var auraType = getValue(cbAuraType);
-                    var spellFamily = getValue(cbSpellFamilyName);
-                    var spellEffect = getValue(cbSpellEffect);
-                    var targetA = getValue(cbTargetA);
-                    var targetB = getValue(cbTargetB);
+                    var auraType    = cbAuraType.SelectedValue<AuraType>();
+                    var spellFamily = cbSpellFamilyName.SelectedValue<SpellFamilyNames>();
+                    var spellEffect = cbSpellEffect.SelectedValue<SpellEffects>();
+                    var targetA     = cbTargetA.SelectedValue<Targets>();
+                    var targetB     = cbTargetB.SelectedValue<Targets>();
 
                     // disable filter
                     if (!hasSpellNameOrId && !hasSpellIcon && !hasSpellAttribute
-                        && spellFamily == -1
-                        && auraType == -1
-                        && spellEffect == -1
-                        && targetA == -1
-                        && targetB == -1
+                        && spellFamily == SpellFamilyNames.NO_FILTER
+                        && auraType    == AuraType.NO_FILTER
+                        && spellEffect == SpellEffects.NO_FILTER
+                        && targetA     == Targets.NO_FILTER
+                        && targetB     == Targets.NO_FILTER
                         )
                     {
                         spellList.Filter = null;
@@ -116,12 +109,12 @@ namespace SpellWork
                                         //    ((spell.m_AttributesEx8 & attrib) != 0)
                                         //))
 
-                                        && (spellFamily == -1 || (spellClassOptionEntry != null && spellClassOptionEntry.SpellFamilyName == (SpellFamilyNames)spellFamily))
+                                        && (spellFamily == SpellFamilyNames.NO_FILTER || (spellClassOptionEntry != null && spellClassOptionEntry.SpellFamilyName == (SpellFamilyNames)spellFamily))
 
-                                        && (spellEffect == -1 || (spellEffectEntry != null && spellEffectEntry.Effect           == (SpellEffects)spellEffect))
-                                        && (auraType    == -1 || (spellEffectEntry != null && spellEffectEntry.EffectAura       == (AuraType)auraType))
-                                        && (targetA     == -1 || (spellEffectEntry != null && spellEffectEntry.ImplicitTarget0  == (Targets)targetA))
-                                        && (targetB     == -1 || (spellEffectEntry != null && spellEffectEntry.ImplicitTarget1  == (Targets)targetB))
+                                        && (spellEffect == SpellEffects.NO_FILTER || (spellEffectEntry != null && spellEffectEntry.Effect           == (SpellEffects)spellEffect))
+                                        && (auraType    == AuraType.NO_FILTER     || (spellEffectEntry != null && spellEffectEntry.EffectAura       == (AuraType)auraType))
+                                        && (targetA     == Targets.NO_FILTER      || (spellEffectEntry != null && spellEffectEntry.ImplicitTarget0  == (Targets)targetA))
+                                        && (targetB     == Targets.NO_FILTER      || (spellEffectEntry != null && spellEffectEntry.ImplicitTarget1  == (Targets)targetB))
 
 #warning todo : implement additional filter
                                     //&& (!use1val      || spell.CreateFilter(field1, advVal1, field1ct))
@@ -143,9 +136,7 @@ namespace SpellWork
 
         void lvSpellList_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            var listView = sender as ListView;
-            if (listView != null && listView.SelectedValue is SpellEntry)
-                this.SelectedSpell = listView.SelectedValue as SpellEntry;
+            SelectedSpell = (sender as ListView)?.SelectedValue as SpellEntry;
         }
     }
 }
