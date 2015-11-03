@@ -11,48 +11,33 @@
 
     <setting:Settings x:Key="setting" />
 
-    <ObjectDataProvider x:Key="AuraType"
-                        MethodName="GetValues"
-                        ObjectType="{x:Type s:EnumExtension}">
+    <ObjectDataProvider x:Key="AuraType" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
         <ObjectDataProvider.MethodParameters>
             <x:Type TypeName="se:AuraType" />
-            <sys:String>AuraType</sys:String>
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
-    <ObjectDataProvider x:Key="SpellEffect"
-                        MethodName="GetValues"
-                        ObjectType="{x:Type s:EnumExtension}">
+    <ObjectDataProvider x:Key="SpellEffect" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
         <ObjectDataProvider.MethodParameters>
             <x:Type TypeName="se:SpellEffects" />
-            <sys:String>SpellEffects</sys:String>
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
-    <ObjectDataProvider x:Key="SpellFamilyName"
-                        MethodName="GetValues"
-                        ObjectType="{x:Type s:EnumExtension}">
+    <ObjectDataProvider x:Key="SpellFamilyName" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
         <ObjectDataProvider.MethodParameters>
             <x:Type TypeName="se:SpellFamilyNames" />
-            <sys:String>SpellFamilyNames</sys:String>
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
-    <ObjectDataProvider x:Key="TargetsA"
-                        MethodName="GetValues"
-                        ObjectType="{x:Type s:EnumExtension}">
+    <ObjectDataProvider x:Key="TargetsA" MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}">
         <ObjectDataProvider.MethodParameters>
             <x:Type TypeName="se:Targets" />
-            <sys:String>Targets A</sys:String>
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
-    <ObjectDataProvider x:Key="TargetsB"
-                        MethodName="GetValues"
-                        ObjectType="{x:Type s:EnumExtension}">
+    <ObjectDataProvider x:Key="TargetsB" MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}">
         <ObjectDataProvider.MethodParameters>
             <x:Type TypeName="se:Targets" />
-            <sys:String>Targets B</sys:String>
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
