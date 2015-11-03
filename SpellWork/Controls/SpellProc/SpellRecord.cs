@@ -10,17 +10,17 @@
 
         public SpellRecord(bool isSkill, uint id, int effectIndex, string name)
         {
-            this.IsEffect               = new bool[3];
-            this.IsEffect[effectIndex]  = true;
-            this.IsSkill                = isSkill;
-            this.SpellId                = id;
-            this.EffectIndex            = effectIndex;
-            this.SpellName              = name;
+            IsEffect = new bool[3];
+            IsEffect[effectIndex]  = true;
+            IsSkill = isSkill;
+            SpellId = id;
+            EffectIndex = effectIndex;
+            SpellName = name;
         }
 
         public void SetEffectIndexMask(int index)
         {
-            this.IsEffect[index] = true;
+            IsEffect[index] = true;
         }
     }
 }

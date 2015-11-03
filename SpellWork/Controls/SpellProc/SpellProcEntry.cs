@@ -7,7 +7,7 @@ namespace SpellWork.Controls.SpellProc
     {
         int entry;
         public int Entry
-        { 
+        {
             get { return entry; }
             set
             {
@@ -161,9 +161,9 @@ namespace SpellWork.Controls.SpellProc
 
         public SpellProcEntry()
         {
-            this.SpellFamilyMaskA = new uint[3];
-            this.SpellFamilyMaskB = new uint[3];
-            this.SpellFamilyMaskC = new uint[3];
+            SpellFamilyMaskA = new uint[3];
+            SpellFamilyMaskB = new uint[3];
+            SpellFamilyMaskC = new uint[3];
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

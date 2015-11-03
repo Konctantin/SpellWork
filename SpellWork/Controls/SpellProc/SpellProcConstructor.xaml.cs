@@ -134,7 +134,7 @@ namespace SpellWork
 
         void CheckBox_Checked_1(object sender, RoutedEventArgs e)
         {
-            var spellProc = this.SpellProc;
+            var spellProc = SpellProc;
             var mask = new uint[3, 3];
 
             foreach (var record in TreeRecords)
@@ -159,9 +159,9 @@ namespace SpellWork
                 }
             }
 
-            this.SpellProc.SpellFamilyMaskA = new uint[] { mask[0, 0], mask[0, 1], mask[0, 2] };
-            this.SpellProc.SpellFamilyMaskB = new uint[] { mask[1, 0], mask[1, 1], mask[1, 2] };
-            this.SpellProc.SpellFamilyMaskC = new uint[] { mask[2, 0], mask[2, 1], mask[2, 2] };
+            SpellProc.SpellFamilyMaskA = new uint[] { mask[0, 0], mask[0, 1], mask[0, 2] };
+            SpellProc.SpellFamilyMaskB = new uint[] { mask[1, 0], mask[1, 1], mask[1, 2] };
+            SpellProc.SpellFamilyMaskC = new uint[] { mask[2, 0], mask[2, 1], mask[2, 2] };
 
             SetValue(SpellProcProperty, spellProc);
 

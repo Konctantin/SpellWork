@@ -73,11 +73,11 @@ namespace SpellWork.Controls
 
         public SpellFamilyRecord(uint mask1, uint mask2, uint mask3)
         {
-            this.Mask1 = mask1;
-            this.Mask2 = mask2;
-            this.Mask3 = mask3;
+            Mask1 = mask1;
+            Mask2 = mask2;
+            Mask3 = mask3;
 
-            this.SpellList = new ObservableCollection<SpellRecord>();
+            SpellList = new ObservableCollection<SpellRecord>();
         }
 
         void PropChenged(string pname)
