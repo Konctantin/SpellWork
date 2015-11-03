@@ -2,6 +2,7 @@
 {
     public enum SpellEffects
     {
+        NO_FILTER = -1,
         SPELL_EFFECT_INSTAKILL                          = 1,
         SPELL_EFFECT_SCHOOL_DAMAGE                      = 2,
         SPELL_EFFECT_DUMMY                              = 3,

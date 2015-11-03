@@ -2,6 +2,7 @@
 {
     public enum AuraType
     {
+        NO_FILTER = -1,
         SPELL_AURA_NONE                                          = 0,
         SPELL_AURA_BIND_SIGHT                                    = 1,
         SPELL_AURA_MOD_POSSESS                                   = 2,

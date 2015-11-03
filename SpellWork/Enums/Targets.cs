@@ -5,6 +5,7 @@
     /// </summary>
     public enum Targets
     {
+        NO_FILTER = -1,
         TARGET_UNIT_CASTER                 = 1,
         TARGET_UNIT_NEARBY_ENEMY           = 2,
         TARGET_UNIT_NEARBY_PARTY           = 3,

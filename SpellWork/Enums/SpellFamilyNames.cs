@@ -2,6 +2,7 @@
 {
     public enum SpellFamilyNames
     {
+        NO_FILTER = -1,
         SPELL_FAMILY_GENERIC     = 00,
         SPELL_FAMILY_HOLIDAYS    = 01, // events, holidays
         // unused                = 02,
