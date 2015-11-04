@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:fd="clr-namespace:SpellWork.FlowDocumentExtension"
+                    xmlns:local="clr-namespace:SpellWork.Controls.SpellView">
+    <DataTemplate x:Key="SpellClassOptionsTemplate">
+        <fd:Fragment>
+            <Paragraph>
+                <Span>
+                    <Run Text="Items required this spell"/>
+                    <!--<Line Width="100" Height="10" Fill="Bisque"/>-->
+                    <LineBreak/>
+                    <Run Text="ID: " />
+                    <Run Text="{Binding Id, Mode=OneWay}" Foreground="#FF0936CB" FontWeight="Bold" />
+                    <Run Text=" Name: " />
+                    <Run Text="{Binding Name, Mode=OneWay}" />
+                    <LineBreak/>
+                    <LineBreak/>
+                    <Run Text="{Binding EffectSpellClassMask0, StringFormat={}Class mask: 0x{0:X8}, Mode=OneWay}" />
+                    <Run Text="{Binding EffectSpellClassMask1, StringFormat={} {0:X8}, Mode=OneWay}" />
+                    <Run Text="{Binding EffectSpellClassMask1, StringFormat={} {0:X8}, Mode=OneWay}" />
+                    <Run Text="{Binding EffectSpellClassMask1, StringFormat={} {0:X8}, Mode=OneWay}" />
+                </Span>
+            </Paragraph>
+        </fd:Fragment>
+    </DataTemplate>
+</ResourceDictionary>

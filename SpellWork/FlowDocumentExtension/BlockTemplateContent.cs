@@ -6,10 +6,10 @@ namespace SpellWork.FlowDocumentExtension
     public class BlockTemplateContent : Section
     {
         static readonly DependencyProperty TemplateProperty =
-            DependencyProperty.Register("Template", typeof(DataTemplate), typeof(BlockTemplateContent),
+            DependencyProperty.Register("DataTemplate", typeof(DataTemplate), typeof(BlockTemplateContent),
                 new PropertyMetadata((d, e) => ((BlockTemplateContent)d).OnTemplateChanged((DataTemplate)e.NewValue)));
 
-        public DataTemplate Template
+        public DataTemplate DataTemplate
         {
             get { return (DataTemplate)GetValue(TemplateProperty); }
             set { SetValue(TemplateProperty, value); }
@@ -18,13 +18,13 @@ namespace SpellWork.FlowDocumentExtension
         public BlockTemplateContent()
         {
             Helpers.FixupDataContext(this);
-            Loaded += (sender, e) => GenerateContent(Template);
+            Loaded += (sender, e) => GenerateContent(DataTemplate);
         }
 
         void GenerateContent(DataTemplate template)
         {
             Blocks.Clear();
-            if (template != null)
+            if (template != null && DataContext!=null)
             {
                 FrameworkContentElement element = Helpers.LoadDataTemplate(template);
                 Blocks.Add((Block)element);

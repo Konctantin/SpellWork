@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using SpellWork.Controls;
 using SpellWork.Controls.SpellProc;
-using SpellWork.Dbc;
+using SpellWork.DBClientFilesStructure;
 
 namespace SpellWork
 {

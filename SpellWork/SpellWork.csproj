@@ -59,9 +59,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\SpellAdvancedFilter.xaml.cs">
-      <DependentUpon>SpellAdvancedFilter.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Controls\DynamicFilter\ComparisonType.cs" />
+    <Compile Include="Controls\DynamicFilter\FilterGenerator.cs" />
     <Compile Include="Controls\SpellProc\SpellFamilyRecord.cs" />
     <Compile Include="Controls\SpellProc\SpellProcEntry.cs" />
     <Compile Include="Controls\SpellProc\SpellRecord.cs" />
@@ -149,13 +148,8 @@
     <Compile Include="Controls\SpellProc\SpellProcConstructor.xaml.cs">
       <DependentUpon>SpellProcConstructor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SpellViewer.xaml.cs">
+    <Compile Include="Controls\SpellView\SpellViewer.xaml.cs">
       <DependentUpon>SpellViewer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\SpellViewerLocale.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpellViewerLocale.resx</DependentUpon>
     </Compile>
     <Compile Include="Controls\SqlData.xaml.cs">
       <DependentUpon>SqlData.xaml</DependentUpon>
@@ -164,7 +158,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\SpellAdvancedFilter.xaml">
+    <Page Include="Controls\SpellView\ItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SpellView\SpellAttributesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SpellView\SpellClassOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SpellView\SpellEffectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -177,10 +183,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SqlData.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\KamillaStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,7 +207,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\SpellViewer.xaml">
+    <Page Include="Controls\SpellView\SpellViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -231,10 +233,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\SpellViewerLocale.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>SpellViewerLocale.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="dbc\Item-sparse.db2">

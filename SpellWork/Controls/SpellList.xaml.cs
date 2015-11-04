@@ -15,10 +15,34 @@ using System.Windows.Shapes;
 namespace SpellWork.Controls
 {
     /// <summary>
-    /// Логика взаимодействия для SpellSimimpleFilter.xaml
+    ///
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    public delegate bool FilterHandler(object value);
+
+    /// <summary>
+    ///
     /// </summary>
     public partial class SpellSimimpleFilter : UserControl
     {
+        /// <summary>
+        ///
+        /// </summary>
+        public static readonly DependencyProperty FilterProperty = DependencyProperty.Register(nameof(Filter), typeof(FilterHandler), typeof(SpellSimimpleFilter),
+            new PropertyMetadata());
+
+        public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register("ItemsSource", typeof(object), typeof(SpellSimimpleFilter));
+
+        /// <summary>
+        ///
+        /// </summary>
+        public FilterHandler Filter
+        {
+            get { return (FilterHandler)GetValue(FilterProperty); }
+            set { SetValue(FilterProperty, value); }
+        }
+
         public SpellSimimpleFilter()
         {
             InitializeComponent();
