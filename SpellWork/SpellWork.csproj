@@ -74,41 +74,42 @@
     <Compile Include="Converters\EnumToUintConverter.cs" />
     <Compile Include="Converters\StringToUintConverter.cs" />
     <Compile Include="DataBase\Sql.cs" />
+    <Compile Include="DBClientFilesStructure\ItemSparseEntry.cs" />
     <Compile Include="DbcStores.cs" />
-    <Compile Include="DbcStructure\CurrencyTypesEntry.cs" />
-    <Compile Include="DbcStructure\ItemClassEntry.cs" />
-    <Compile Include="DbcStructure\OverrideSpellDataEntry.cs" />
-    <Compile Include="DbcStructure\ScreenEffectEntry.cs" />
-    <Compile Include="DbcStructure\SkillLineAbilityEntry.cs" />
-    <Compile Include="DbcStructure\SkillLineEntry.cs" />
-    <Compile Include="DbcStructure\SpellAuraOptionsEntry.cs" />
-    <Compile Include="DbcStructure\SpellAuraRestrictionsEntry.cs" />
-    <Compile Include="DbcStructure\SpellCastingRequirementsEntry.cs" />
-    <Compile Include="DbcStructure\SpellCastTimesEntry.cs" />
-    <Compile Include="DbcStructure\SpellCategoriesEntry.cs" />
-    <Compile Include="DbcStructure\SpellClassOptionsEntry.cs" />
-    <Compile Include="DbcStructure\SpellCooldownsEntry.cs" />
-    <Compile Include="DbcStructure\SpellDifficultyEntry.cs" />
-    <Compile Include="DbcStructure\SpellDispelTypeEntry.cs" />
-    <Compile Include="DbcStructure\SpellDurationEntry.cs" />
-    <Compile Include="DbcStructure\SpellEffectEntry.cs" />
-    <Compile Include="DbcStructure\SpellEntry.cs" />
-    <Compile Include="DbcStructure\SpellEntry.Designer.cs">
+    <Compile Include="DBClientFilesStructure\CurrencyTypesEntry.cs" />
+    <Compile Include="DBClientFilesStructure\ItemClassEntry.cs" />
+    <Compile Include="DBClientFilesStructure\OverrideSpellDataEntry.cs" />
+    <Compile Include="DBClientFilesStructure\ScreenEffectEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SkillLineAbilityEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SkillLineEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellAuraOptionsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellAuraRestrictionsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellCastingRequirementsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellCastTimesEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellCategoriesEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellClassOptionsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellCooldownsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellMiscDifficultyEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellDispelTypeEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellDurationEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellEffectEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellEntry.Designer.cs">
       <DependentUpon>SpellEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="DbcStructure\SpellEquippedItemsEntry.cs" />
-    <Compile Include="DbcStructure\SpellInterruptsEntry.cs" />
-    <Compile Include="DbcStructure\SpellLevelsEntry.cs" />
-    <Compile Include="DbcStructure\SpellMiscEntry.cs" />
-    <Compile Include="DbcStructure\SpellPowerEntry.cs" />
-    <Compile Include="DbcStructure\SpellRadiusEntry.cs" />
-    <Compile Include="DbcStructure\SpellRangeEntry.cs" />
-    <Compile Include="DbcStructure\SpellReagentsEntry.cs" />
-    <Compile Include="DbcStructure\SpellScalingEntry.cs" />
-    <Compile Include="DbcStructure\SpellShapeshiftEntry.cs" />
-    <Compile Include="DbcStructure\SpellShapeshiftFormEntry.cs" />
-    <Compile Include="DbcStructure\SpellTargetRestrictionsEntry.cs" />
-    <Compile Include="DbcStructure\SpellTotemsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellEquippedItemsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellInterruptsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellLevelsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellMiscEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellPowerEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellRadiusEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellRangeEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellReagentsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellScalingEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellShapeshiftEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellShapeshiftFormEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellTargetRestrictionsEntry.cs" />
+    <Compile Include="DBClientFilesStructure\SpellTotemsEntry.cs" />
     <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="Enums\AuraState.cs" />
     <Compile Include="Enums\AuraType.cs" />
@@ -236,6 +237,9 @@
       <LastGenOutput>SpellViewerLocale.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="dbc\Item-sparse.db2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="dbc\SkillLine.dbc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -254,6 +258,9 @@
     <None Include="dbc\SpellCastingRequirements.db2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="dbc\SpellCastTimes.db2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="dbc\SpellCategories.dbc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -264,6 +271,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="dbc\SpellCooldowns.dbc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellDispelType.db2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellDuration.db2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="dbc\SpellEffect.dbc">
@@ -278,7 +291,16 @@
     <None Include="dbc\SpellMisc.db2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="dbc\SpellMiscDifficulty.db2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="dbc\SpellPower.db2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellRadius.db2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dbc\SpellRange.db2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="dbc\SpellReagents.db2">
@@ -312,7 +334,9 @@
       <Name>DBFilesClient.NET</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Themes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
