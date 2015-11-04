@@ -29,13 +29,7 @@
         </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
-    <ObjectDataProvider x:Key="TargetsA" MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}">
-        <ObjectDataProvider.MethodParameters>
-            <x:Type TypeName="se:Targets" />
-        </ObjectDataProvider.MethodParameters>
-    </ObjectDataProvider>
-
-    <ObjectDataProvider x:Key="TargetsB" MethodName="GetValues" ObjectType="{x:Type s:EnumExtension}">
+    <ObjectDataProvider x:Key="Targets" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
         <ObjectDataProvider.MethodParameters>
             <x:Type TypeName="se:Targets" />
         </ObjectDataProvider.MethodParameters>
